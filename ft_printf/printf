@@ -1,0 +1,63 @@
+Allowed functions: 
+write
+malloc
+free
+exit
+man 3 stdarg
+
+Makefile should compile libftprintf.a 
+no buffer management in the function
+
+prototype:
+int ft_printf(const char *format, ...); ?? 
+- %[flags][width][.precision][length]specifier
+
+format − This is the string that contains the text to be written to stdout. 
+It can optionally contain embedded format tags that are replaced by the values 
+specified in subsequent additional arguments and formatted as requested. 
+
+conversions:
+c - char
+s - string
+p - pointer address
+d - signed integer
+i - signed integer
+o - signed octal
+u - unsigned decimal integer
+x - unsigned hexadecimal integer
+X - unsigned hexadecimal integer (capital letters)
+%% - character
+
+# Flag: hh
+
+# Flag: h
+# The argument is interpreted as a short int or unsigned short int (only applies to integer specifiers: i, d, o, u, x and X).
+
+# Flag: l
+# The argument is interpreted as a long int or unsigned long int for integer specifiers (i, d, o, u, x and X), 
+# and as a wide character or wide character string for specifiers c and s.
+
+# Flag: ll
+# The argument is interpreted as a long double (only applies to floating point specifiers: e, E, f, g and G).
+
+# Flag: #
+# Used with o, x or X specifiers the value is preceded with 0, 0x or 0X respectively for values different than zero. 
+# Used with e, E and f, it forces the written output to contain a decimal point even if no digits would follow. 
+# By default, if no digits follow, no decimal point is written. 
+# Used with g or G the result is the same as with e or E but trailing zeros are not removed.
+
+# Flag: - 
+# Left-justify within the given field width; Right justification is the default (see width sub-specifier).
+
+# Flag: +
+# Forces to precede the result with a plus or minus sign (+ or -) even for positive numbers. 
+# By default, only negative numbers are preceded with a -ve sign.
+	
+# Flag: space
+# If no sign is going to be written, a blank space is inserted before the value.
+
+# must manage minimum field-width
+# must manage precision (float?)
+
+Return Value
+If successful, the total number of characters written is returned. On failure, a negative number is returned.
