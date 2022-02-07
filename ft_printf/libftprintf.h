@@ -6,7 +6,7 @@
 /*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 08:25:53 by leo               #+#    #+#             */
-/*   Updated: 2022/02/07 15:35:24 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/07 16:39:06 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@
 # include <stdio.h>
 # include "libft/libft.h"
 
-# define flags "dcs"
+# define flags "dics"
+# define CHAR 2
 
 typedef int (*printf_functions)(va_list args);
 
@@ -27,7 +28,8 @@ int	int_print(va_list args);
 int	char_print(va_list args);
 int	str_print(va_list args);
 
-static const printf_functions print_op[3] = {
+static const printf_functions print_op[4] = {
+	int_print,
 	int_print,
 	char_print,
 	str_print
