@@ -16,7 +16,7 @@ format − This is the string that contains the text to be written to stdout.
 It can optionally contain embedded format tags that are replaced by the values 
 specified in subsequent additional arguments and formatted as requested. 
 
-conversions:
+conversions: 16 normal flags total. if char or %
 c - char
 s - string
 p - pointer address
@@ -26,7 +26,7 @@ o - signed octal
 u - unsigned decimal integer
 x - unsigned hexadecimal integer
 X - unsigned hexadecimal integer (capital letters)
-%% - character
+%% - no arguments expected
 
 # Flag: hh
 
