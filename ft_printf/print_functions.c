@@ -1,36 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   print_functions.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/06 08:25:53 by leo               #+#    #+#             */
-/*   Updated: 2022/02/07 15:35:24 by leotran          ###   ########.fr       */
+/*   Created: 2022/02/07 12:39:20 by leotran           #+#    #+#             */
+/*   Updated: 2022/02/07 15:39:55 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
+#include "libftprintf.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdarg.h>
-# include <stdio.h>
-# include "libft/libft.h"
+int	int_print(va_list args)
+{
+	int count = 0;
+	int x = va_arg(args, int);
+	printf("%d", x);
+	while (x % 10 > 0)
+	{
+		x /= 10;
+		count++;
+	}	
+	return (count);
+}
 
-# define flags "dcs"
+int	char_print(va_list args)
+{
+	char c = va_arg(args, int);
+	printf("%c", c);
+	return (1);
+}
 
-typedef int (*printf_functions)(va_list args);
-
-int	int_print(va_list args);
-int	char_print(va_list args);
-int	str_print(va_list args);
-
-static const printf_functions print_op[3] = {
-	int_print,
-	char_print,
-	str_print
-};
-
-#endif
+int	str_print(va_list args)
+{
+	char *str = va_arg(args, char *);
+	printf("%s", str);
+	return (ft_strlen(str));
+}
