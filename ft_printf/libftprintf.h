@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libftprintf.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 08:25:53 by leo               #+#    #+#             */
-/*   Updated: 2022/02/07 16:39:06 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/07 21:53:50 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,17 @@
 # include <stdio.h>
 # include "libft/libft.h"
 
-# define flags "dics"
-# define CHAR 2
+# define FLAGS "dics"
 
-typedef int (*printf_functions)(va_list args);
+int			int_print(va_list args);
+int			char_print(va_list args);
+int			str_print(va_list args);
+int			custom_putchar(char c);
+const char	*is_space(const char *format);
 
-int	int_print(va_list args);
-int	char_print(va_list args);
-int	str_print(va_list args);
+typedef int			(*t_f)(va_list args);
 
-static const printf_functions print_op[4] = {
+static const t_f	g_print_func[4] = {
 	int_print,
 	int_print,
 	char_print,
