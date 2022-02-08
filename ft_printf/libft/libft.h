@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 09:13:31 by leotran           #+#    #+#             */
-/*   Updated: 2022/02/08 03:16:30 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/08 13:19:31 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define LIBFT_H
 # define BUFF_SIZE 5
 # define FD_SIZE 8192
-# define HEX "0123456789abcdef"
 
 # include <fcntl.h>
 # include <stdlib.h>
@@ -113,7 +112,7 @@ char	*ft_strccpy(char *src, int c);
 int		ft_get_next_line(const int fd, char **line);
 void	ft_foreach(int *tab, int length, void (*f)(int));
 void	ft_put_llong_nbr(long long llnum);
-char	*ft_itoa_base(long long llnum, int base);
-void	ft_putaddr(long long llnum);
+char	*ft_itoa_base(long long llnum, int base, int flag);
+void	ft_putaddr(void *arr);
 
 #endif

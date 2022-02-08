@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 08:55:01 by leo               #+#    #+#             */
-/*   Updated: 2022/02/08 09:14:19 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/08 12:38:15 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ int	print_arg(va_list args, int c)
 	int	i;
 
 	i = 0;
-	while (FLAGS[i] && FLAGS[i] != c)
+	while (CONVERSION[i] && CONVERSION[i] != c)
 		i++;
-	if (FLAGS[i] == '\0')
+	if (CONVERSION[i] == '\0')
 	{
 		ft_putchar('%');
 		ft_putchar(c);

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa_base.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 15:49:29 by leotran           #+#    #+#             */
-/*   Updated: 2022/02/08 03:15:29 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/08 13:17:18 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	icount(long long llnum, int base)
+static int	digit_count(long long llnum, int base)
 {
 	int			count;
 	long long	n;
@@ -32,40 +32,46 @@ static int	icount(long long llnum, int base)
 	return (count);
 }
 
-static char	*convert_itoa_base(long long num, int base, char *arr, int count)
+static char	*convert_itoa_base(long long num, int base, char *arr, int flag)
 {
 	long long	quotient;
 	int			remainder;
+	int			i;
 
+	i = digit_count(num, base);
 	quotient = num;
 	remainder = 0;
-	while (count--)
+	if (flag)
+		flag = 55;
+	else
+		flag = 87;
+	while (i--)
 	{
 		remainder = quotient % base;
-		if (base == 16)
-			arr[count] = HEX[remainder];
+		if (remainder > 9)
+			arr[i] = remainder + flag;
 		else
-			arr[count] = remainder + '0';
+			arr[i] = remainder + 48;
 		quotient /= base;
 	}
 	return (arr);
 }
 
-char	*ft_itoa_base(long long llnum, int base)
+char	*ft_itoa_base(long long llnum, int base, int flag)
 {
 	long long	num;
 	int			count;
 	char		*arr;
 
 	num = llnum;
-	count = icount(num, base);
+	count = digit_count(num, base);
 	if (llnum < 0)
 		num *= -1;
 	arr = (char *)malloc(sizeof(char) * count + 1);
 	if (arr)
 	{
 		arr[count] = '\0';
-		arr = convert_itoa_base(num, base, arr, count);
+		arr = convert_itoa_base(num, base, arr, flag);
 		if (llnum < 0)
 			arr[0] = '-';
 	}
