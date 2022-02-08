@@ -3,14 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leotran <leotran@student.42.fr>            +#+  +:+       +#+        */
+/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 10:10:38 by leotran           #+#    #+#             */
-/*   Updated: 2021/11/22 13:01:11 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/08 01:32:11 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+static void	ft_delcontent(void *content, size_t contentsize)
+{
+	if (content != NULL)
+	{
+		free(content);
+		content = NULL;
+	}
+	contentsize = 0;
+}
 
 t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
@@ -29,7 +39,7 @@ t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 		temp->next = ft_lstnew((*f)(lst)->content, (*f)(lst)->content_size);
 		if (!temp->next)
 		{
-			ft_lstdel(&head, &ft_bzero);
+			ft_lstdel(&head, &ft_delcontent);
 			return (NULL);
 		}
 		temp = temp->next;

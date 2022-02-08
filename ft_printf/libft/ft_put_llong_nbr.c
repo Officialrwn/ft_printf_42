@@ -1,42 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_put_llong_nbr.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leotran <leotran@student.42.fr>            +#+  +:+       +#+        */
+/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 14:54:57 by leotran           #+#    #+#             */
-/*   Updated: 2021/11/13 23:12:05 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/08 03:17:52 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr(int n)
+void	ft_put_llong_nbr(long long llnum)
 {
-	long	num;
-	int		i;
-	int		count;
+	long long	i;
+	int			count;
 
-	num = n;
 	i = 1;
 	count = 0;
-	if (num < 0)
+	if (llnum < 0)
 	{
 		ft_putchar('-');
-		num *= -1;
+		llnum *= -1;
 	}
-	while (i <= (num / 10))
+	while (i <= (llnum / 10))
 	{
 		i = i * 10;
 		count++;
 	}
 	while (count > 0)
 	{
-		ft_putchar((num / i) + '0');
-		num %= i;
+		ft_putchar((llnum / i) + '0');
+		llnum %= i;
 		i /= 10;
 		count--;
 	}
-	ft_putchar(num + '0');
+	ft_putchar(llnum + '0');
 }

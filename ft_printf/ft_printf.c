@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 08:55:01 by leo               #+#    #+#             */
-/*   Updated: 2022/02/08 00:20:37 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/08 03:22:53 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,35 +80,6 @@ int	ft_printf(const char *format, ...)
 	return (count);
 }
 
-void	ft_putlongnbr(unsigned long long n)
-{
-	unsigned long long	num;
-	unsigned long long	i;
-	int		count;
-
-	num = n;
-	i = 1;
-	count = 0;
-	if (num < 0)
-	{
-		ft_putchar('-');
-		num *= -1;
-	}
-	while (i <= (num / 10))
-	{
-		i = i * 10;
-		count++;
-	}
-	while (count > 0)
-	{
-		ft_putchar((num / i) + '0');
-		num %= i;
-		i /= 10;
-		count--;
-	}
-	ft_putchar(num + '0');
-}
-
 int	main(void)
 {
 	int	a;
@@ -119,5 +90,7 @@ int	main(void)
 	b = printf("test % d\n", 5);
 	printf("a: %d b: %d\n", a, b);
 	printf("%p\n", &c);
-	ft_putlongnbr((unsigned long long) &c);
+	ft_put_llong_nbr((long long) &c);
+	printf("\n");
+	ft_putaddr((long long) &c);
 }

@@ -6,7 +6,7 @@
 #    By: leo <leo@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/20 12:39:13 by leotran           #+#    #+#              #
-#    Updated: 2022/02/06 07:02:08 by leo              ###   ########.fr        #
+#    Updated: 2022/02/08 03:16:48 by leo              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,11 +22,11 @@ SRC = 	ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c 
 		ft_strsub.c ft_strtrim.c ft_tolower.c ft_toupper.c ft_lstnew.c ft_lstdelone.c ft_lstdel.c \
 		ft_lstadd.c ft_lstiter.c ft_lstmap.c ft_lstaddend.c ft_lstdelend.c \
 		ft_lstsize.c ft_dlstnew.c ft_dlstaddfront.c ft_dlstaddend.c ft_dlstdelfront.c ft_countstrings.c \
-		ft_strccpy.c ft_get_next_line.c ft_foreach.c
+		ft_strccpy.c ft_get_next_line.c ft_foreach.c ft_put_llong_nbr.c ft_itoa_base.c ft_putaddr.c
 
 SRCS = $(addprefix ./, $(SRC))
 FLAGS = -Wall -Wextra -Werror -I. -I includes
-OBJ = $(SRCS:.c=.o)
+OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
 
