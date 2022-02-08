@@ -6,31 +6,11 @@
 /*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 15:49:29 by leotran           #+#    #+#             */
-/*   Updated: 2022/02/08 13:17:18 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/08 14:01:53 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-static int	digit_count(long long llnum, int base)
-{
-	int			count;
-	long long	n;
-
-	count = 0;
-	n = llnum;
-	if (n <= 0)
-	{
-		n *= -1;
-		count++;
-	}
-	while (n > 0)
-	{
-		n /= base;
-		count++;
-	}
-	return (count);
-}
 
 static char	*convert_itoa_base(long long num, int base, char *arr, int flag)
 {
@@ -38,7 +18,7 @@ static char	*convert_itoa_base(long long num, int base, char *arr, int flag)
 	int			remainder;
 	int			i;
 
-	i = digit_count(num, base);
+	i = ft_digit_base_count(num, base);
 	quotient = num;
 	remainder = 0;
 	if (flag)
@@ -64,7 +44,7 @@ char	*ft_itoa_base(long long llnum, int base, int flag)
 	char		*arr;
 
 	num = llnum;
-	count = digit_count(num, base);
+	count = ft_digit_base_count(num, base);
 	if (llnum < 0)
 		num *= -1;
 	arr = (char *)malloc(sizeof(char) * count + 1);
