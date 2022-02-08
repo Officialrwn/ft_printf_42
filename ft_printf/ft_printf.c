@@ -6,14 +6,11 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 08:55:01 by leo               #+#    #+#             */
-/*   Updated: 2022/02/08 03:22:53 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/08 09:14:19 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
-#include "libft/libft.h"
-#include <stdarg.h>
-#include <stdio.h>
 
 int	print_arg(va_list args, int c)
 {
@@ -80,17 +77,3 @@ int	ft_printf(const char *format, ...)
 	return (count);
 }
 
-int	main(void)
-{
-	int	a;
-	int	b;
-	char c = 'A';
-	int *p;
-	a = ft_printf("test % d\n", 5);
-	b = printf("test % d\n", 5);
-	printf("a: %d b: %d\n", a, b);
-	printf("%p\n", &c);
-	ft_put_llong_nbr((long long) &c);
-	printf("\n");
-	ft_putaddr((long long) &c);
-}
