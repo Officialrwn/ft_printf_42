@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   int_type_printf.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:00:57 by leo               #+#    #+#             */
-/*   Updated: 2022/02/08 09:03:40 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/08 15:22:36 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,13 @@ int	int_print(va_list args)
 		count++;
 	}	
 	return (count);
+}
+
+int	uint_print(va_list args)
+{
+	unsigned long long	ullnum;
+
+	ullnum = va_arg(args, unsigned long long);
+	ft_put_ullong_nbr(ullnum);
+	return (ft_digit_base_count(ullnum, 10));
 }

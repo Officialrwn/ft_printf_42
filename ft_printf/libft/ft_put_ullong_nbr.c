@@ -1,31 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   char_type_printf.c                                 :+:      :+:    :+:   */
+/*   ft_put_ullong_nbr.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/08 09:00:57 by leo               #+#    #+#             */
-/*   Updated: 2022/02/08 15:54:46 by leotran          ###   ########.fr       */
+/*   Created: 2021/11/05 14:54:57 by leotran           #+#    #+#             */
+/*   Updated: 2022/02/08 14:34:18 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "libft.h"
 
-int	char_print(va_list args)
+void	ft_put_ullong_nbr(unsigned long long ullnum)
 {
-	ft_putchar(va_arg(args, int));
-	return (1);
-}
+	unsigned long long	num;
+	unsigned long long	i;
+	int					count;
 
-int	custom_putchar(char c)
-{
-	ft_putchar(c);
-	return (1);
-}
-
-int	percentage_putchar(va_list args)
-{
-	ft_putchar('%');
-	return (1);
+	num = ullnum;
+	i = 1;
+	count = 0;
+	while (i <= (num / 10))
+	{
+		i = i * 10;
+		count++;
+	}
+	while (count > 0)
+	{
+		ft_putchar((num / i) + '0');
+		num %= i;
+		i /= 10;
+		count--;
+	}
+	ft_putchar(num + '0');
 }

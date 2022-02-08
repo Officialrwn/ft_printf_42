@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_digit_count.c                                   :+:      :+:    :+:   */
+/*   ft_digit_base_count.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 13:58:23 by leotran           #+#    #+#             */
-/*   Updated: 2022/02/08 14:00:24 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/08 15:22:12 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_digit_base_count(long long llnum, int base)
+int	ft_digit_base_count(unsigned long long ullnum, int base)
 {
-	int			count;
-	long long	n;
+	int					count;
+	unsigned long long	n;
 
 	count = 0;
-	n = llnum;
+	n = ullnum;
 	if (n <= 0)
 	{
 		n *= -1;

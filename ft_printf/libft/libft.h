@@ -6,7 +6,7 @@
 /*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 09:13:31 by leotran           #+#    #+#             */
-/*   Updated: 2022/02/08 14:03:04 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/08 15:17:55 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,6 +114,7 @@ void	ft_foreach(int *tab, int length, void (*f)(int));
 void	ft_put_llong_nbr(long long llnum);
 char	*ft_itoa_base(long long llnum, int base, int flag);
 void	ft_putaddr(void *arr);
-int		ft_digit_base_count(long long llnum, int base);
+int		ft_digit_base_count(unsigned long long ullnum, int base);
+void	ft_put_ullong_nbr(unsigned long long ullnum);
 
 #endif

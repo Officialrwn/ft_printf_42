@@ -6,7 +6,7 @@
 /*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 08:55:01 by leo               #+#    #+#             */
-/*   Updated: 2022/02/08 13:47:46 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/08 15:03:09 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,9 @@ const char	*is_space(const char *format)
 		i++;
 	return (&format[i]);
 }
-int	check_flag(const char *format)
+
+/* int	check_flag(const char *format) */
+
 int	check_format(const char *format, va_list args)
 {
 	int	i;
@@ -76,4 +78,3 @@ int	ft_printf(const char *format, ...)
 	va_end(args);
 	return (count);
 }
-
