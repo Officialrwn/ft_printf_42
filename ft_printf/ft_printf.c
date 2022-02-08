@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 08:55:01 by leo               #+#    #+#             */
-/*   Updated: 2022/02/08 15:03:09 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/08 18:09:31 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	print_arg(va_list args, int c)
 {
@@ -37,8 +37,6 @@ const char	*is_space(const char *format)
 		i++;
 	return (&format[i]);
 }
-
-/* int	check_flag(const char *format) */
 
 int	check_format(const char *format, va_list args)
 {

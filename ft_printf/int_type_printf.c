@@ -3,26 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   int_type_printf.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:00:57 by leo               #+#    #+#             */
-/*   Updated: 2022/02/08 15:22:36 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/08 18:06:40 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	int_print(va_list args)
 {
-	int	x;
+	int	num;
 	int	count;
 
-	x = va_arg(args, int);
+	num = va_arg(args, int);
 	count = 0;
-	ft_putnbr(x);
-	while (x % 10 > 0)
+	ft_putnbr(num);
+	while (num > 0)
 	{
-		x /= 10;
+		num /= 10;
 		count++;
 	}	
 	return (count);

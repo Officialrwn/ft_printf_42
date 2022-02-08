@@ -1,31 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   char_type_printf.c                                 :+:      :+:    :+:   */
+/*   get_format_specifiers.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/08 09:00:57 by leo               #+#    #+#             */
-/*   Updated: 2022/02/08 18:06:17 by leo              ###   ########.fr       */
+/*   Created: 2022/02/08 18:05:01 by leo               #+#    #+#             */
+/*   Updated: 2022/02/08 18:09:20 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	char_print(va_list args)
+int	get_flag(const char *format)
 {
-	ft_putchar(va_arg(args, int));
-	return (1);
+	return (0);
 }
 
-int	custom_putchar(char c)
+int	get_width(const char *format)
 {
-	ft_putchar(c);
-	return (1);
+	return (0);
 }
 
-int	percentage_putchar(va_list args)
+int	get_precision(const char *format)
 {
-	ft_putchar('%');
-	return (1);
+	return (0);
+}
+
+int	get_length(const char *format)
+{
+	return (0);
+}
+
+int	get_specifier(const char *format)
+{
+	return (0);
 }
