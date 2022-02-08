@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 08:25:53 by leo               #+#    #+#             */
-/*   Updated: 2022/02/08 18:08:48 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/08 20:00:10 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,12 @@
 // Forbidden header
 # include <stdio.h> 
 
-int			get_flag(const char *format);
-int			get_width(const char *format);
-int			get_precision(const char *format);
-int			get_length(const char *format);
-int			get_specifier(const char *format);
+char		*get_flag(const char *format);
+char		*get_width(const char *format);
+char		*get_precision(const char *format);
+char		*get_length(const char *format);
+char		*get_specifier(const char *format);
+int			get_formats(const char *format, va_list args);
 
 int			char_print(va_list args);
 int			str_print(va_list args);
@@ -48,6 +49,8 @@ int			check_format(const char *format, va_list args);
 const char	*is_space(const char *format);
 
 typedef int			(*t_f)(va_list args);
+
+
 
 static const t_f	g_print_func[16] = {
 	char_print,

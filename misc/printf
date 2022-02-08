@@ -30,28 +30,28 @@ X - unsigned hexadecimal integer (capital letters)
 
 # Flag: hh
 
-# Flag: h
-# The argument is interpreted as a short int or unsigned short int (only applies to integer specifiers: i, d, o, u, x and X).
+# Flag: h - idouxX
+# The argument is interpreted as a short int or unsigned short int 
+# (only applies to integer specifiers: i, d, o, u, x and X).
 
-# Flag: l
+# Flag: l - idouxX and cs 
 # The argument is interpreted as a long int or unsigned long int for integer specifiers (i, d, o, u, x and X), 
 # and as a wide character or wide character string for specifiers c and s.
 
-# Flag: ll
+# Flag: ll - f
 # The argument is interpreted as a long double (only applies to floating point specifiers: e, E, f, g and G).
 
-# Flag: #
-# Used with o, x or X specifiers the value is preceded with 0, 0x or 0X respectively for values different than zero. 
-# Used with e, E and f, it forces the written output to contain a decimal point even if no digits would follow. 
+# Flag: # - oxX (0, 0x, 0X) and f (.atleast 1 decimal)
+# Used with o, x or X specifiers the value is preceded with 0, 0x or 0X 	    # respectively for values different than zero.
+# Used with e, E and f, it forces the written output to contain a decimal point # even if no digits would follow. 
 # By default, if no digits follow, no decimal point is written. 
-# Used with g or G the result is the same as with e or E but trailing zeros are not removed.
+# Used with g or G the result is the same as with e or E but trailing zeros are # not removed.
 
-# Flag: - 
+# Flag: - (add spaces to the left if used with - else to the right) 
 # Left-justify within the given field width; Right justification is the default (see width sub-specifier).
 
-# Flag: +
-# Forces to precede the result with a plus or minus sign (+ or -) even for positive numbers. 
-# By default, only negative numbers are preceded with a -ve sign.
+# Flag: + 
+# only used with i or d
 	
 # Flag: space
 # If no sign is going to be written, a blank space is inserted before the value.

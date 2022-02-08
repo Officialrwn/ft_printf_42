@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 08:55:01 by leo               #+#    #+#             */
-/*   Updated: 2022/02/08 18:09:31 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/08 19:43:32 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,13 +66,31 @@ int	check_format(const char *format, va_list args)
 	return (count);
 }
 
+int	get_formats(const char *format, va_list args)
+{
+	int	i;
+	int	count;
+
+	i = 0;
+	count = 0;
+	while (format[i])
+	{
+		if (format[i++] == '%')
+		{
+			get_flag(&format[i]);
+			printf("%c\n", format[i]);
+		}
+	}
+	return (count);
+}
+
 int	ft_printf(const char *format, ...)
 {
 	va_list	args;
 	int		count;
 
 	va_start(args, format);
-	count = check_format(format, args);
+	count = get_formats(format, args);
 	va_end(args);
 	return (count);
 }

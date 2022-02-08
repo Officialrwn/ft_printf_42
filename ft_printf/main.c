@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:04:46 by leo               #+#    #+#             */
-/*   Updated: 2022/02/08 18:06:59 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/08 19:59:10 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,7 @@ int	main(void)
 {
 	int a = 31514;
 
-	int ret = printf("test%%\n");
-	printf("ret: %d\n", ret);
-	ret = ft_printf("test%%\n");
-	printf("ret: %d\n", ret);
+	int ret = printf("test%#d\n", a);
 
 	return (0);
 }
