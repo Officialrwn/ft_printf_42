@@ -6,7 +6,7 @@
 /*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 18:05:01 by leo               #+#    #+#             */
-/*   Updated: 2022/02/09 14:23:14 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/09 16:09:55 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	get_flag(const char *format, t_formats *modifiers)
 			break ;
 		flag++;
 	}
-	modifiers->flag = flag;
+	modifiers->flag[0] = flag;
 }
 
 const char	*get_width(const char *format, t_formats *modifiers)
@@ -32,13 +32,16 @@ const char	*get_width(const char *format, t_formats *modifiers)
 	char	*temp;
 
 	i = 0;
-	if (*format == '-')
+	if (*format == '-' || *format == '0')
 		format++;
-	while(format[i] && ft_isdigit(format[i]))
-		i++;
-	temp = ft_strsub(format, 0, i);
-	modifiers->width = ft_atoi(temp);
-	ft_strdel(&temp);
+	if (ft_isdigit(*format))
+	{
+		while(format[i] && ft_isdigit(format[i]))
+			i++;
+		temp = ft_strsub(format, 0, i);
+		modifiers->width = ft_atoi(temp);
+		ft_strdel(&temp);
+	}
 	return (&(format[i]));
 }
 

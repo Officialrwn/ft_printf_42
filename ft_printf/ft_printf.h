@@ -6,7 +6,7 @@
 /*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 08:25:53 by leo               #+#    #+#             */
-/*   Updated: 2022/02/09 14:20:59 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/09 15:57:46 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ typedef enum e_length
 
 typedef struct	s_formats
 {
-	t_flags flag;
+	t_flags flag[5];
 	t_length length;
 	int	width;
 	int precision;
