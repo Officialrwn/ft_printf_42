@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 08:25:53 by leo               #+#    #+#             */
-/*   Updated: 2022/02/09 02:41:51 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/09 14:20:59 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,6 @@ typedef int			(*t_f)(va_list args);
 
 // %[flags][width][.precision][length]specifier
 
-typedef struct	s_formats
-{
-	t_flags flags;
-	t_length length;
-	int	width;
-	int precision;
-}	t_formats;
-
 typedef enum e_flags
 {
 	HASH = 0,
@@ -44,7 +36,7 @@ typedef enum e_flags
 	DASH = 2,
 	SPACE = 3,
 	PLUS = 4,
-	FNUL = 5
+	FLAGNUL = 5
 }	t_flags;
 
 typedef enum e_length
@@ -54,33 +46,37 @@ typedef enum e_length
 	L = 2,
 	LL = 3,
 	UPPERL = 4,
-	LNUL = 5
+	LENGTHNUL = 5
 }	t_length;
 
-t_flags		get_flag(const char *format);
+typedef struct	s_formats
+{
+	t_flags flag;
+	t_length length;
+	int	width;
+	int precision;
+}	t_formats;
 
-char		*get_width(const char *format);
-char		*get_precision(const char *format);
-char		*get_length(const char *format);
-char		*get_specifier(const char *format);
-int			get_formats(const char *format, va_list args);
+void	get_flag(const char *format, t_formats *modifiers);
+void	get_length(const char *format, t_formats *modifiers);
+void	get_specifier(const char *format, t_formats *modifiers);
+const char *get_width(const char *format, t_formats *modifiers);
+int		get_precision(const char *format, t_formats *modifiers);
+int		get_formats(const char *format, va_list args);
 
-int			char_print(va_list args);
-int			str_print(va_list args);
-int			memaddr_print(va_list args);
-int			int_print(va_list args);
-int			oct_print(va_list args);
-int			print_arg(va_list args, int c);
-int			uint_print(va_list args);
-int			hex_print_lower(va_list args);
-int			hex_print_upper(va_list args);
-int			percentage_putchar(va_list args);
+int		char_print(va_list args);
+int		str_print(va_list args);
+int		memaddr_print(va_list args);
+int		int_print(va_list args);
+int		oct_print(va_list args);
+int		print_arg(va_list args, int c);
+int		uint_print(va_list args);
+int		hex_print_lower(va_list args);
+int		hex_print_upper(va_list args);
+int		percentage_putchar(va_list args);
 
-int			custom_putchar(char c);
-int			ft_printf(const char *format, ...);
-int			check_format(const char *format, va_list args);
-
-const char	*is_space(const char *format);
+int		custom_putchar(char c);
+int		ft_printf(const char *format, ...);
 
 static const t_f	g_print_func[16] = {
 	char_print,

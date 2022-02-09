@@ -1,7 +1,7 @@
 # TODO
 # change parameters for *_print functions to *_print(va_list args, t_formats)
 # start with get_format_specifiers.c and change get_flag parameters and return type.
-# store flag in t_formats->flags.
+# store flag in t_formats->flag.
 # call function to ATOI WIDTH if flag == DASH || flag == NUL && ISDIGIT(*format)
 # check if format[+ 1 - 3] are flags
 # check if . then call function to ATOI and store t_formats->precision.
