@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 08:55:01 by leo               #+#    #+#             */
-/*   Updated: 2022/02/09 16:15:23 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/09 23:21:27 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,16 @@ int	print_arg(va_list args, int c)
 	return (g_print_func[i](args));
 }
 
-void	initialize_t_formats(t_formats modifiers)
+void	initialize_t_formats(t_formats *modifiers)
 {
 	int	i;
 
-	i = 0;
-	while (modifiers.flag[i])
-		modifiers.flag[i++] = FLAGNUL;
-	modifiers.length = LENGTHNUL;
-	modifiers.width = 0;
-	modifiers.precision = 0;
+	i = 3;
+	while (i--)
+		modifiers->flag[i] = FLAGNULL;
+	modifiers->length = LENGTHNULL;
+	modifiers->width = 0;
+	modifiers->precision = 0;
 }
 
 int	get_formats(const char *format, va_list args)
@@ -47,7 +47,7 @@ int	get_formats(const char *format, va_list args)
 	t_formats	modifiers;
 
 	count = 0;
-	initialize_t_formats(modifiers);
+	initialize_t_formats(&modifiers);
 	while (*format)
 	{
 		if (*format == '%')
@@ -66,6 +66,8 @@ int	get_formats(const char *format, va_list args)
 	printf("FLAG3: %d\n", modifiers.flag[3]);
 	printf("FLAG4: %d\n", modifiers.flag[4]);
 	printf("Width: %d\n", modifiers.width);
+	printf("precision: %d\n", modifiers.precision);
+	
 
 
 	return (count);

@@ -15,10 +15,35 @@
 # possible combos:
 # 0+#
 
-#### FLAG COMBOS ####
-# FLAG: # / 0-9 / -  (2 flags)
-# FLAG: 
-# define FLAGS "#0- +"
+#### FLAG COMBOS #### "# 0 - + 'space' "
+# FLAG: 0 (#, -, + and space is error)
+# FLAG: # / 0 or - (+ and space is error and need oxX conversion)
+# FLAG: - / # or space (0 is ignored and + is error)
+# FLAG: + / 0 or - ('space',# and oxX is error)
+# FLAG: space / - or 0 (+, # and conversion oxX is error)
+# 0 is always ignored if - is there.
+# if isdigit then no more flags and next is [width] or error.
+
+# define flag combos: 2 combo per flag
+# 0
+# #0
+# #-
+# -#
+# -space
+# +0
+# +-
+# space-
+# space0
+
+# flag combos with bits?
+# 0
+
+# #-
+# +-
+# space-
+# #0
+# +0
+# space0
 
 Allowed functions: 
 write
