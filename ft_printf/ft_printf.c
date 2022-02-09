@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 08:55:01 by leo               #+#    #+#             */
-/*   Updated: 2022/02/08 19:43:32 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/09 02:33:35 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,19 +68,22 @@ int	check_format(const char *format, va_list args)
 
 int	get_formats(const char *format, va_list args)
 {
-	int	i;
-	int	count;
+	int		count;
+	t_flags	flag;
 
-	i = 0;
 	count = 0;
-	while (format[i])
+	while (*format)
 	{
-		if (format[i++] == '%')
+		if (*format == '%')
 		{
-			get_flag(&format[i]);
-			printf("%c\n", format[i]);
+			flag = get_flag(&(*++format));
+			if (flag == DASH || flag == NUL && ft_isdigit(*format))
+				//width_print()
 		}
+		count += custom_putchar(*format);
+		format++;
 	}
+	count = flag;
 	return (count);
 }
 

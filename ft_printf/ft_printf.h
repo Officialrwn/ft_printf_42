@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 08:25:53 by leo               #+#    #+#             */
-/*   Updated: 2022/02/08 20:00:10 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/09 02:41:51 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 # define FT_PRINTF_H
 
 # define CONVERSION "cspdiouxX%"
-# define FLAGS "hl#-+ "
+# define FLAGS "#0- +"
+# define LENGTH "hhllL"
 
 # include <unistd.h>
 # include <stdlib.h>
@@ -24,7 +25,40 @@
 // Forbidden header
 # include <stdio.h> 
 
-char		*get_flag(const char *format);
+typedef int			(*t_f)(va_list args);
+
+// %[flags][width][.precision][length]specifier
+
+typedef struct	s_formats
+{
+	t_flags flags;
+	t_length length;
+	int	width;
+	int precision;
+}	t_formats;
+
+typedef enum e_flags
+{
+	HASH = 0,
+	ZERO = 1,
+	DASH = 2,
+	SPACE = 3,
+	PLUS = 4,
+	FNUL = 5
+}	t_flags;
+
+typedef enum e_length
+{
+	H = 0,
+	HH = 1,
+	L = 2,
+	LL = 3,
+	UPPERL = 4,
+	LNUL = 5
+}	t_length;
+
+t_flags		get_flag(const char *format);
+
 char		*get_width(const char *format);
 char		*get_precision(const char *format);
 char		*get_length(const char *format);
@@ -47,10 +81,6 @@ int			ft_printf(const char *format, ...);
 int			check_format(const char *format, va_list args);
 
 const char	*is_space(const char *format);
-
-typedef int			(*t_f)(va_list args);
-
-
 
 static const t_f	g_print_func[16] = {
 	char_print,

@@ -1,3 +1,14 @@
+# TODO
+# change parameters for *_print functions to *_print(va_list args, t_formats)
+# start with get_format_specifiers.c and change get_flag parameters and return type.
+# store flag in t_formats->flags.
+# call function to ATOI WIDTH if flag == DASH || flag == NUL && ISDIGIT(*format)
+# check if format[+ 1 - 3] are flags
+# check if . then call function to ATOI and store t_formats->precision.
+# check length and store.
+# check specifier/conversion
+# call dispatcher table and pass the conversion and t_formats. 
+
 Allowed functions: 
 write
 malloc
@@ -28,18 +39,20 @@ x - unsigned hexadecimal integer
 X - unsigned hexadecimal integer (capital letters)
 %% - no arguments expected
 
-# Flag: hh
+# LENGTH: hh
 
-# Flag: h - idouxX
+# LENGTH: h - idouxX
 # The argument is interpreted as a short int or unsigned short int 
 # (only applies to integer specifiers: i, d, o, u, x and X).
 
-# Flag: l - idouxX and cs 
+# LENGTH: l - idouxX and cs 
 # The argument is interpreted as a long int or unsigned long int for integer specifiers (i, d, o, u, x and X), 
 # and as a wide character or wide character string for specifiers c and s.
 
-# Flag: ll - f
+# LENGTH: ll - f
 # The argument is interpreted as a long double (only applies to floating point specifiers: e, E, f, g and G).
+
+# LENGTH: L - f
 
 # Flag: # - oxX (0, 0x, 0X) and f (.atleast 1 decimal)
 # Used with o, x or X specifiers the value is preceded with 0, 0x or 0X 	    # respectively for values different than zero.
