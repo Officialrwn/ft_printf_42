@@ -1,12 +1,11 @@
 # TODO
-# change parameters for *_print functions to *_print(va_list args, t_formats)
+# if error then print everything between % sign and conversion flag?
+# Add functions and conditions to the flags, width, precision, length
+# Fix char counter.
+# Fix floats.
 
-# Finish FLAG combos
-# check if format[+ 1 - 3] are flags
-# check if . then call function to ATOI and store t_formats->precision.
-# check length and store.
-# check specifier/conversion
-# call dispatcher table and pass the conversion and t_formats. 
+# Test for evals: 
+# Flag combos, repeteating 0 or same flag, newline count, memory leaks?
 
 # FLAGSINFO: 
 # 0 is ignored when - is there

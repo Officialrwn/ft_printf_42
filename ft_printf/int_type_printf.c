@@ -6,13 +6,13 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:00:57 by leo               #+#    #+#             */
-/*   Updated: 2022/02/08 18:06:40 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/10 05:11:21 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	int_print(va_list args)
+int	int_print(va_list args, t_formats *format)
 {
 	int	num;
 	int	count;
@@ -28,7 +28,7 @@ int	int_print(va_list args)
 	return (count);
 }
 
-int	uint_print(va_list args)
+int	uint_print(va_list args, t_formats *format)
 {
 	unsigned long long	ullnum;
 

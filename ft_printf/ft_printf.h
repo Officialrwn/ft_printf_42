@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 08:25:53 by leo               #+#    #+#             */
-/*   Updated: 2022/02/09 23:19:55 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/10 05:18:52 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # define CONVERSION "cspdiouxX%"
 # define FLAGS "#0- +"
 # define LENGTH "hhllL"
+# define WIDTH 0
+# define PRECISION 1
 
 # include <unistd.h>
 # include <stdlib.h>
@@ -24,8 +26,6 @@
 
 // Forbidden header
 # include <stdio.h> 
-
-typedef int			(*t_f)(va_list args);
 
 // %[flags][width][.precision][length]specifier
 
@@ -49,36 +49,36 @@ typedef enum e_length
 	LENGTHNULL = 5
 }	t_length;
 
-typedef struct	s_formats
+typedef struct s_formats
 {
-	t_flags flag[3];
-	t_length length;
-	int	width;
-	int precision;
+	t_flags		flag[3];
+	t_length	length;
+	int			width;
+	int			precision;
 }	t_formats;
 
-void	initialize_t_formats(t_formats *modifiers);
+void		initialize_t_formats(t_formats *modifiers);
 
-void	get_flag(const char *format, t_formats *modifiers);
-void	get_length(const char *format, t_formats *modifiers);
-void	get_specifier(const char *format, t_formats *modifiers);
-const char *get_width(const char *format, t_formats *modifiers);
-int		get_precision(const char *format, t_formats *modifiers);
-int		get_formats(const char *format, va_list args);
+const char	*get_flag(const char *format, t_formats *modifiers);
+const char	*get_length(const char *format, t_formats *modifiers);
+const char	*get_width(const char *format, t_formats *modifiers, int flag);
+int			get_formats(const char *format, va_list args);
+int			get_specifier(va_list args, t_formats *modifiers, int c);
 
-int		char_print(va_list args);
-int		str_print(va_list args);
-int		memaddr_print(va_list args);
-int		int_print(va_list args);
-int		oct_print(va_list args);
-int		print_arg(va_list args, int c);
-int		uint_print(va_list args);
-int		hex_print_lower(va_list args);
-int		hex_print_upper(va_list args);
-int		percentage_putchar(va_list args);
+int			ft_printf(const char *format, ...);
+int			char_print(va_list args, t_formats *format);
+int			str_print(va_list args, t_formats *format);
+int			memaddr_print(va_list args, t_formats *format);
+int			int_print(va_list args, t_formats *format);
+int			oct_print(va_list args, t_formats *format);
+int			uint_print(va_list args, t_formats *format);
+int			hex_print_lower(va_list args, t_formats *format);
+int			hex_print_upper(va_list args, t_formats *format);
+int			percentage_putchar(va_list args, t_formats *format);
+int			custom_putchar(char c);
+int			print_arg(va_list args, t_formats *modifiers, int c);
 
-int		custom_putchar(char c);
-int		ft_printf(const char *format, ...);
+typedef int			(*t_f)(va_list args, t_formats *format);
 
 static const t_f	g_print_func[16] = {
 	char_print,

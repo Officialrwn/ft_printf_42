@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:04:46 by leo               #+#    #+#             */
-/*   Updated: 2022/02/09 21:44:54 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/10 05:23:04 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ int	main(void)
 	short	a;
 
 	a = 5;
-	int ret = ft_printf("test%d\n", 5);
+	int ret = ft_printf("test%-#####5.00060da%s\n", 5, "TEST");
 	//printf("%d\n", ret);
-	printf("test: -%#5x-",3 );
+	//printf("test: -%#5x-",3 );
 		
 	return (0);
 }

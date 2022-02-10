@@ -6,13 +6,13 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:00:57 by leo               #+#    #+#             */
-/*   Updated: 2022/02/08 18:06:09 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/10 05:11:01 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	oct_print(va_list args)
+int	oct_print(va_list args, t_formats *format)
 {
 	char	*arr;
 	size_t	size;
@@ -24,7 +24,7 @@ int	oct_print(va_list args)
 	return (size);
 }
 
-int	hex_print_lower(va_list args)
+int	hex_print_lower(va_list args, t_formats *format)
 {
 	char	*arr;
 	size_t	size;
@@ -36,7 +36,7 @@ int	hex_print_lower(va_list args)
 	return (size);
 }
 
-int	hex_print_upper(va_list args)
+int	hex_print_upper(va_list args, t_formats *format)
 {
 	char	*arr;
 	size_t	size;
