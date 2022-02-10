@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   char_type_printf.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:00:57 by leo               #+#    #+#             */
-/*   Updated: 2022/02/10 05:11:10 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/10 14:16:55 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	char_print(va_list args, t_formats *format)
+int	char_print(va_list args, t_formats *modifiers)
 {
 	ft_putchar(va_arg(args, int));
 	return (1);
@@ -24,8 +24,25 @@ int	custom_putchar(char c)
 	return (1);
 }
 
-int	percentage_putchar(va_list args, t_formats *format)
+int	percentage_putchar(va_list args, t_formats *modifiers)
 {
 	ft_putchar('%');
 	return (1);
+}
+
+void	error_print(t_formats *modifiers)
+{
+	char	*temp;
+	char	c;
+	int		i;
+
+	temp = (char *)modifiers->tempformat;
+	c = modifiers->specifier;
+	i = 0;
+	while (temp[i])
+	{
+		modifiers->char_count += custom_putchar(temp[i++]);
+		if (temp[i - 1] == c)
+			return ;
+	}
 }

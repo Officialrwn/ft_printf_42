@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   int_type_printf.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:00:57 by leo               #+#    #+#             */
-/*   Updated: 2022/02/10 05:11:21 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/10 14:12:57 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	int_print(va_list args, t_formats *format)
+int	int_print(va_list args, t_formats *modifiers)
 {
 	int	num;
 	int	count;
@@ -28,7 +28,7 @@ int	int_print(va_list args, t_formats *format)
 	return (count);
 }
 
-int	uint_print(va_list args, t_formats *format)
+int	uint_print(va_list args, t_formats *modifiers)
 {
 	unsigned long long	ullnum;
 

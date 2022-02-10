@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:04:46 by leo               #+#    #+#             */
-/*   Updated: 2022/02/10 05:23:04 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/10 14:16:24 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	main(void)
 	short	a;
 
 	a = 5;
-	int ret = ft_printf("test%-#####5.00060da%s\n", 5, "TEST");
+	int ret = ft_printf("test%-#5.6dHEHEH\n", 5);
 	//printf("%d\n", ret);
 	//printf("test: -%#5x-",3 );
 		

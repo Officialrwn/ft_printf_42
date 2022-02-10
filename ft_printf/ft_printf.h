@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 08:25:53 by leo               #+#    #+#             */
-/*   Updated: 2022/02/10 05:18:52 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/10 14:15:23 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@
 
 typedef enum e_flags
 {
-	HASH = 0,
+	HASH = 6,
 	ZERO = 1,
 	DASH = 2,
 	SPACE = 3,
@@ -53,11 +53,15 @@ typedef struct s_formats
 {
 	t_flags		flag[3];
 	t_length	length;
+	const char	*tempformat;
 	int			width;
 	int			precision;
+	int			specifier;
+	int			char_count;
 }	t_formats;
 
 void		initialize_t_formats(t_formats *modifiers);
+void		error_print(t_formats *modifiers);
 
 const char	*get_flag(const char *format, t_formats *modifiers);
 const char	*get_length(const char *format, t_formats *modifiers);
@@ -66,19 +70,19 @@ int			get_formats(const char *format, va_list args);
 int			get_specifier(va_list args, t_formats *modifiers, int c);
 
 int			ft_printf(const char *format, ...);
-int			char_print(va_list args, t_formats *format);
-int			str_print(va_list args, t_formats *format);
-int			memaddr_print(va_list args, t_formats *format);
-int			int_print(va_list args, t_formats *format);
-int			oct_print(va_list args, t_formats *format);
-int			uint_print(va_list args, t_formats *format);
-int			hex_print_lower(va_list args, t_formats *format);
-int			hex_print_upper(va_list args, t_formats *format);
-int			percentage_putchar(va_list args, t_formats *format);
+int			char_print(va_list args, t_formats *modifiers);
+int			str_print(va_list args, t_formats *modifiers);
+int			memaddr_print(va_list args, t_formats *modifiers);
+int			int_print(va_list args, t_formats *modifiers);
+int			oct_print(va_list args, t_formats *modifiers);
+int			uint_print(va_list args, t_formats *modifiers);
+int			hex_print_lower(va_list args, t_formats *modifiers);
+int			hex_print_upper(va_list args, t_formats *modifiers);
+int			percentage_putchar(va_list args, t_formats *modifiers);
 int			custom_putchar(char c);
 int			print_arg(va_list args, t_formats *modifiers, int c);
 
-typedef int			(*t_f)(va_list args, t_formats *format);
+typedef int			(*t_f)(va_list args, t_formats *modifiers);
 
 static const t_f	g_print_func[16] = {
 	char_print,

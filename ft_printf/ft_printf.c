@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 08:55:01 by leo               #+#    #+#             */
-/*   Updated: 2022/02/10 05:22:18 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/10 14:17:02 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,32 +36,34 @@ void	initialize_t_formats(t_formats *modifiers)
 	while (i--)
 		modifiers->flag[i] = FLAGNULL;
 	modifiers->length = LENGTHNULL;
+	modifiers->tempformat = NULL;
 	modifiers->width = 0;
 	modifiers->precision = 0;
+	modifiers->specifier = 0;
+	modifiers->char_count = 0;
 }
 
 int	get_formats(const char *format, va_list args)
 {
-	int			count;
 	t_flags		flag;
 	t_formats	modifiers;
 
-	count = 0;
 	initialize_t_formats(&modifiers);
 	while (*format)
 	{
 		if (*format == '%')
 		{
+			modifiers.tempformat = format;
 			format = get_flag(&(*++format), &modifiers);
 			if ((*format++) == '.')
 				format = get_width(&(*format), &modifiers, PRECISION);
 			format = get_length(&(*format), &modifiers);
-			get_specifier(args, &modifiers, *format++);
+			if (!(get_specifier(args, &modifiers, *format++)))
+				error_print(&modifiers);
 		}
-		count += custom_putchar(*format);
-		format++;
+		modifiers.char_count += custom_putchar(*format++);
 	}
-	return (count);
+	return (modifiers.char_count);
 }
 
 int	ft_printf(const char *format, ...)
