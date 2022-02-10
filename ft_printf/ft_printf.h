@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 08:25:53 by leo               #+#    #+#             */
-/*   Updated: 2022/02/10 15:57:20 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/10 21:26:11 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@
 
 typedef enum e_flags
 {
-	HASH = 6,
+	HASH = 0,
 	ZERO = 1,
 	DASH = 2,
 	SPACE = 3,
@@ -60,7 +60,12 @@ typedef struct s_formats
 	int			char_count;
 }	t_formats;
 
+void		*plus_print(t_formats *modifiers, void *num);
+void		*hash_print(t_formats *modifiers, void *num);
+void		*zero_print(t_formats *modifiers, void *num);
+
 void		error_print(t_formats *modifiers);
+void		initialize_t_formats(t_formats *modifiers);
 
 const char	*get_flag(const char *format, t_formats *modifiers);
 const char	*get_length(const char *format, t_formats *modifiers);

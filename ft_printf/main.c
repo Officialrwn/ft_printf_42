@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:04:46 by leo               #+#    #+#             */
-/*   Updated: 2022/02/10 15:53:45 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/10 21:32:10 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 
 int	main(void)
 {
-	short	a;
+	int	a;
 
-	a = 5;
-	int ret = ft_printf("test%-#5.6dHEHEH\n", 5);
-	//printf("%d\n", ret);
-	//printf("test: -%#5x-",3 );
-		
+	a = -5;
+	int ret = ft_printf("test nr: %05d HEHEH\n", 5);
+	printf("%d\n", ret);
+	ret = printf("test nr: %05d HEHEH\n", 5);
+	printf("%d\n", ret);
 	return (0);
 }

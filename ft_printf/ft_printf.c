@@ -3,16 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 08:55:01 by leo               #+#    #+#             */
-/*   Updated: 2022/02/10 15:57:16 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/10 19:23:35 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-
 
 int	ft_printf(const char *format, ...)
 {
@@ -37,8 +35,8 @@ int	get_formats(const char *format, va_list args)
 		{
 			modifiers.tempformat = format;
 			format = get_flag(&(*++format), &modifiers);
-			if ((*format++) == '.')
-				format = get_width(&(*format), &modifiers, PRECISION);
+			if ((*format) == '.')
+				format = get_width(&(*++format), &modifiers, PRECISION);
 			format = get_length(&(*format), &modifiers);
 			modifiers.specifier = *format;
 			if (!(get_specifier(args, &modifiers, *format++)))
@@ -49,7 +47,7 @@ int	get_formats(const char *format, va_list args)
 	return (modifiers.char_count);
 }
 
-static void	initialize_t_formats(t_formats *modifiers)
+void	initialize_t_formats(t_formats *modifiers)
 {
 	int	i;
 

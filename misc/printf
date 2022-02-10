@@ -1,4 +1,5 @@
 # TODO
+# if no conversionflag found print only va_arg else print normally.
 # Add functions and conditions to the flags, width, precision, length
 # Fix char counter.
 # Fix floats.
@@ -14,11 +15,11 @@
 # 0+#
 
 #### FLAG COMBOS #### "# 0 - + 'space' "
-# FLAG: 0 (#, -, + and space is error)
-# FLAG: # / 0 or - (+ and space is error and need oxX conversion)
-# FLAG: - / # or space (0 is ignored and + is error)
-# FLAG: + / 0 or - ('space',# and oxX is error)
-# FLAG: space / - or 0 (+, # and conversion oxX is error)
+# FLAG: 0 [only with diouxXf](#, -, + and space is error)
+# FLAG: # / 0 or - [only with oxXf conversion](+ and space is error)
+# FLAG: - / # or space [works with csp too](0 is ignored and + is error)
+# FLAG: + / 0 or - and [only with dif conversion]('space',# and oxX is error)
+# FLAG: space / - or 0 [csp only works with space- else works for diouf](+, # and conversion oxX is error)
 # 0 is always ignored if - is there.
 # if isdigit then no more flags and next is [width] or error.
 

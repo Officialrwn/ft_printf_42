@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   int_type_printf.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:00:57 by leo               #+#    #+#             */
-/*   Updated: 2022/02/10 14:12:57 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/10 21:31:32 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,14 @@ int	int_print(va_list args, t_formats *modifiers)
 	int	count;
 
 	num = va_arg(args, int);
-	count = 0;
+	count = ft_digit_base_count(num, 10);
+	if (modifiers->flag[0] == PLUS)
+		num = *(int *)plus_print(modifiers, &num);
+	
+	if (modifiers->flag[0] == ZERO)
+		zero_print(modifiers, &count);
+	
 	ft_putnbr(num);
-	while (num > 0)
-	{
-		num /= 10;
-		count++;
-	}	
 	return (count);
 }
 

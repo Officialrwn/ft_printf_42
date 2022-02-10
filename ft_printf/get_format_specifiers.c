@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_format_specifiers.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 18:05:01 by leo               #+#    #+#             */
-/*   Updated: 2022/02/10 13:44:15 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/10 20:41:58 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,8 @@ int	get_specifier(va_list args, t_formats *modifiers, int c)
 		if (CONVERSION[i] == c)
 		{
 			modifiers->specifier = c;
-			return (g_print_func[i](args, modifiers));
+			modifiers->char_count += g_print_func[i](args, modifiers);
+			return (1);
 		}
 		i++;
 	}
