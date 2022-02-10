@@ -1,8 +1,11 @@
 # TODO
 # if no conversionflag found print only va_arg else print normally.
-# Add functions and conditions to the flags, width, precision, length
-# Fix char counter.
+# rewrite format_prints to dispatcher table
+# Make macros (#define) for flag combos.
+# Add conditions for combo flags (+width)
+# Add functions for length
 # Fix floats.
+# Add function for precision,
 
 # Test for evals: 
 # Flag combos, repeteating 0 or same flag, newline count, memory leaks?

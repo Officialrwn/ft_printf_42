@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 08:25:53 by leo               #+#    #+#             */
-/*   Updated: 2022/02/10 21:26:11 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/10 21:46:50 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ typedef enum e_flags
 {
 	HASH = 0,
 	ZERO = 1,
-	DASH = 2,
+	HYPHEN = 2,
 	SPACE = 3,
 	PLUS = 4,
 	FLAGNULL = 5
@@ -63,6 +63,8 @@ typedef struct s_formats
 void		*plus_print(t_formats *modifiers, void *num);
 void		*hash_print(t_formats *modifiers, void *num);
 void		*zero_print(t_formats *modifiers, void *num);
+void		*space_print(t_formats *modifiers, void *num);
+void		*hyphen_print(t_formats *modifiers, void *num);
 
 void		error_print(t_formats *modifiers);
 void		initialize_t_formats(t_formats *modifiers);

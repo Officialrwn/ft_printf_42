@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:00:57 by leo               #+#    #+#             */
-/*   Updated: 2022/02/10 21:31:32 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/10 22:12:10 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,14 @@ int	int_print(va_list args, t_formats *modifiers)
 	count = ft_digit_base_count(num, 10);
 	if (modifiers->flag[0] == PLUS)
 		num = *(int *)plus_print(modifiers, &num);
-	
 	if (modifiers->flag[0] == ZERO)
 		zero_print(modifiers, &count);
-	
-	ft_putnbr(num);
+	if (modifiers->flag[0] == SPACE)
+		space_print(modifiers, NULL);
+	if (modifiers->flag[0] == HYPHEN || modifiers->width > 0)
+		hyphen_print(modifiers, &num);
+	if (modifiers->flag[0] != HYPHEN)	
+		ft_putnbr(num);
 	return (count);
 }
 

@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 18:57:01 by leo               #+#    #+#             */
-/*   Updated: 2022/02/10 21:25:55 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/10 22:15:22 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,21 +42,38 @@ void	*hash_print(t_formats *modifiers, void *num)
 		i++;
 	}
 	modifiers->char_count += i;
-	return (num);
+	return (NULL);
 }
 
 void	*zero_print(t_formats *modifiers, void *num)
 {
 	int	ilen;
-	int	i;
 
 	ilen = *(int *)num;
-	i = 0;
-	while (modifiers->width - ilen++ > 0)
+	while (modifiers->width-- - ilen)
 	{
 		ft_putchar('0');
-		i++;
+		modifiers->char_count += 1;
 	}
-	modifiers->char_count += i;
+	return (NULL);
+}
+
+void	*space_print(t_formats *modifiers, void *num)
+{
+	num = NULL;
+
+	modifiers->char_count += custom_putchar(' ');
+	return (NULL);
+}
+
+void	*hyphen_print(t_formats *modifiers, void *num)
+{
+	int	i;
+
+	i = *(int *)num;
+	if (modifiers->flag[0] == HYPHEN)
+		ft_putnbr(i);
+	while (--modifiers->width)
+		modifiers->char_count += custom_putchar(' ');
 	return (NULL);
 }
