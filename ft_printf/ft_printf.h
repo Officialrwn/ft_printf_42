@@ -6,7 +6,7 @@
 /*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 08:25:53 by leo               #+#    #+#             */
-/*   Updated: 2022/02/10 15:50:48 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/10 15:57:20 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,6 @@ typedef struct s_formats
 	int			char_count;
 }	t_formats;
 
-void		initialize_t_formats(t_formats *modifiers);
 void		error_print(t_formats *modifiers);
 
 const char	*get_flag(const char *format, t_formats *modifiers);
@@ -80,7 +79,6 @@ int			hex_print_lower(va_list args, t_formats *modifiers);
 int			hex_print_upper(va_list args, t_formats *modifiers);
 int			percentage_putchar(va_list args, t_formats *modifiers);
 int			custom_putchar(char c);
-int			print_arg(va_list args, t_formats *modifiers, int c);
 
 typedef int			(*t_f)(va_list args, t_formats *modifiers);
 

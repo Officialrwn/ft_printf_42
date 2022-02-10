@@ -6,41 +6,23 @@
 /*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 08:55:01 by leo               #+#    #+#             */
-/*   Updated: 2022/02/10 15:48:39 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/10 15:57:16 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	print_arg(va_list args, t_formats *modifiers, int c)
+
+
+int	ft_printf(const char *format, ...)
 {
-	int	i;
+	va_list	args;
+	int		count;
 
-	i = 0;
-	while (CONVERSION[i] && CONVERSION[i] != c)
-		i++;
-	if (CONVERSION[i] == '\0')
-	{
-		ft_putchar('%');
-		ft_putchar(c);
-		return (2);
-	}
-	return (g_print_func[i](args, modifiers));
-}
-
-void	initialize_t_formats(t_formats *modifiers)
-{
-	int	i;
-
-	i = 3;
-	while (i--)
-		modifiers->flag[i] = FLAGNULL;
-	modifiers->length = LENGTHNULL;
-	modifiers->tempformat = NULL;
-	modifiers->width = 0;
-	modifiers->precision = 0;
-	modifiers->specifier = 0;
-	modifiers->char_count = 0;
+	va_start(args, format);
+	count = get_formats(format, args);
+	va_end(args);
+	return (count);
 }
 
 int	get_formats(const char *format, va_list args)
@@ -67,13 +49,17 @@ int	get_formats(const char *format, va_list args)
 	return (modifiers.char_count);
 }
 
-int	ft_printf(const char *format, ...)
+static void	initialize_t_formats(t_formats *modifiers)
 {
-	va_list	args;
-	int		count;
+	int	i;
 
-	va_start(args, format);
-	count = get_formats(format, args);
-	va_end(args);
-	return (count);
+	i = 3;
+	while (i--)
+		modifiers->flag[i] = FLAGNULL;
+	modifiers->length = LENGTHNULL;
+	modifiers->tempformat = NULL;
+	modifiers->width = 0;
+	modifiers->precision = 0;
+	modifiers->specifier = 0;
+	modifiers->char_count = 0;
 }

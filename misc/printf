@@ -1,5 +1,4 @@
 # TODO
-# if error then print everything between % sign and conversion flag?
 # Add functions and conditions to the flags, width, precision, length
 # Fix char counter.
 # Fix floats.
