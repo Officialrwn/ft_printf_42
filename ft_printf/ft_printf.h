@@ -6,7 +6,7 @@
 /*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 08:25:53 by leo               #+#    #+#             */
-/*   Updated: 2022/02/10 14:15:23 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/10 15:50:48 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,9 +66,9 @@ void		error_print(t_formats *modifiers);
 const char	*get_flag(const char *format, t_formats *modifiers);
 const char	*get_length(const char *format, t_formats *modifiers);
 const char	*get_width(const char *format, t_formats *modifiers, int flag);
+
 int			get_formats(const char *format, va_list args);
 int			get_specifier(va_list args, t_formats *modifiers, int c);
-
 int			ft_printf(const char *format, ...);
 int			char_print(va_list args, t_formats *modifiers);
 int			str_print(va_list args, t_formats *modifiers);

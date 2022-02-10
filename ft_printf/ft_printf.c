@@ -6,7 +6,7 @@
 /*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 08:55:01 by leo               #+#    #+#             */
-/*   Updated: 2022/02/10 14:17:02 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/10 15:48:39 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ int	get_formats(const char *format, va_list args)
 			if ((*format++) == '.')
 				format = get_width(&(*format), &modifiers, PRECISION);
 			format = get_length(&(*format), &modifiers);
+			modifiers.specifier = *format;
 			if (!(get_specifier(args, &modifiers, *format++)))
 				error_print(&modifiers);
 		}
