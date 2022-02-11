@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 08:25:53 by leo               #+#    #+#             */
-/*   Updated: 2022/02/10 21:46:50 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/11 10:25:03 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define FT_PRINTF_H
 
 # define CONVERSION "cspdiouxX%"
-# define FLAGS "#0- +"
+# define FLAGS "0# -+"
 # define LENGTH "hhllL"
 # define WIDTH 0
 # define PRECISION 1
@@ -24,19 +24,19 @@
 # include <stdarg.h>
 # include "libft/libft.h"
 
-// Forbidden header
+/* Forbidden header */
 # include <stdio.h> 
 
 // %[flags][width][.precision][length]specifier
-
+// 1 << i (from FLAGS[i])
 typedef enum e_flags
 {
-	HASH = 0,
 	ZERO = 1,
-	HYPHEN = 2,
-	SPACE = 3,
-	PLUS = 4,
-	FLAGNULL = 5
+	HASH = 2,
+	SPACE = 4,
+	HYPHEN = 8,
+	PLUS = 16,
+	FLAGNULL = 0
 }	t_flags;
 
 typedef enum e_length

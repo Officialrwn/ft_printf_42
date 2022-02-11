@@ -1,4 +1,6 @@
 # TODO
+# Fix flag combos binary
+# Check the flagformat prints *infinite loop with new flagbinaries
 # if no conversionflag found print only va_arg else print normally.
 # rewrite format_prints to dispatcher table
 # Make macros (#define) for flag combos.

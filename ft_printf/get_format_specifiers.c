@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 18:05:01 by leo               #+#    #+#             */
-/*   Updated: 2022/02/10 20:41:58 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/11 10:48:07 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,13 @@ const char	*get_flag(const char *format, t_formats *modifiers)
 	t_flags	flag;
 	int		i;
 	char	c;
-
 	flag = 0;
 	i = 0;
 	while (FLAGS[flag])
 	{
 		if (FLAGS[flag] == *format && modifiers->flag[i] == FLAGNULL && i != 2)
 		{
-			modifiers->flag[i++] = flag;
+			modifiers->flag[i++] = 1 << flag;
 			c = *format;
 			while (*format == c)
 				format++;
@@ -33,7 +32,7 @@ const char	*get_flag(const char *format, t_formats *modifiers)
 		}	
 		flag++;
 	}
-	return (get_width(&(*format), modifiers, WIDTH));
+	return (get_width(&(*format++), modifiers, WIDTH));
 }
 
 const char	*get_width(const char *format, t_formats *modifiers, int flag)

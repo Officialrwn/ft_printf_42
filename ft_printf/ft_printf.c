@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 08:55:01 by leo               #+#    #+#             */
-/*   Updated: 2022/02/10 19:23:35 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/11 10:49:01 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ int	get_formats(const char *format, va_list args)
 		}
 		modifiers.char_count += custom_putchar(*format++);
 	}
+	printf("flag0: %d\n", modifiers.flag[0]);
+	printf("flag1: %d\n", modifiers.flag[1]);
 	return (modifiers.char_count);
 }
 
