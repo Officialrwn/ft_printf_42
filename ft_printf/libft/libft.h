@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 09:13:31 by leotran           #+#    #+#             */
-/*   Updated: 2022/02/08 15:17:55 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/11 22:36:37 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define LIBFT_H
 # define BUFF_SIZE 5
 # define FD_SIZE 8192
+# define MAX_LONG 
+# define MIN_LONG 
 
 # include <fcntl.h>
 # include <stdlib.h>
@@ -86,7 +88,7 @@ char	*ft_itoa(int n);
 void	ft_putchar(char c);
 void	ft_putstr(const char *s);
 void	ft_putendl(const char *s);
-void	ft_putnbr(int n);
+void	ft_putnbr(long long n);
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(const char *s, int fd);
 void	ft_putendl_fd(const char *s, int fd);

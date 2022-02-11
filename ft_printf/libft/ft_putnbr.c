@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 14:54:57 by leotran           #+#    #+#             */
-/*   Updated: 2022/02/08 14:30:14 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/11 22:18:48 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr(int n)
+void	ft_putnbr(long long n)
 {
-	long	num;
-	int		i;
-	int		count;
+	long long	num;
+	int			i;
+	int			count;
 
 	num = n;
 	i = 1;
