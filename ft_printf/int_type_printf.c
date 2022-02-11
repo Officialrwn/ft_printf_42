@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   int_type_printf.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:00:57 by leo               #+#    #+#             */
-/*   Updated: 2022/02/11 10:49:58 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/11 13:21:47 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	int_print(va_list args, t_formats *modifiers)
 
 	num = va_arg(args, int);
 	count = ft_digit_base_count(num, 10);
-	/* if (modifiers->flag[0] == PLUS)
+	/*if (modifiers->flag[0] == PLUS)
 		num = *(int *)plus_print(modifiers, &num);
 	if (modifiers->flag[0] == ZERO)
 		zero_print(modifiers, &count);
@@ -27,8 +27,8 @@ int	int_print(va_list args, t_formats *modifiers)
 		space_print(modifiers, NULL);
 	if (modifiers->flag[0] == HYPHEN || modifiers->width > 0)
 		hyphen_print(modifiers, &num);
-	if (modifiers->flag[0] != HYPHEN)	 */
-		ft_putnbr(num);
+	if (modifiers->flag[0] != HYPHEN) */
+	ft_putnbr(num);
 	return (count);
 }
 

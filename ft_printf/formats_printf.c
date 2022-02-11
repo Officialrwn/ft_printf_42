@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   formats_printf.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 18:57:01 by leo               #+#    #+#             */
-/*   Updated: 2022/02/10 22:15:22 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/11 13:51:59 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	*plus_print(t_formats *modifiers, void *num)
+void	*plus_print(t_formats *modifiers, void *num, void *digitcount)
 {
 	int	i;
 
@@ -29,7 +29,7 @@ void	*plus_print(t_formats *modifiers, void *num)
 	return (num);
 }
 
-void	*hash_print(t_formats *modifiers, void *num)
+void	*hash_print(t_formats *modifiers, void *num, void *digitcount)
 {
 	int	i;
 
@@ -45,7 +45,7 @@ void	*hash_print(t_formats *modifiers, void *num)
 	return (NULL);
 }
 
-void	*zero_print(t_formats *modifiers, void *num)
+void	*zero_print(t_formats *modifiers, void *num, void *digitcount)
 {
 	int	ilen;
 
@@ -58,7 +58,7 @@ void	*zero_print(t_formats *modifiers, void *num)
 	return (NULL);
 }
 
-void	*space_print(t_formats *modifiers, void *num)
+void	*space_print(t_formats *modifiers, void *num, void *digitcount)
 {
 	num = NULL;
 
@@ -66,7 +66,7 @@ void	*space_print(t_formats *modifiers, void *num)
 	return (NULL);
 }
 
-void	*hyphen_print(t_formats *modifiers, void *num)
+void	*hyphen_print(t_formats *modifiers, void *num, void *digitcount)
 {
 	int	i;
 

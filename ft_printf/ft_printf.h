@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 08:25:53 by leo               #+#    #+#             */
-/*   Updated: 2022/02/11 10:25:03 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/11 15:01:33 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,16 +27,32 @@
 /* Forbidden header */
 # include <stdio.h> 
 
-// %[flags][width][.precision][length]specifier
-// 1 << i (from FLAGS[i])
+/* %[flags][width][.precision][length]specifier */
+/* as long as compare is not 0 (bits); */
+
+typedef enum e_conversion
+{
+	C = 0,
+	S = 1,
+	P = 2,
+	D = 3,
+	I = 3,
+	O = 4,
+	U = 5,
+	X = 4,
+	XX = 4,
+	PERCENTAGE = 6,
+	CONV_NULL = 7
+}	t_conversion;
+
 typedef enum e_flags
 {
-	ZERO = 1,
-	HASH = 2,
-	SPACE = 4,
-	HYPHEN = 8,
-	PLUS = 16,
-	FLAGNULL = 0
+	ZERO = 0x1,
+	HASH = 0x2,
+	SPACE = 0x4,
+	HYPHEN = 0x8,
+	PLUS = 0x10,
+	FLAGNULL = 0x0
 }	t_flags;
 
 typedef enum e_length
@@ -46,25 +62,29 @@ typedef enum e_length
 	L = 2,
 	LL = 3,
 	UPPERL = 4,
-	LENGTHNULL = 5
+	LENGTHNULL = 5,
 }	t_length;
 
 typedef struct s_formats
 {
-	t_flags		flag[3];
-	t_length	length;
-	const char	*tempformat;
-	int			width;
-	int			precision;
-	int			specifier;
-	int			char_count;
+	t_flags			flag[3];
+	t_length		length;
+	const char		*tempformat;
+	int				width;
+	int				precision;
+	int				specifier;
+	size_t			char_count;
+	t_conversion	f_index;
+	u_int16_t		formatcombo;
 }	t_formats;
 
-void		*plus_print(t_formats *modifiers, void *num);
-void		*hash_print(t_formats *modifiers, void *num);
-void		*zero_print(t_formats *modifiers, void *num);
-void		*space_print(t_formats *modifiers, void *num);
-void		*hyphen_print(t_formats *modifiers, void *num);
+void		get_formatcombo(t_formats *modifiers);
+
+void		*plus_print(t_formats *modifiers, void *num, void *digitcount);
+void		*hash_print(t_formats *modifiers, void *num, void *digitcount);
+void		*zero_print(t_formats *modifiers, void *num, void *digitcount);
+void		*space_print(t_formats *modifiers, void *num, void *digitcount);
+void		*hyphen_print(t_formats *modifiers, void *num, void *digitcount);
 
 void		error_print(t_formats *modifiers);
 void		initialize_t_formats(t_formats *modifiers);
@@ -80,6 +100,7 @@ int			char_print(va_list args, t_formats *modifiers);
 int			str_print(va_list args, t_formats *modifiers);
 int			memaddr_print(va_list args, t_formats *modifiers);
 int			int_print(va_list args, t_formats *modifiers);
+int			base_int_printf(va_list args, t_formats *modifiers);
 int			oct_print(va_list args, t_formats *modifiers);
 int			uint_print(va_list args, t_formats *modifiers);
 int			hex_print_lower(va_list args, t_formats *modifiers);
@@ -87,19 +108,25 @@ int			hex_print_upper(va_list args, t_formats *modifiers);
 int			percentage_putchar(va_list args, t_formats *modifiers);
 int			custom_putchar(char c);
 
-typedef int			(*t_f)(va_list args, t_formats *modifiers);
+typedef int				(*t_printf)(va_list args, t_formats *modifiers);
+typedef void*			(*t_flagprint)(t_formats *modifiers, void *num, void *digitcount);
 
-static const t_f	g_print_func[16] = {
+static const t_printf	g_printf[16] = {
 	char_print,
 	str_print,
 	memaddr_print,
 	int_print,
-	int_print,
-	oct_print,
 	uint_print,
-	hex_print_lower,
-	hex_print_upper,
-	percentage_putchar
+	base_int_printf,
+	percentage_putchar,
+};
+
+static const t_flagprint	g_printflag[10] = {
+	plus_print,
+	hash_print,
+	zero_print,
+	space_print,
+	hyphen_print
 };
 
 #endif
