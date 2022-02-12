@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tools.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 16:44:08 by leotran           #+#    #+#             */
-/*   Updated: 2022/02/12 16:44:18 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/12 19:21:33 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,4 @@ void	initialize_t_formats(t_formats *modifiers)
 	modifiers->specifier = 0;
 	modifiers->char_count = 0;
 	modifiers->formatcombo = 0;
-	modifiers->f_index = CONV_NULL;
 }

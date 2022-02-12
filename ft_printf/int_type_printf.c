@@ -3,14 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   int_type_printf.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:00:57 by leo               #+#    #+#             */
-/*   Updated: 2022/02/12 16:54:21 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/12 19:51:50 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+void	test_int(int num)
+{
+	ft_putnbr(num);
+}
 
 int	int_print(va_list args, t_formats *modifiers)
 {
@@ -20,7 +25,7 @@ int	int_print(va_list args, t_formats *modifiers)
 	num = va_arg(args, long long);
 	sign = 1 - 2 * (num < 0);
 	if (modifiers->length == LENGTH_NULL)
-		ft_putnbr((int)num);
+		test_int(num);//ft_putnbr((int)num);
 	else if (modifiers->length == L)
 		ft_putnbr((long)num);
 	else
@@ -37,12 +42,11 @@ int	uint_print(va_list args, t_formats *modifiers)
 
 	num = va_arg(args, unsigned long long);
 	if (modifiers->length == LENGTH_NULL)
-		ft_putnbr((unsigned int)num);
+		ft_put_u_nbr((unsigned int)num);
 	else if (modifiers->length == L)
-		ft_putnbr((unsigned long)num);
+		ft_put_u_nbr((unsigned long)num);
 	else
-		ft_putnbr(num);
-	//modifiers->char_count += ft_digit_base_count(num, 10);
-	ft_put_u_nbr(num);
+		ft_put_u_nbr(num);
+	modifiers->char_count += ft_uint_base_count(num, 10);
 	return (1);
 }

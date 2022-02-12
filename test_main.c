@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   test_main.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 20:23:30 by leo               #+#    #+#             */
-/*   Updated: 2022/02/12 16:34:41 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/12 19:02:27 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,13 @@ typedef enum e_flags
 
 int main(void)
 {
-	char *arr;
-	arr = ft_itoa(1234);
-	printf("Arr: %s\n", arr);
+	t_flags flag;
+	
+	for (int flag = ZERO; flag <= 3; ++flag)
+	{
+		printf("flag: %d\n", flag);
 
-
+	}
 	return (0);
 }
 /* Hashkey algo for flags: #0- +

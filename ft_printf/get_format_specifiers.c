@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_format_specifiers.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 18:05:01 by leo               #+#    #+#             */
-/*   Updated: 2022/02/12 16:52:35 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/12 19:23:49 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,8 +84,7 @@ const char	*get_length(const char *format, t_formats *modifiers)
 
 int	get_specifier(va_list args, t_formats *modifiers, int c)
 {
-	int				i;
-	t_conversion	conversion;
+	int	i;
 
 	i = 0;
 	while (CONVERSION[i])
@@ -93,9 +92,9 @@ int	get_specifier(va_list args, t_formats *modifiers, int c)
 		if (CONVERSION[i] == c)
 		{
 			modifiers->specifier = c;
-			conversion = i;
-			printf("conversion: %d\n", conversion);
-			return (g_printf[conversion](args, modifiers));
+			if (g_conversion[i] == -1)
+				break ;
+			return (g_printf[g_conversion[i]](args, modifiers));
 		}
 		i++;
 	}

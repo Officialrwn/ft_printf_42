@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   char_type_printf.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:00:57 by leo               #+#    #+#             */
-/*   Updated: 2022/02/10 15:50:40 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/12 19:48:52 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	char_print(va_list args, t_formats *modifiers)
 	return (1);
 }
 
-int	custom_putchar(char c)
+int	custom_putchar(int c)
 {
 	ft_putchar(c);
 	return (1);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 09:13:31 by leotran           #+#    #+#             */
-/*   Updated: 2022/02/12 16:41:31 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/12 19:47:00 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ char	*ft_strjoin(const char *s1, const char *s2);
 char	*ft_strtrim(const char *s);
 char	**ft_strsplit(const char *s, char c);
 char	*ft_itoa(int n);
-void	ft_putchar(char c);
+void	ft_putchar(int c);
 void	ft_putstr(const char *s);
 void	ft_putendl(const char *s);
 void	ft_putnbr(long long n);

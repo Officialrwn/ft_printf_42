@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 08:25:53 by leo               #+#    #+#             */
-/*   Updated: 2022/02/12 16:55:41 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/12 19:48:58 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,21 +29,6 @@
 
 /* %[flags][width][.precision][length]specifier */
 /* as long as compare is not 0 (bits); */
-
-typedef enum e_conversion
-{
-	C = 0,
-	S = 1,
-	P = 2,
-	D = 3,
-	I = 3,
-	O = 4,
-	U = 5,
-	X = 4,
-	XX = 4,
-	PERCENTAGE = 6,
-	CONV_NULL = 7
-}	t_conversion;
 
 typedef enum e_flags
 {
@@ -74,7 +59,6 @@ typedef struct s_formats
 	int				precision;
 	int				specifier;
 	size_t			char_count;
-	t_conversion	f_index;
 	u_int16_t		formatcombo;
 }	t_formats;
 
@@ -106,7 +90,7 @@ int			uint_print(va_list args, t_formats *modifiers);
 int			hex_print_lower(va_list args, t_formats *modifiers);
 int			hex_print_upper(va_list args, t_formats *modifiers);
 int			percentage_putchar(va_list args, t_formats *modifiers);
-int			custom_putchar(char c);
+int			custom_putchar(int c);
 
 typedef int					(*t_printf)(va_list args, t_formats *modifiers);
 typedef void*				(*t_flagprint)(t_formats *modifiers \
@@ -117,11 +101,8 @@ static const t_printf		g_printf[16] = {
 	str_print,
 	memaddr_print,
 	int_print,
-	int_print,
 	base_int_printf,
 	uint_print,
-	base_int_printf,
-	base_int_printf,
 	percentage_putchar,
 };
 
@@ -131,6 +112,20 @@ static const t_flagprint	g_printflag[10] = {
 	zero_print,
 	space_print,
 	hyphen_print
+};
+
+static const int g_conversion[11] = {
+	0,
+	1,
+	2,
+	3,
+	3,
+	4,
+	5,
+	4,
+	4,
+	6,
+	-1
 };
 
 #endif
