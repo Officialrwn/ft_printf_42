@@ -6,7 +6,7 @@
 /*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 08:25:53 by leo               #+#    #+#             */
-/*   Updated: 2022/02/12 16:48:39 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/12 16:55:41 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,7 +117,10 @@ static const t_printf		g_printf[16] = {
 	str_print,
 	memaddr_print,
 	int_print,
+	int_print,
+	base_int_printf,
 	uint_print,
+	base_int_printf,
 	base_int_printf,
 	percentage_putchar,
 };

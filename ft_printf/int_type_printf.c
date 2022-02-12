@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   int_type_printf.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:00:57 by leo               #+#    #+#             */
-/*   Updated: 2022/02/12 14:03:33 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/12 16:54:21 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	int_print(va_list args, t_formats *modifiers)
 		ft_putnbr(num);
 	if (sign == -1)
 		modifiers->char_count += 1;
-	modifiers->char_count += ft_digit_base_count(num * sign, 10);
+	modifiers->char_count += ft_uint_base_count(num * sign, 10);
 	return (1);
 }
 
@@ -43,6 +43,6 @@ int	uint_print(va_list args, t_formats *modifiers)
 	else
 		ft_putnbr(num);
 	//modifiers->char_count += ft_digit_base_count(num, 10);
-	ft_put_ullong_nbr(num);
+	ft_put_u_nbr(num);
 	return (1);
 }

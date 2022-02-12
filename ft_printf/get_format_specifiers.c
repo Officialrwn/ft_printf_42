@@ -6,7 +6,7 @@
 /*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 18:05:01 by leo               #+#    #+#             */
-/*   Updated: 2022/02/12 16:45:37 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/12 16:52:35 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,7 @@ int	get_specifier(va_list args, t_formats *modifiers, int c)
 		{
 			modifiers->specifier = c;
 			conversion = i;
+			printf("conversion: %d\n", conversion);
 			return (g_printf[conversion](args, modifiers));
 		}
 		i++;
