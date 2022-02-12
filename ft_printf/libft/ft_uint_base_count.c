@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_digit_base_count.c                              :+:      :+:    :+:   */
+/*   ft_uint_base_count.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 13:58:23 by leotran           #+#    #+#             */
-/*   Updated: 2022/02/12 13:13:43 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/12 16:43:39 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_digit_base_count(unsigned long long ullnum, int base)
+int	ft_uint_base_count(unsigned long long num, int base)
 {
-	int					count;
-	unsigned long long	n;
+	int	count;
 
 	count = 0;
-	n = ullnum;
-	while (n > 0)
+	while (num > 0)
 	{
-		n /= base;
+		num /= (unsigned long long)base;
 		count++;
 	}
 	return (count);

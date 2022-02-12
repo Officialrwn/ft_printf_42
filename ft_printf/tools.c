@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   tools.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/12 16:44:08 by leotran           #+#    #+#             */
+/*   Updated: 2022/02/12 16:44:18 by leotran          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 void	get_formatcombo(t_formats *modifiers)
 {
-	u_int16_t flag0;
-	u_int16_t flag1;
-	u_int16_t length;
+	u_int16_t	flag0;
+	u_int16_t	flag1;
+	u_int16_t	length;
 
 	flag0 = modifiers->flag[0];
 	flag1 = modifiers->flag[1];

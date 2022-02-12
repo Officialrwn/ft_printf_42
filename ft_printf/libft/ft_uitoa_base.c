@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa_base.c                                     :+:      :+:    :+:   */
+/*   ft_uitoa_base.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 15:49:29 by leotran           #+#    #+#             */
-/*   Updated: 2022/02/08 14:01:53 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/12 16:42:00 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	*convert_itoa_base(long long num, int base, char *arr, int flag)
+static char	*convert_uitoa_base(long long num, int base, char *arr, int flag)
 {
-	long long	quotient;
-	int			remainder;
+	long long	remainder;
 	int			i;
 
-	i = ft_digit_base_count(num, base);
-	quotient = num;
+	i = ft_uint_base_count(num, base);
 	remainder = 0;
 	if (flag)
 		flag = 55;
@@ -27,33 +25,27 @@ static char	*convert_itoa_base(long long num, int base, char *arr, int flag)
 		flag = 87;
 	while (i--)
 	{
-		remainder = quotient % base;
+		remainder = num % base;
 		if (remainder > 9)
 			arr[i] = remainder + flag;
 		else
 			arr[i] = remainder + 48;
-		quotient /= base;
+		num /= base;
 	}
 	return (arr);
 }
 
-char	*ft_itoa_base(long long llnum, int base, int flag)
+char	*ft_uitoa_base(unsigned long long num, int base, int flag)
 {
-	long long	num;
-	int			count;
 	char		*arr;
+	int			count;
 
-	num = llnum;
-	count = ft_digit_base_count(num, base);
-	if (llnum < 0)
-		num *= -1;
+	count = ft_uint_base_count(num, base);
 	arr = (char *)malloc(sizeof(char) * count + 1);
 	if (arr)
 	{
 		arr[count] = '\0';
-		arr = convert_itoa_base(num, base, arr, flag);
-		if (llnum < 0)
-			arr[0] = '-';
+		arr = convert_uitoa_base(num, base, arr, flag);
 	}
 	return (arr);
 }

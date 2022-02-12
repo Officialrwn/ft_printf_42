@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_format_specifiers.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 18:05:01 by leo               #+#    #+#             */
-/*   Updated: 2022/02/12 12:56:58 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/12 16:45:37 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ const char	*get_flag(const char *format, t_formats *modifiers)
 	t_flags	flag;
 	int		i;
 	char	c;
+
 	flag = 0;
 	i = 0;
 	while (FLAGS[flag])
@@ -83,8 +84,8 @@ const char	*get_length(const char *format, t_formats *modifiers)
 
 int	get_specifier(va_list args, t_formats *modifiers, int c)
 {
-	int	i;
-	t_conversion conversion;
+	int				i;
+	t_conversion	conversion;
 
 	i = 0;
 	while (CONVERSION[i])

@@ -6,7 +6,7 @@
 /*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 08:55:01 by leo               #+#    #+#             */
-/*   Updated: 2022/02/11 12:22:37 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/12 16:49:47 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,3 @@ int	get_formats(const char *format, va_list args)
 	printf("flagcombo: %d\n", modifiers.formatcombo);
 	return (modifiers.char_count);
 }
-

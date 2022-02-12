@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 08:25:53 by leo               #+#    #+#             */
-/*   Updated: 2022/02/12 12:56:20 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/12 16:48:39 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,10 +108,11 @@ int			hex_print_upper(va_list args, t_formats *modifiers);
 int			percentage_putchar(va_list args, t_formats *modifiers);
 int			custom_putchar(char c);
 
-typedef int				(*t_printf)(va_list args, t_formats *modifiers);
-typedef void*			(*t_flagprint)(t_formats *modifiers, void *num, void *digitcount);
+typedef int					(*t_printf)(va_list args, t_formats *modifiers);
+typedef void*				(*t_flagprint)(t_formats *modifiers \
+							, void *num, void *count);
 
-static const t_printf	g_printf[16] = {
+static const t_printf		g_printf[16] = {
 	char_print,
 	str_print,
 	memaddr_print,

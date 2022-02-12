@@ -6,7 +6,7 @@
 /*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 18:57:01 by leo               #+#    #+#             */
-/*   Updated: 2022/02/11 13:51:59 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/12 16:49:40 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,6 @@ void	*zero_print(t_formats *modifiers, void *num, void *digitcount)
 void	*space_print(t_formats *modifiers, void *num, void *digitcount)
 {
 	num = NULL;
-
 	modifiers->char_count += custom_putchar(' ');
 	return (NULL);
 }
