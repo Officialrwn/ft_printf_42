@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_digit_base_count.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 13:58:23 by leotran           #+#    #+#             */
-/*   Updated: 2022/02/08 15:22:12 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/12 13:13:43 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,6 @@ int	ft_digit_base_count(unsigned long long ullnum, int base)
 
 	count = 0;
 	n = ullnum;
-	if (n <= 0)
-	{
-		n *= -1;
-		count++;
-	}
 	while (n > 0)
 	{
 		n /= base;

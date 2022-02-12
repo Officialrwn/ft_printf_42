@@ -19,7 +19,7 @@ void	initialize_t_formats(t_formats *modifiers)
 	i = 3;
 	while (i--)
 		modifiers->flag[i] = FLAGNULL;
-	modifiers->length = LENGTHNULL;
+	modifiers->length = LENGTH_NULL;
 	modifiers->tempformat = NULL;
 	modifiers->width = 0;
 	modifiers->precision = 0;

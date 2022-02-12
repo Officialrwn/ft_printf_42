@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_format_specifiers.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 18:05:01 by leo               #+#    #+#             */
-/*   Updated: 2022/02/11 14:59:17 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/12 12:56:58 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ const char	*get_length(const char *format, t_formats *modifiers)
 	j = 0;
 	while (LENGTH[i])
 	{
-		if (LENGTH[i] == format[j] && modifiers->length == LENGTHNULL)
+		if (LENGTH[i] == format[j] && modifiers->length == LENGTH_NULL)
 		{
 			modifiers->length = i;
 			format++;

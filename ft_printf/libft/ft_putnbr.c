@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 14:54:57 by leotran           #+#    #+#             */
-/*   Updated: 2022/02/11 22:18:48 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/12 14:06:23 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_putnbr(long long n)
 {
 	long long	num;
-	int			i;
+	long long	i;
 	int			count;
 
 	num = n;
