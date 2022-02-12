@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:04:46 by leo               #+#    #+#             */
-/*   Updated: 2022/02/12 19:52:38 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/13 00:23:04 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,12 @@
 int	main(void)
 {
 	int	a;
+	unsigned char b = 65;
 
 	a = -5;
-	int ret = ft_printf("test nr: %d HEHEH\n", 2147483650);
+	int ret = ft_printf("test nr: %#-o HEHEH\n", 8);
 	printf("%d\n", ret);
-	ret = printf("test nr: %d HEHEH\n", 5);
+	ret = printf("test nr: %+-d HEHEH\n", 8);
 	printf("%d\n", ret);
 	return (0);
 }

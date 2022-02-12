@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 08:25:53 by leo               #+#    #+#             */
-/*   Updated: 2022/02/12 19:48:58 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/13 00:34:38 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,13 @@
 # define FT_PRINTF_H
 
 # define CONVERSION "cspdiouxX%"
-# define FLAGS "0# -+"
-# define LENGTH "hhllL"
-# define WIDTH 0
-# define PRECISION 1
+# define FLAGS 		"0# -+"
+# define LENGTH 	"hhllL"
+# define WIDTH 		0
+# define PRECISION 	1
+
+# define HPSZD		9
+# define DHS		12
 
 # include <unistd.h>
 # include <stdlib.h>
@@ -30,14 +33,29 @@
 /* %[flags][width][.precision][length]specifier */
 /* as long as compare is not 0 (bits); */
 
+typedef enum e_conversions
+{
+	C,
+	S,
+	P,
+	D,
+	I,
+	O,
+	U,
+	X,
+	XX,
+	PERCENT,
+	CONV_NULL
+}	t_conversions;
+
 typedef enum e_flags
 {
-	ZERO = 0x1,
-	HASH = 0x2,
-	SPACE = 0x4,
-	HYPHEN = 0x8,
-	PLUS = 0x10,
-	FLAGNULL = 0x0
+	ZERO = 1,
+	HASH = 2,
+	SPACE = 4,
+	DASH = 8,
+	PLUS = 16,
+	FLAGNULL = 0
 }	t_flags;
 
 typedef enum e_length
@@ -52,23 +70,24 @@ typedef enum e_length
 
 typedef struct s_formats
 {
-	t_flags			flag[3];
+	t_flags			uint_flag[3];
 	t_length		length;
 	const char		*tempformat;
 	int				width;
 	int				precision;
 	int				specifier;
+	int				flagindex;
 	size_t			char_count;
 	u_int16_t		formatcombo;
 }	t_formats;
 
-void		get_formatcombo(t_formats *modifiers);
+int			get_formatcombo(t_formats *modifiers);
 
-void		*plus_print(t_formats *modifiers, void *num, void *digitcount);
-void		*hash_print(t_formats *modifiers, void *num, void *digitcount);
-void		*zero_print(t_formats *modifiers, void *num, void *digitcount);
-void		*space_print(t_formats *modifiers, void *num, void *digitcount);
-void		*hyphen_print(t_formats *modifiers, void *num, void *digitcount);
+void		*plus_print(t_formats *modifiers, void *num);
+void		*hash_print(t_formats *modifiers, void *num);
+void		*zero_print(t_formats *modifiers, void *num);
+void		*space_print(t_formats *modifiers, void *num);
+void		*dash_print(t_formats *modifiers, void *num);
 
 void		error_print(t_formats *modifiers);
 void		initialize_t_formats(t_formats *modifiers);
@@ -93,8 +112,7 @@ int			percentage_putchar(va_list args, t_formats *modifiers);
 int			custom_putchar(int c);
 
 typedef int					(*t_printf)(va_list args, t_formats *modifiers);
-typedef void*				(*t_flagprint)(t_formats *modifiers \
-							, void *num, void *count);
+typedef void*				(*t_flagprint)(t_formats *modifiers, void *num);
 
 static const t_printf		g_printf[16] = {
 	char_print,
@@ -106,15 +124,15 @@ static const t_printf		g_printf[16] = {
 	percentage_putchar,
 };
 
-static const t_flagprint	g_printflag[10] = {
+static const t_flagprint	g_flagprint[10] = {
 	plus_print,
 	hash_print,
 	zero_print,
 	space_print,
-	hyphen_print
+	dash_print
 };
 
-static const int g_conversion[11] = {
+static const int			g_conversion[11] = {
 	0,
 	1,
 	2,

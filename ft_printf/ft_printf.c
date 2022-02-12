@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 08:55:01 by leo               #+#    #+#             */
-/*   Updated: 2022/02/12 16:49:47 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/12 23:36:59 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int	get_formats(const char *format, va_list args)
 		{
 			modifiers.tempformat = format;
 			format = get_flag(&(*++format), &modifiers);
+			get_formatcombo(&modifiers);
 			if ((*format) == '.')
 				format = get_width(&(*++format), &modifiers, PRECISION);
 			format = get_length(&(*format), &modifiers);
@@ -44,9 +45,5 @@ int	get_formats(const char *format, va_list args)
 		}
 		modifiers.char_count += custom_putchar(*format++);
 	}
-	printf("flag0: %d\n", modifiers.flag[0]);
-	printf("flag1: %d\n", modifiers.flag[1]);
-	get_formatcombo(&modifiers);
-	printf("flagcombo: %d\n", modifiers.formatcombo);
 	return (modifiers.char_count);
 }

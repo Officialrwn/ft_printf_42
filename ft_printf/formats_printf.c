@@ -3,20 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   formats_printf.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 18:57:01 by leo               #+#    #+#             */
-/*   Updated: 2022/02/12 16:49:40 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/13 00:40:10 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	*plus_print(t_formats *modifiers, void *num, void *digitcount)
+void	*plus_print(t_formats *modifiers, void *num)
 {
-	int	i;
+	long long	i;
 
-	i = *(int *)num;
+	if (modifiers->uint_flag[0] == PLUS && (modifiers->formatcombo & HPSZD) == 0)
+		return (NULL);
+	i = *(long long *)num;
 	if (i >= 0)
 		ft_putchar('+');
 	else
@@ -29,12 +31,16 @@ void	*plus_print(t_formats *modifiers, void *num, void *digitcount)
 	return (num);
 }
 
-void	*hash_print(t_formats *modifiers, void *num, void *digitcount)
+void	*hash_print(t_formats *modifiers, void *num)
 {
 	int	i;
 
+	if (modifiers->uint_flag[0] == HASH && (modifiers->formatcombo & HPSZD) == 0)
+	{
+		printf("WRONG COMBO\n");
+		return (NULL);
+	}
 	i = 1;
-	num = NULL;
 	ft_putchar('0');
 	if (modifiers->specifier != 'o')
 	{
@@ -45,11 +51,11 @@ void	*hash_print(t_formats *modifiers, void *num, void *digitcount)
 	return (NULL);
 }
 
-void	*zero_print(t_formats *modifiers, void *num, void *digitcount)
+void	*zero_print(t_formats *modifiers, void *num)
 {
-	int	ilen;
+	long long	ilen;
 
-	ilen = *(int *)num;
+	ilen = *(long long *)num;
 	while (modifiers->width-- - ilen)
 	{
 		ft_putchar('0');
@@ -58,19 +64,19 @@ void	*zero_print(t_formats *modifiers, void *num, void *digitcount)
 	return (NULL);
 }
 
-void	*space_print(t_formats *modifiers, void *num, void *digitcount)
+void	*space_print(t_formats *modifiers, void *num)
 {
 	num = NULL;
 	modifiers->char_count += custom_putchar(' ');
 	return (NULL);
 }
 
-void	*hyphen_print(t_formats *modifiers, void *num, void *digitcount)
+void	*dash_print(t_formats *modifiers, void *num)
 {
 	int	i;
 
 	i = *(int *)num;
-	if (modifiers->flag[0] == HYPHEN)
+	if (modifiers->uint_flag[0] == DASH)
 		ft_putnbr(i);
 	while (--modifiers->width)
 		modifiers->char_count += custom_putchar(' ');
