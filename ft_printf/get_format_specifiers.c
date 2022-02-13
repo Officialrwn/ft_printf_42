@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 18:05:01 by leo               #+#    #+#             */
-/*   Updated: 2022/02/13 00:39:04 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/13 00:47:13 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ const char	*get_flag(const char *format, t_formats *modifiers)
 	{
 		if (FLAGS[i] == *format && modifiers->uint_flag[j] == FLAGNULL && j != 2)
 		{
-			modifiers->uint_flag[j++] = 1 << i;
-			modifiers->flagindex = i;
+			modifiers->uint_flag[j] = 1 << i;
+			modifiers->flag[j++] = i;
 			c = *format;
 			while (*format == c)
 				format++;

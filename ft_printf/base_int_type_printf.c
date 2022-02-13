@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:00:57 by leo               #+#    #+#             */
-/*   Updated: 2022/02/13 00:32:19 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/13 00:49:04 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	base_int_printf(va_list args, t_formats *modifiers)
 	int		flag;
 	int		specifier;
 	
-	g_flagprint[1](modifiers, NULL);
+	g_flagprint[modifiers->flag[0]](modifiers, NULL);
 	//hash_print(modifiers, NULL);
 	flag = 1 * (modifiers->specifier == 'X');
 	specifier = 16;

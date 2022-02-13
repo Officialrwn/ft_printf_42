@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 18:57:01 by leo               #+#    #+#             */
-/*   Updated: 2022/02/13 00:40:10 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/13 15:58:12 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,20 @@
 void	*plus_print(t_formats *modifiers, void *num)
 {
 	long long	i;
+	long long	sign;
 
-	if (modifiers->uint_flag[0] == PLUS && (modifiers->formatcombo & HPSZD) == 0)
+	if ((modifiers->formatcombo ^ PLUS) != 0 \
+		&& modifiers->uint_flag[0] == PLUS \
+		&& (modifiers->formatcombo & HPSZD) == 0)
 		return (NULL);
 	i = *(long long *)num;
-	if (i >= 0)
+	sign = 1 - 2 * (i < 0);
+	if (sign == 1)
 		ft_putchar('+');
 	else
-	{
-		i *= -1;
 		ft_putchar('-');
-	}
 	modifiers->char_count += 1;
-	num = &i;
+	*(long long *)num *= sign;
 	return (num);
 }
 
@@ -35,11 +36,10 @@ void	*hash_print(t_formats *modifiers, void *num)
 {
 	int	i;
 
-	if (modifiers->uint_flag[0] == HASH && (modifiers->formatcombo & HPSZD) == 0)
-	{
-		printf("WRONG COMBO\n");
+	if ((modifiers->formatcombo ^ HASH) != 0 \
+		&& modifiers->uint_flag[0] == HASH \
+		&& (modifiers->formatcombo & HPSZD) == 0)
 		return (NULL);
-	}
 	i = 1;
 	ft_putchar('0');
 	if (modifiers->specifier != 'o')

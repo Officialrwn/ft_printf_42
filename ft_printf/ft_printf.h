@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 08:25:53 by leo               #+#    #+#             */
-/*   Updated: 2022/02/13 00:34:38 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/13 15:56:49 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,12 @@
 
 # define HPSZD		9
 # define DHS		12
+
+// 0000 0000 0000 1001 ZD
+// 0000 0000 0001 0001 PZD
+// 0000 0000 0001 0000 
+// 0000 0000 0000 0000
+
 
 # include <unistd.h>
 # include <stdlib.h>
@@ -76,9 +82,10 @@ typedef struct s_formats
 	int				width;
 	int				precision;
 	int				specifier;
-	int				flagindex;
+	int				flag[2];
 	size_t			char_count;
 	u_int16_t		formatcombo;
+	void			*num;
 }	t_formats;
 
 int			get_formatcombo(t_formats *modifiers);
