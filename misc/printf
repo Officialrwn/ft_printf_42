@@ -1,6 +1,5 @@
 # TODO
-# FIX ITOA_BASE AND INT_COUNT!!! Doesnt work well with negative numbers.
-# Fix flag combos binary
+# Check dashprint conditions and test if calling second flag works.
 # Check the flagformat prints *infinite loop with new flagbinaries
 # if no conversionflag found print only va_arg else print normally.
 # rewrite format_prints to dispatcher table

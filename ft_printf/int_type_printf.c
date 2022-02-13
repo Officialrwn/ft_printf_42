@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:00:57 by leo               #+#    #+#             */
-/*   Updated: 2022/02/13 14:49:32 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/13 17:01:36 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ int	int_print(va_list args, t_formats *modifiers)
 	num = va_arg(args, long long);
 	sign = 1 - 2 * (num < 0);
 	//g_flagprint[modifiers->flag[0]](modifiers, &num);
-	plus_print(modifiers, &num);
+	//plus_print(modifiers, &num);
+	zero_print(modifiers, &num);
 	if (modifiers->length == LENGTH_NULL)
 		ft_putnbr((int)num);
 	else if (modifiers->length == L)
