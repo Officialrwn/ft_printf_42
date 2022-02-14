@@ -6,7 +6,7 @@
 /*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:00:57 by leo               #+#    #+#             */
-/*   Updated: 2022/02/14 15:19:46 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/14 16:06:33 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	int_print(t_formats *mod)
 			mod->sign = 0;
 			mod->char_count += 1;
 		}
+		mod->num = &num;
 		g_flagprint[mod->flag[0]](mod);
 		ft_putnbr(num);
 		num *= sign;
@@ -42,6 +43,8 @@ void	uint_print(t_formats *mod)
 	if (mod->length == LENGTH_NULL) // and dash is not in flags.
 	{
 		num = va_arg(mod->args, unsigned int);
+		mod->num = &num;
+		g_flagprint[mod->flag[0]](mod);
 		ft_putnbr(num);
 		mod->char_count += ft_uint_base_count((unsigned long long)num, 10);
 	}

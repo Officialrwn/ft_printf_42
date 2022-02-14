@@ -6,7 +6,7 @@
 /*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 16:44:08 by leotran           #+#    #+#             */
-/*   Updated: 2022/02/14 15:18:10 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/14 16:11:24 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ void	initialize_t_formats(t_formats *mod)
 	mod->formatcombo = 0;
 	mod->num = NULL;
 	mod->sign = 1;
+	mod->int_length = 0;
 }
 
 void	length_print(t_formats *mod)
@@ -64,6 +65,7 @@ void	length_print(t_formats *mod)
 		mod->sign = 0;
 		mod->char_count += 1;
 	}
+	mod->num = &num;
 	g_flagprint[mod->flag[0]](mod);
 	mod->char_count += ft_uint_base_count((unsigned long long)num, 10);
 }
@@ -81,6 +83,7 @@ void	ulength_print(t_formats *mod)
 		ft_putnbr((unsigned short)num);
 	else if (mod->length == HH)
 		ft_putnbr((unsigned char)num);
+	mod->num = &num;
 	g_flagprint[mod->flag[0]](mod);
 	mod->char_count += ft_uint_base_count(num, 10);
 }

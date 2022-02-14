@@ -6,7 +6,7 @@
 /*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 18:57:01 by leo               #+#    #+#             */
-/*   Updated: 2022/02/14 14:26:16 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/14 16:10:28 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ void	zero_print(t_formats *mod)
 {
 	long long	ilen;
 	long long	num;
+	unsigned long long unum;
 
-	num = *(long long *)mod->num;
 	if (mod->width <= 0)
 		return ;
 	ilen = ft_uint_base_count(*(long long *)num, 10);

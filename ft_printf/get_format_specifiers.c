@@ -6,7 +6,7 @@
 /*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 18:05:01 by leo               #+#    #+#             */
-/*   Updated: 2022/02/14 15:20:27 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/14 16:03:41 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,24 +39,24 @@ char	*get_flag(char *format, t_formats *mod)
 
 char	*get_width(char *format, t_formats *mod, int flag)
 {
-	int		i;
-	char	*temp;
+	int	i;
 
 	i = 0;
 	while (*format == '0')
 		format++;
 	if (ft_isdigit(*format))
 	{
-		while (format[i] && ft_isdigit(format[i]))
-			i++;
-		temp = ft_strsub(format, 0, i);
+		i = *format++ - '0';
+		while (ft_isdigit(*format))
+		{
+			i *= 10 + (*format++ - '0');
+		}	
 		if (flag == WIDTH)
-			mod->width = ft_atoi(temp);
+			mod->width = i;
 		else
-			mod->precision = ft_atoi(temp);
-		ft_strdel(&temp);
+			mod->precision = i;
 	}
-	return (&(format[i]));
+	return (&(*format));
 }
 
 char	*get_length(char *format, t_formats *mod)
