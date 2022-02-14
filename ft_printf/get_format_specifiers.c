@@ -6,13 +6,13 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 18:05:01 by leo               #+#    #+#             */
-/*   Updated: 2022/02/13 00:47:13 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/14 09:36:27 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-const char	*get_flag(const char *format, t_formats *modifiers)
+const char	*get_flag(const char *format, t_formats *mod)
 {
 	int		i;
 	int		j;
@@ -22,10 +22,10 @@ const char	*get_flag(const char *format, t_formats *modifiers)
 	j = 0;
 	while (FLAGS[i])
 	{
-		if (FLAGS[i] == *format && modifiers->uint_flag[j] == FLAGNULL && j != 2)
+		if (FLAGS[i] == *format && mod->uint_flag[j] == FLAGNULL && j != 2)
 		{
-			modifiers->uint_flag[j] = 1 << i;
-			modifiers->flag[j++] = i;
+			mod->uint_flag[j] = 1 << i;
+			mod->flag[j++] = i;
 			c = *format;
 			while (*format == c)
 				format++;
@@ -34,10 +34,10 @@ const char	*get_flag(const char *format, t_formats *modifiers)
 		}	
 		i++;
 	}
-	return (get_width(&(*format++), modifiers, WIDTH));
+	return (get_width(&(*format++), mod, WIDTH));
 }
 
-const char	*get_width(const char *format, t_formats *modifiers, int flag)
+const char	*get_width(const char *format, t_formats *mod, int flag)
 {
 	int		i;
 	char	*temp;
@@ -51,15 +51,15 @@ const char	*get_width(const char *format, t_formats *modifiers, int flag)
 			i++;
 		temp = ft_strsub(format, 0, i);
 		if (flag == WIDTH)
-			modifiers->width = ft_atoi(temp);
+			mod->width = ft_atoi(temp);
 		else
-			modifiers->precision = ft_atoi(temp);
+			mod->precision = ft_atoi(temp);
 		ft_strdel(&temp);
 	}
 	return (&(format[i]));
 }
 
-const char	*get_length(const char *format, t_formats *modifiers)
+const char	*get_length(const char *format, t_formats *mod)
 {
 	int	i;
 	int	j;
@@ -68,13 +68,13 @@ const char	*get_length(const char *format, t_formats *modifiers)
 	j = 0;
 	while (LENGTH[i])
 	{
-		if (LENGTH[i] == format[j] && modifiers->length == LENGTH_NULL)
+		if (LENGTH[i] == format[j] && mod->length == LENGTH_NULL)
 		{
-			modifiers->length = i;
+			mod->length = i;
 			format++;
 			if (format[j] == format[j - 1])
 			{
-				modifiers->length = i + 1;
+				mod->length = i + 1;
 				format++;
 			}	
 		}
@@ -83,7 +83,7 @@ const char	*get_length(const char *format, t_formats *modifiers)
 	return (&(*format));
 }
 
-int	get_specifier(va_list args, t_formats *modifiers, int c)
+int	get_specifier(va_list args, t_formats *mod, int c)
 {
 	int	i;
 
@@ -92,10 +92,10 @@ int	get_specifier(va_list args, t_formats *modifiers, int c)
 	{
 		if (CONVERSION[i] == c)
 		{
-			modifiers->specifier = c;
+			mod->specifier = c;
 			if (g_conversion[i] == -1)
 				break ;
-			return (g_printf[g_conversion[i]](args, modifiers));
+			return (g_printf[g_conversion[i]](args, mod));
 		}
 		i++;
 	}

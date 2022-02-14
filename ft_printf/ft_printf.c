@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 08:55:01 by leo               #+#    #+#             */
-/*   Updated: 2022/02/12 23:36:59 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/14 09:36:45 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,24 +26,24 @@ int	ft_printf(const char *format, ...)
 int	get_formats(const char *format, va_list args)
 {
 	t_flags		flag;
-	t_formats	modifiers;
+	t_formats	mod;
 
-	initialize_t_formats(&modifiers);
+	initialize_t_formats(&mod);
 	while (*format)
 	{
 		if (*format == '%')
 		{
-			modifiers.tempformat = format;
-			format = get_flag(&(*++format), &modifiers);
-			get_formatcombo(&modifiers);
+			mod.tempformat = format;
+			format = get_flag(&(*++format), &mod);
+			get_formatcombo(&mod);
 			if ((*format) == '.')
-				format = get_width(&(*++format), &modifiers, PRECISION);
-			format = get_length(&(*format), &modifiers);
-			modifiers.specifier = *format;
-			if (!(get_specifier(args, &modifiers, *format++)))
-				error_print(&modifiers);
+				format = get_width(&(*++format), &mod, PRECISION);
+			format = get_length(&(*format), &mod);
+			mod.specifier = *format;
+			if (!(get_specifier(args, &mod, *format++)))
+				error_print(&mod);
 		}
-		modifiers.char_count += custom_putchar(*format++);
+		mod.char_count += custom_putchar(*format++);
 	}
-	return (modifiers.char_count);
+	return (mod.char_count);
 }

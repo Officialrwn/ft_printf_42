@@ -6,92 +6,90 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 18:57:01 by leo               #+#    #+#             */
-/*   Updated: 2022/02/13 17:13:30 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/14 09:38:22 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	*plus_print(t_formats *modifiers, void *num)
+void	*zero_print(t_formats *mod, void *num)
+{
+	long long	ilen;
+
+	if (mod->width <= 0)
+		return (NULL);
+	ilen = ft_uint_base_count(*(long long *)num, 10);
+	while (mod->width-- - ilen)
+	{
+		ft_putchar('0');
+		mod->char_count += 1;
+	}
+	return (NULL);
+}
+
+void	*hash_print(t_formats *mod, void *num)
+{
+	int	flag;
+
+	flag = 0;
+	if (mod->uint_flag[0] == HASH && (mod->formatcombo & HPSZD) != 0)
+		flag = 1;
+	mod->char_count += custom_putchar('0');
+	if (mod->specifier != 'o')
+		mod->char_count += custom_putchar(mod->specifier);
+	if (flag == 1 && mod->uint_flag[1] != 0)
+		printf("callnextfn\n");
+	return (NULL);
+}
+
+void	*space_print(t_formats *mod, void *num)
+{
+	int	flag;
+
+	flag = 0;
+	if (mod->uint_flag[0] == SPACE && (mod->formatcombo & HPSZD) != 0)
+		flag = 1;
+	num = NULL;
+	mod->char_count += custom_putchar(' ');
+	if (flag == 1 && mod->uint_flag[1] != 0)
+		printf("callnextfn\n");
+	return (NULL);
+}
+
+void	*dash_print(t_formats *mod, void *num)
+{
+	int	i;
+
+	if ((mod->formatcombo & DHS) == 0 || mod->width <= 0)
+		return (NULL);
+	i = *(int *)num;
+	if ((mod->formatcombo & DASH) == 0)
+		ft_putnbr(i);
+	while (--mod->width)
+		mod->char_count += custom_putchar(' ');
+	if (mod->uint_flag[0] == DASH && mod->uint_flag[1] != 0)
+		printf("callnextfn\n");
+	return (NULL);
+}
+
+void	*plus_print(t_formats *mod, void *num)
 {
 	long long	i;
 	long long	sign;
+	int			flag;
 
-	if ((modifiers->formatcombo & HPSZD) != 0)
-		return (NULL);
+	flag = 0;
+	if (mod->uint_flag[0] == PLUS && (mod->formatcombo & HPSZD) != 0)
+		flag = 1;
 	i = *(long long *)num;
 	sign = 1 - 2 * (i < 0);
 	if (sign == 1)
 		ft_putchar('+');
 	else
 		ft_putchar('-');
-	modifiers->char_count += 1;
+	mod->char_count += 1;
 	*(long long *)num *= sign;
-	if (modifiers->uint_flag[0] == PLUS && modifiers->uint_flag[1] != 0)
+	if (flag == 1 && mod->uint_flag[1] != 0)
 		printf("callnextfn\n");
 	return (num);
-}
-
-void	*hash_print(t_formats *modifiers, void *num)
-{
-	int	i;
-
-	if ((modifiers->formatcombo & HPSZD) == 0)
-		return (NULL);
-	i = 1;
-	ft_putchar('0');
-	if (modifiers->specifier != 'o')
-	{
-		ft_putchar(modifiers->specifier);
-		i++;
-	}
-	modifiers->char_count += i;
-	if (modifiers->uint_flag[0] == HASH && modifiers->uint_flag[1] != 0)
-		printf("callnextfn\n");
-	return (NULL);
-}
-
-void	*zero_print(t_formats *modifiers, void *num)
-{
-	long long	ilen;
-
-	if ((modifiers->formatcombo ^ ZERO) != 0)
-		return (NULL);
-	ilen = ft_uint_base_count(*(long long *)num, 10);
-	while (modifiers->width-- - ilen)
-	{
-		ft_putchar('0');
-		modifiers->char_count += 1;
-	}
-	return (NULL);
-}
-
-void	*space_print(t_formats *modifiers, void *num)
-{
-	if ((modifiers->formatcombo & HPSZD) == 0)
-		return (NULL);
-	num = NULL;
-	modifiers->char_count += custom_putchar(' ');
-	if (modifiers->uint_flag[0] == SPACE && modifiers->uint_flag[1] != 0)
-		printf("callnextfn\n");
-	return (NULL);
-}
-
-void	*dash_print(t_formats *modifiers, void *num)
-{
-	int	i;
-
-	if ((modifiers->formatcombo & DHS) == 0)
-		return (NULL);
-	i = *(int *)num;
-	
-	//if (modifiers->uint_flag[0] == DASH)
-		ft_putnbr(i);
-	
-	while (--modifiers->width)
-		modifiers->char_count += custom_putchar(' ');
-	
-	if (modifiers->uint_flag[0] == DASH && modifiers->uint_flag[1] != 0)
-		printf("callnextfn\n");
-	return (NULL);
 }

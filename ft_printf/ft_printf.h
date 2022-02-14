@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 08:25:53 by leo               #+#    #+#             */
-/*   Updated: 2022/02/13 16:17:52 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/14 09:36:03 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,38 +82,38 @@ typedef struct s_formats
 	void			*num;
 }	t_formats;
 
-int			get_formatcombo(t_formats *modifiers);
+int			get_formatcombo(t_formats *mod);
 
-void		*plus_print(t_formats *modifiers, void *num);
-void		*hash_print(t_formats *modifiers, void *num);
-void		*zero_print(t_formats *modifiers, void *num);
-void		*space_print(t_formats *modifiers, void *num);
-void		*dash_print(t_formats *modifiers, void *num);
+void		*plus_print(t_formats *mod, void *num);
+void		*hash_print(t_formats *mod, void *num);
+void		*zero_print(t_formats *mod, void *num);
+void		*space_print(t_formats *mod, void *num);
+void		*dash_print(t_formats *mod, void *num);
 
-void		error_print(t_formats *modifiers);
-void		initialize_t_formats(t_formats *modifiers);
+void		error_print(t_formats *mod);
+void		initialize_t_formats(t_formats *mod);
 
-const char	*get_flag(const char *format, t_formats *modifiers);
-const char	*get_length(const char *format, t_formats *modifiers);
-const char	*get_width(const char *format, t_formats *modifiers, int flag);
+const char	*get_flag(const char *format, t_formats *mod);
+const char	*get_length(const char *format, t_formats *mod);
+const char	*get_width(const char *format, t_formats *mod, int flag);
 
 int			get_formats(const char *format, va_list args);
-int			get_specifier(va_list args, t_formats *modifiers, int c);
+int			get_specifier(va_list args, t_formats *mod, int c);
 int			ft_printf(const char *format, ...);
-int			char_print(va_list args, t_formats *modifiers);
-int			str_print(va_list args, t_formats *modifiers);
-int			memaddr_print(va_list args, t_formats *modifiers);
-int			int_print(va_list args, t_formats *modifiers);
-int			base_int_printf(va_list args, t_formats *modifiers);
-int			oct_print(va_list args, t_formats *modifiers);
-int			uint_print(va_list args, t_formats *modifiers);
-int			hex_print_lower(va_list args, t_formats *modifiers);
-int			hex_print_upper(va_list args, t_formats *modifiers);
-int			percentage_putchar(va_list args, t_formats *modifiers);
+int			char_print(va_list args, t_formats *mod);
+int			str_print(va_list args, t_formats *mod);
+int			memaddr_print(va_list args, t_formats *mod);
+int			int_print(va_list args, t_formats *mod);
+int			base_int_printf(va_list args, t_formats *mod);
+int			oct_print(va_list args, t_formats *mod);
+int			uint_print(va_list args, t_formats *mod);
+int			hex_print_lower(va_list args, t_formats *mod);
+int			hex_print_upper(va_list args, t_formats *mod);
+int			percentage_putchar(va_list args, t_formats *mod);
 int			custom_putchar(int c);
 
-typedef int					(*t_printf)(va_list args, t_formats *modifiers);
-typedef void*				(*t_flagprint)(t_formats *modifiers, void *num);
+typedef int					(*t_printf)(va_list args, t_formats *mod);
+typedef void*				(*t_flagprint)(t_formats *mod, void *num);
 
 static const t_printf		g_printf[8] = {
 	char_print,
@@ -126,11 +126,11 @@ static const t_printf		g_printf[8] = {
 };
 
 static const t_flagprint	g_flagprint[5] = {
-	plus_print,
-	hash_print,
 	zero_print,
+	hash_print,
 	space_print,
-	dash_print
+	dash_print,
+	plus_print
 };
 
 static const int			g_conversion[11] = {
