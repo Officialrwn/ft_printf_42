@@ -1,4 +1,5 @@
 # TODO
+# width print. (no flags)
 # negative hex or octal etc?
 # Check dashprint conditions and test if calling second flag works.
 # Check the flagformat prints *infinite loop with new flagbinaries

@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 18:57:01 by leo               #+#    #+#             */
-/*   Updated: 2022/02/14 23:52:45 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/15 00:15:57 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,12 @@
 
 void	zero_print(t_formats *mod)
 {
-	size_t	len;
+	int	len;
 
 	if (mod->width <= 0)
 		return ;
-	len = ft_strlen(mod->num);
-	if (mod->num[0] == '-')
-	{
-		custom_putchar(mod, '-');
-		mod->num = &mod->num[1];
-	}
-	else if (mod->uint_flag[0] == HASH && mod->specifier != 'o')
-		len += 2;
-	else if ((mod->formatcombo & HSP) != 0)
-		len++;
-	while (mod->width-- - (int)len)
+	len = get_num_length(mod);
+	while (mod->width-- - len)
 		custom_putchar(mod, '0');
 	custom_putstr(mod, mod->num);
 }
@@ -69,25 +60,16 @@ void	space_print(t_formats *mod)
 
 void	dash_print(t_formats *mod)
 {
-	size_t	len;
+	int	len;
 
 	if (mod->uint_flag[0] == DASH && (mod->formatcombo & DHS) != 0)
 		g_flagprint[mod->flag[1]](mod);
 	if (mod->width > 0)
 	{
-		len = ft_strlen(mod->num);
-		if (mod->num[0] == '-')
-		{
-			custom_putchar(mod, '-');
-			mod->num = &mod->num[1];
-		}
-		else if ((mod->formatcombo & HASH) != 0 && mod->specifier != 'o')
-			len += 2;
-		else if ((mod->formatcombo & HSP) != 0)
-			len++;
+		len = get_num_length(mod);
 		if (mod->uint_flag[1] == DASH && (mod->formatcombo & HSP) != 0)
 			custom_putstr(mod, mod->num);
-		while (mod->width-- - (int)len)
+		while (mod->width-- - len)
 			custom_putchar(mod, ' ');
 	}
 	if (mod->uint_flag[0] == DASH && mod->uint_flag[1] == FLAGNULL)
@@ -97,10 +79,8 @@ void	dash_print(t_formats *mod)
 void	plus_print(t_formats *mod)
 {
 	int			flag;
-	int			j;
 
 	flag = 0;
-	j = mod->flag[1];
 	if (mod->uint_flag[0] == PLUS && (mod->formatcombo & HPSZD) != 0)
 		flag = 1;
 	if (mod->num[0] != '-')

@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 08:25:53 by leo               #+#    #+#             */
-/*   Updated: 2022/02/14 23:52:38 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/15 00:08:39 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,7 @@ void	get_formats(char *format, t_formats *mod);
 int		ft_printf(const char *format, ...);
 int		get_specifier(t_formats *mod, int c);
 int		get_formatcombo(t_formats *mod);
+int		get_num_length(t_formats *mod);
 
 void	ulength_print(t_formats *mod);
 void	length_print(t_formats *mod);
