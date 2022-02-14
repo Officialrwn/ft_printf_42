@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:04:46 by leo               #+#    #+#             */
-/*   Updated: 2022/02/14 09:31:22 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/14 11:48:02 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ int	main(void)
 	unsigned char b = 65;
 
 	a = -5;
-	int ret = ft_printf("test nr: %d HEHEH\n", 8);
+	int ret = ft_printf("test nr: %lld HEHEH\n", 2147483650LL);
 	printf("%d\n", ret);
-	ret = printf("test nr: %+5d HEHEH\n", 8);
+	ret = printf("test nr: %lld HEHEH\n", 2147483650LL);
 	printf("%d\n", ret);
 	return (0);
 }

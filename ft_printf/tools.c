@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tools.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 16:44:08 by leotran           #+#    #+#             */
-/*   Updated: 2022/02/14 09:36:17 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/14 12:11:12 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,19 @@ void	initialize_t_formats(t_formats *mod)
 	mod->char_count = 0;
 	mod->formatcombo = 0;
 	mod->num = NULL;
+}
+
+void	length_print(t_formats *mod)
+{
+	long long	num;
+
+	num = *(long long *)mod->num;
+	if (mod->length == LENGTH_NULL)
+		ft_putnbr((int)num);
+	else if (mod->length == L)
+		ft_putnbr((long)num);
+	else if (mod->length == H)
+		ft_putnbr((short)num);
+	else if (mod->length == HH)
+		ft_putnbr((signed char)num);
 }
