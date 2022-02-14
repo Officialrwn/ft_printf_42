@@ -6,15 +6,16 @@
 /*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 18:57:01 by leo               #+#    #+#             */
-/*   Updated: 2022/02/14 11:55:09 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/14 14:26:16 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
+//if flag0 = plus then ilen - 1;
 void	zero_print(t_formats *mod)
 {
-	long long	ilen; //if flag0 = plus then ilen - 1;
+	long long	ilen;
 	long long	num;
 
 	num = *(long long *)mod->num;
@@ -78,8 +79,8 @@ void	plus_print(t_formats *mod)
 	j = mod->flag[1];
 	if (mod->uint_flag[0] == PLUS && (mod->formatcombo & HPSZD) != 0)
 		flag = 1;
-	if (*(int *)mod->num == 1)
+	if (mod->sign == 1)
 		mod->char_count += custom_putchar('+');
 	if (flag == 1 && mod->uint_flag[1] != 0)
-		printf("callnextfn\n");//g_flagprint[j](mod, &num);
+		printf("callnextfn\n");
 }

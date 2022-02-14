@@ -6,7 +6,7 @@
 /*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 16:44:08 by leotran           #+#    #+#             */
-/*   Updated: 2022/02/14 12:11:12 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/14 15:18:10 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,19 +40,47 @@ void	initialize_t_formats(t_formats *mod)
 	mod->char_count = 0;
 	mod->formatcombo = 0;
 	mod->num = NULL;
+	mod->sign = 1;
 }
 
 void	length_print(t_formats *mod)
 {
 	long long	num;
+	long long	sign;
 
-	num = *(long long *)mod->num;
-	if (mod->length == LENGTH_NULL)
-		ft_putnbr((int)num);
-	else if (mod->length == L)
+	num = va_arg(mod->args, long long);
+	sign = 1 - 2 * (num < 0);
+	if (mod->length == L)
 		ft_putnbr((long)num);
+	else if (mod->length == LL)
+		ft_putnbr((long long)num);
 	else if (mod->length == H)
 		ft_putnbr((short)num);
 	else if (mod->length == HH)
 		ft_putnbr((signed char)num);
+	num *= sign;
+	if (sign == -1)
+	{
+		mod->sign = 0;
+		mod->char_count += 1;
+	}
+	g_flagprint[mod->flag[0]](mod);
+	mod->char_count += ft_uint_base_count((unsigned long long)num, 10);
+}
+
+void	ulength_print(t_formats *mod)
+{
+	unsigned long long	num;
+
+	num = va_arg(mod->args, unsigned long long);
+	if (mod->length == L)
+		ft_putnbr((unsigned long)num);
+	else if (mod->length == LL)
+		ft_putnbr((unsigned long long)num);
+	else if (mod->length == H)
+		ft_putnbr((unsigned short)num);
+	else if (mod->length == HH)
+		ft_putnbr((unsigned char)num);
+	g_flagprint[mod->flag[0]](mod);
+	mod->char_count += ft_uint_base_count(num, 10);
 }

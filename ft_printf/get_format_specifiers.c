@@ -6,13 +6,13 @@
 /*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 18:05:01 by leo               #+#    #+#             */
-/*   Updated: 2022/02/14 11:54:57 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/14 15:20:27 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-const char	*get_flag(const char *format, t_formats *mod)
+char	*get_flag(char *format, t_formats *mod)
 {
 	int		i;
 	int		j;
@@ -37,7 +37,7 @@ const char	*get_flag(const char *format, t_formats *mod)
 	return (get_width(&(*format++), mod, WIDTH));
 }
 
-const char	*get_width(const char *format, t_formats *mod, int flag)
+char	*get_width(char *format, t_formats *mod, int flag)
 {
 	int		i;
 	char	*temp;
@@ -59,7 +59,7 @@ const char	*get_width(const char *format, t_formats *mod, int flag)
 	return (&(format[i]));
 }
 
-const char	*get_length(const char *format, t_formats *mod)
+char	*get_length(char *format, t_formats *mod)
 {
 	int	i;
 	int	j;
@@ -83,7 +83,7 @@ const char	*get_length(const char *format, t_formats *mod)
 	return (&(*format));
 }
 
-int	get_specifier(va_list args, t_formats *mod, int c)
+int	get_specifier(t_formats *mod, int c)
 {
 	int	i;
 
@@ -95,7 +95,7 @@ int	get_specifier(va_list args, t_formats *mod, int c)
 			mod->specifier = c;
 			if (g_conversion[i] == -1)
 				break ;
-			g_printf[g_conversion[i]](args, mod);
+			g_printf[g_conversion[i]](	mod);
 			return (1);
 		}
 		i++;
