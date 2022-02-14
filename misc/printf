@@ -11,7 +11,7 @@
 # Add function for precision,
 
 # Test for evals: 
-# Flag combos, repeteating 0 or same flag, newline count, memory leaks?
+# Flag combos, repeteating 0 or same flag, newline count, memory leaks, negative oxX, 
 
 # FLAGSINFO: 
 # 0 is ignored when - is there
@@ -37,16 +37,6 @@
 # -space
 # +0
 # +-
-# space-
-# space0
-
-# flag combos with bits?
-# 0
-
-# #-
-# #0
-# +-
-# +0
 # space-
 # space0
 
