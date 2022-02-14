@@ -1,35 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pointer_type_printf.c                              :+:      :+:    :+:   */
+/*   ft_int_base_count.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/08 09:00:57 by leo               #+#    #+#             */
-/*   Updated: 2022/02/14 21:45:08 by leo              ###   ########.fr       */
+/*   Created: 2022/02/08 13:58:23 by leotran           #+#    #+#             */
+/*   Updated: 2022/02/14 20:23:52 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-void	str_print(t_formats *mod)
+int	ft_int_base_count(long long num, int base)
 {
-	char	*str;
+	int	count;
 
-	str = va_arg(mod->args, char *);
-	ft_putstr(str);
-}
-
-void	memaddr_print(t_formats *mod)
-{
-	ft_putaddr(va_arg(mod->args, void *));
-}
-
-void	custom_putstr(t_formats *mod, char *str)
-{
-	size_t	size;
-
-	size = ft_strlen(str);
-	mod->char_count += (int)size;
-	ft_putstr(str);
+	count = 0;
+	if (num < 0)
+	{
+		num *= -1;
+		count++;
+	}	
+	while (num > 0)
+	{
+		num /= (long long)base;
+		count++;
+	}
+	return (count);
 }

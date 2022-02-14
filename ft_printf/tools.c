@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tools.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 16:44:08 by leotran           #+#    #+#             */
-/*   Updated: 2022/02/14 16:11:24 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/14 21:31:34 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,34 +40,26 @@ void	initialize_t_formats(t_formats *mod)
 	mod->char_count = 0;
 	mod->formatcombo = 0;
 	mod->num = NULL;
-	mod->sign = 1;
-	mod->int_length = 0;
 }
 
 void	length_print(t_formats *mod)
 {
 	long long	num;
-	long long	sign;
 
 	num = va_arg(mod->args, long long);
-	sign = 1 - 2 * (num < 0);
+	mod->num = ft_itoa_base(num, 10, 0);
+	g_flagprint[mod->flag[0]](mod);
+	if (mod->flag[0] != FLAGNULL)
+		return ;
 	if (mod->length == L)
 		ft_putnbr((long)num);
-	else if (mod->length == LL)
-		ft_putnbr((long long)num);
 	else if (mod->length == H)
 		ft_putnbr((short)num);
 	else if (mod->length == HH)
 		ft_putnbr((signed char)num);
-	num *= sign;
-	if (sign == -1)
-	{
-		mod->sign = 0;
-		mod->char_count += 1;
-	}
-	mod->num = &num;
-	g_flagprint[mod->flag[0]](mod);
-	mod->char_count += ft_uint_base_count((unsigned long long)num, 10);
+	else
+		ft_putnbr(num);
+	mod->char_count += ft_int_base_count((long long)num, 10);
 }
 
 void	ulength_print(t_formats *mod)
@@ -75,15 +67,17 @@ void	ulength_print(t_formats *mod)
 	unsigned long long	num;
 
 	num = va_arg(mod->args, unsigned long long);
+	mod->num = ft_uitoa_base(num, 10, 0);
+	g_flagprint[mod->flag[0]](mod);
+	if (mod->flag[0] != FLAGNULL)
+		return ;
 	if (mod->length == L)
 		ft_putnbr((unsigned long)num);
-	else if (mod->length == LL)
-		ft_putnbr((unsigned long long)num);
 	else if (mod->length == H)
 		ft_putnbr((unsigned short)num);
 	else if (mod->length == HH)
 		ft_putnbr((unsigned char)num);
-	mod->num = &num;
-	g_flagprint[mod->flag[0]](mod);
+	else
+		ft_putnbr((unsigned long long)num);
 	mod->char_count += ft_uint_base_count(num, 10);
 }

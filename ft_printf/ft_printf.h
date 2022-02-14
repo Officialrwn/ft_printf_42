@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 08:25:53 by leo               #+#    #+#             */
-/*   Updated: 2022/02/14 16:11:02 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/14 23:52:38 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,9 @@
 # define WIDTH 		0
 # define PRECISION 	1
 
-# define HPSZD		9
+# define HSP		22
 # define DHS		12
+# define HPSZD		9
 
 # include <unistd.h>
 # include <stdlib.h>
@@ -55,50 +56,47 @@ typedef enum e_length
 
 typedef struct s_formats
 {
+	u_int16_t		formatcombo;
 	t_flags			uint_flag[3];
 	t_length		length;
 	va_list			args;
-	const char		*tempformat;
-	int				int_length;
-	int				sign;
+	char			*tempformat;
+	char			*num;
+	int				flag[2];
 	int				width;
 	int				precision;
 	int				specifier;
-	int				flag[2];
-	size_t			char_count;
-	u_int16_t		formatcombo;
-	void			*num;
+	int				char_count;
 }	t_formats;
 
-int			get_formatcombo(t_formats *mod);
-
-void		plus_print(t_formats *mod);
-void		hash_print(t_formats *mod);
-void		zero_print(t_formats *mod);
-void		space_print(t_formats *mod);
-void		dash_print(t_formats *mod);
-
-void		error_print(t_formats *mod);
-void		initialize_t_formats(t_formats *mod);
+void	plus_print(t_formats *mod);
+void	hash_print(t_formats *mod);
+void	zero_print(t_formats *mod);
+void	space_print(t_formats *mod);
+void	dash_print(t_formats *mod);
+void	error_print(t_formats *mod);
 
 char	*get_flag(char *format, t_formats *mod);
 char	*get_length(char *format, t_formats *mod);
 char	*get_width(char *format, t_formats *mod, int flag);
 
-void		get_formats(char *format, t_formats *mod);
-int			get_specifier(t_formats *mod, int c);
-int			ft_printf(const char *format, ...);
+void	initialize_t_formats(t_formats *mod);
+void	get_formats(char *format, t_formats *mod);
+int		ft_printf(const char *format, ...);
+int		get_specifier(t_formats *mod, int c);
+int		get_formatcombo(t_formats *mod);
 
-void		ulength_print(t_formats *mod);
-void		length_print(t_formats *mod);
-void		char_print(t_formats *mod);
-void		str_print(t_formats *mod);
-void		memaddr_print(t_formats *mod);
-void		int_print(t_formats *mod);
-void		base_int_printf(t_formats *mod);
-void		uint_print(t_formats *mod);
-void		percentage_putchar(t_formats *mod);
-int			custom_putchar(int c);
+void	ulength_print(t_formats *mod);
+void	length_print(t_formats *mod);
+void	char_print(t_formats *mod);
+void	str_print(t_formats *mod);
+void	memaddr_print(t_formats *mod);
+void	int_print(t_formats *mod);
+void	base_int_printf(t_formats *mod);
+void	uint_print(t_formats *mod);
+void	percentage_putchar(t_formats *mod);
+void	custom_putchar(t_formats *mod, int c);
+void	custom_putstr(t_formats *mod, char *str);
 
 typedef void				(*t_printf)(t_formats *mod);
 typedef void				(*t_flagprint)(t_formats *mod);

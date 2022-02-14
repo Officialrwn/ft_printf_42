@@ -1,6 +1,5 @@
 # TODO
-# make an int_base_count? store the intcount in struct?
-# Fix ZERO. (currently segfaults);
+# negative hex or octal etc?
 # Check dashprint conditions and test if calling second flag works.
 # Check the flagformat prints *infinite loop with new flagbinaries
 # if no conversionflag found print only va_arg else print normally.

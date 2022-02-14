@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 09:13:31 by leotran           #+#    #+#             */
-/*   Updated: 2022/02/12 19:47:00 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/14 21:00:46 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,5 +117,7 @@ char	*ft_uitoa_base(unsigned long long num, int base, int flag);
 void	ft_putaddr(void *arr);
 int		ft_uint_base_count(unsigned long long num, int base);
 void	ft_put_u_nbr(unsigned long long n);
+int		ft_int_base_count(long long num, int base);
+char	*ft_itoa_base(long long num, int base, int flag);
 
 #endif

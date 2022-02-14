@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 08:55:01 by leo               #+#    #+#             */
-/*   Updated: 2022/02/14 15:20:43 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/14 21:47:44 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,6 @@ void	get_formats(char *format, t_formats *mod)
 			if (!(get_specifier(mod, *format++)))
 				printf("invalid specifier\n");
 		}
-		mod->char_count += custom_putchar(*format++);
+		custom_putchar(mod, *format++);
 	}
 }
