@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 15:49:29 by leotran           #+#    #+#             */
-/*   Updated: 2022/02/14 20:55:41 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/15 08:34:55 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,11 @@ int base, char *arr, int flag)
 		flag = 55;
 	else
 		flag = 87;
-	while (i--)
+	while (--i >= 0)
 	{
 		remainder = num % (unsigned long long)base;
 		if (remainder > 9)
-			arr[i] = remainder + flag;
+			arr[i] = remainder + (unsigned long long)flag;
 		else
 			arr[i] = remainder + 48;
 		num /= base;

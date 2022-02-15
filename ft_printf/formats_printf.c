@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 18:57:01 by leo               #+#    #+#             */
-/*   Updated: 2022/02/15 00:15:57 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/15 08:40:49 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,12 @@ void	hash_print(t_formats *mod)
 	flag = 0;
 	if (mod->uint_flag[0] == HASH && (mod->formatcombo & HPSZD) != 0)
 		flag = 1;
-	custom_putchar(mod, '0');
-	if (mod->specifier != 'o')
-		custom_putchar(mod, mod->specifier);
+	if (*mod->num != '0')
+	{
+		custom_putchar(mod, '0');
+		if (mod->specifier != 'o')
+			custom_putchar(mod, mod->specifier);
+	}
 	if (flag == 1 && mod->uint_flag[1] != 0)
 	{
 		g_flagprint[mod->flag[1]](mod);

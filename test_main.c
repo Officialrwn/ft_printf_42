@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 20:23:30 by leo               #+#    #+#             */
-/*   Updated: 2022/02/12 19:02:27 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/15 08:33:23 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,27 +15,12 @@
 #include <stdlib.h>
 #include "ft_printf/libft/libft.h"
 
-#define FLAGS "0# -+"
-#define UINTFLAGS 
-typedef enum e_flags
-{
-	ZERO = 1,
-	HASH = 2,
-	SPACE = 4,
-	HYPHEN = 8,
-	PLUS = 16,
-	FLAGNULL = 0
-}	t_flags;
-
 int main(void)
 {
-	t_flags flag;
-	
-	for (int flag = ZERO; flag <= 3; ++flag)
-	{
-		printf("flag: %d\n", flag);
+	char *arr;
 
-	}
+	arr = ft_uitoa_base(0, 10, 0);
+	printf("arr: %s\n", arr);
 	return (0);
 }
 /* Hashkey algo for flags: #0- +

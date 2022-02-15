@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 16:44:08 by leotran           #+#    #+#             */
-/*   Updated: 2022/02/15 00:13:30 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/15 08:42:34 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,10 +87,10 @@ int	get_num_length(t_formats *mod)
 	size_t	len;
 
 	len = ft_strlen(mod->num);
-	if (mod->num[0] == '-')
+	if (*mod->num == '-')
 	{
 		custom_putchar(mod, '-');
-		mod->num = &mod->num[1];
+		mod->num = &(*++mod->num);
 	}
 	else if ((mod->formatcombo & HASH) != 0 && mod->specifier != 'o')
 		len += 2;

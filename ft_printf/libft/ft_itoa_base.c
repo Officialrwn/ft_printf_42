@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 15:49:29 by leotran           #+#    #+#             */
-/*   Updated: 2022/02/14 21:00:02 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/15 08:32:41 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,8 @@ static char	*convert_itoa_base(long long num, int base, char *arr, int flag)
 		flag = 55;
 	else
 		flag = 87;
-	while (num > 0)
+	while (--i >= 0)
 	{
-		i--;
 		remainder = num % (long long)base;
 		if (remainder > 9)
 			arr[i] = remainder + (long long)flag;

@@ -12,7 +12,7 @@
 # Add function for precision,
 
 # Test for evals: 
-# Flag combos, repeteating 0 or same flag, newline count, memory leaks, negative oxX, 
+# Flag combos, repeteating 0 or same flag, newline count, memory leaks, negative oxX, print 0 with oxX
 
 # FLAGSINFO: 
 # 0 is ignored when - is there

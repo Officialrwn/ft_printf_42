@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 13:58:23 by leotran           #+#    #+#             */
-/*   Updated: 2022/02/14 20:23:52 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/15 08:28:57 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_int_base_count(long long num, int base)
 	int	count;
 
 	count = 0;
-	if (num < 0)
+	if (num <= 0)
 	{
 		num *= -1;
 		count++;
