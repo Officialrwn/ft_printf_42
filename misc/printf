@@ -1,7 +1,8 @@
 # TODO
-# negative hex or octal etc?
-# Fix the make file
-# if no conversionflag found print only va_arg else print normally.
+# Fix percentage %
+# Fix CSP + Flags + return value is wrong
+# mod->num double mallocing? Error on 42
+# negative hex or octal etc
 # Fix floats.
 # Add function for precision,
 
