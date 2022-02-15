@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   char_type_printf.c                                 :+:      :+:    :+:   */
+/*   char_printf.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:00:57 by leo               #+#    #+#             */
-/*   Updated: 2022/02/14 22:41:51 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/15 21:36:50 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,12 @@ void	custom_putchar(t_formats *mod, int c)
 
 void	percentage_putchar(t_formats *mod)
 {
+	mod->char_count += 1;
 	ft_putchar('%');
 }
 
 void	error_print(t_formats *mod)
 {
+	mod->char_count += 0;
 	return ;
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   formats_printf.c                                   :+:      :+:    :+:   */
+/*   flags_printf.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 18:57:01 by leo               #+#    #+#             */
-/*   Updated: 2022/02/15 14:48:36 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/15 21:53:45 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	zero_print(t_formats *mod)
 		while (mod->width-- - len)
 			custom_putchar(mod, '0');
 	}
-	custom_putstr(mod, mod->num);
+	custom_putstr(mod, mod->num);	
 }
 
 void	hash_print(t_formats *mod)
