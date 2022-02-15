@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 08:25:53 by leo               #+#    #+#             */
-/*   Updated: 2022/02/15 00:08:39 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/15 11:49:59 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # define LENGTH 	"hhllL"
 # define WIDTH 		0
 # define PRECISION 	1
+# define ERROR_FLAG	5
 
 # define HSP		22
 # define DHS		12
@@ -87,6 +88,7 @@ int		get_specifier(t_formats *mod, int c);
 int		get_formatcombo(t_formats *mod);
 int		get_num_length(t_formats *mod);
 
+void	width_print(t_formats *mod);
 void	ulength_print(t_formats *mod);
 void	length_print(t_formats *mod);
 void	char_print(t_formats *mod);
