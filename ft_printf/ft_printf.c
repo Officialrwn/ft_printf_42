@@ -6,7 +6,7 @@
 /*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 08:55:01 by leo               #+#    #+#             */
-/*   Updated: 2022/02/15 11:39:20 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/15 14:25:59 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ void	get_formats(char *format, t_formats *mod)
 	{
 		if (*format == '%')
 		{
-			mod->tempformat = format;
 			format = get_flag(&(*++format), mod);
 			get_formatcombo(mod);
 			if ((*format) == '.')

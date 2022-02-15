@@ -6,7 +6,7 @@
 /*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 08:25:53 by leo               #+#    #+#             */
-/*   Updated: 2022/02/15 11:49:59 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/15 14:25:55 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,6 @@ typedef struct s_formats
 	t_flags			uint_flag[3];
 	t_length		length;
 	va_list			args;
-	char			*tempformat;
 	char			*num;
 	int				flag[2];
 	int				width;

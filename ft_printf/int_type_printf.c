@@ -6,7 +6,7 @@
 /*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:00:57 by leo               #+#    #+#             */
-/*   Updated: 2022/02/15 12:27:03 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/15 13:50:57 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ void	int_print(t_formats *mod)
 	{
 		num = va_arg(mod->args, int);
 		mod->num = ft_itoa(num);
-		g_flagprint[mod->flag[0]](mod);
-		if (mod->width > 0)
+		if (mod->width > 0 && mod->uint_flag[0] == FLAGNULL)
 			width_print(mod);
+		g_flagprint[mod->flag[0]](mod);
 		if (mod->uint_flag[0] != FLAGNULL)
 			return ;
 		ft_putnbr(num);

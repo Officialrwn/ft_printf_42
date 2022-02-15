@@ -6,7 +6,7 @@
 /*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 18:57:01 by leo               #+#    #+#             */
-/*   Updated: 2022/02/15 11:59:13 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/15 14:48:36 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,16 @@
 void	zero_print(t_formats *mod)
 {
 	int	len;
+	int	is_negative;
 
-	if (mod->width <= 0)
-		return ;
-	len = get_num_length(mod);
-	while (mod->width-- - len)
-		custom_putchar(mod, '0');
+	if (mod->width > 0)
+	{
+		is_negative = 1 * (*mod->num == '-');
+		len = get_num_length(mod);
+		len -= is_negative;
+		while (mod->width-- - len)
+			custom_putchar(mod, '0');
+	}
 	custom_putstr(mod, mod->num);
 }
 
@@ -52,7 +56,8 @@ void	space_print(t_formats *mod)
 	flag = 0;
 	if (mod->uint_flag[0] == SPACE && (mod->formatcombo & HPSZD) != 0)
 		flag = 1;
-	custom_putchar(mod, ' ');
+	if (*mod->num != '-')
+		custom_putchar(mod, ' ');
 	if (mod->uint_flag[0] == SPACE && mod->uint_flag[1] != 0)
 	{
 		g_flagprint[mod->flag[1]](mod);
@@ -85,8 +90,12 @@ void	plus_print(t_formats *mod)
 	flag = 0;
 	if (mod->uint_flag[0] == PLUS && (mod->formatcombo & HPSZD) != 0)
 		flag = 1;
+	if ((mod->formatcombo & HPSZD) == 0)
+		width_print(mod);
 	if (mod->num[0] != '-')
 		custom_putchar(mod, '+');
+	else
+		custom_putchar(mod, '-');
 	if (flag == 1 && mod->uint_flag[1] != 0)
 	{
 		g_flagprint[mod->flag[1]](mod);
