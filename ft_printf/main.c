@@ -6,23 +6,28 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:04:46 by leo               #+#    #+#             */
-/*   Updated: 2022/02/16 00:47:16 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/16 10:13:52 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/ft_printf.h"
+#include "src/ft_printf.h"
 #include <stdio.h>
 
 int	main(void)
 {
 	int ret;
 	
-/* 	ret = ft_printf("test nr:0 -%-5o- HEHEH ret: ", 5);
+/* 	ret = ft_printf("test nr:0 -%%- HEHEH ret: ");
 	printf("%d\n", ret);
-	ret = printf("test nr:0 -%-5o- HEHEH ret: ", 5);
+	ret = printf("test nr:0 -%%- HEHEH ret: ");
+	printf("%d\n\n", ret); */
+	
+ 	ret = ft_printf("test nr:0 -%5d- HEHEH ret: ", 5);
+	printf("%d\n", ret);
+	ret = printf("test nr:0 -%5d- HEHEH ret: ", 5);
 	printf("%d\n\n", ret);
 
-	ret = ft_printf("test nr:1 -%#-8x- HEHEH ret: ", 255);
+	/* ret = ft_printf("test nr:1 -%#-8x- HEHEH ret: ", 255);
 	printf("%d\n", ret);
 	ret = printf("test nr:1 -%#-8x- HEHEH ret: ", 255);
 	printf("%d\n\n", ret);
@@ -35,14 +40,14 @@ int	main(void)
 	ret = ft_printf("test nr:3 -%+-5d- HEHEH ret: ", 5);
 	printf("%d\n", ret);
 	ret = printf("test nr:3 -%+-5d- HEHEH ret: ", 5);
-	printf("%d\n\n", ret); */
+	printf("%d\n\n", ret);
 
 	ret = ft_printf("test nr:4 -%-5d- HEHEH ret: ", -5);
 	printf("%d\n", ret);
 	ret = printf("test nr:4 -%-5d- HEHEH ret: ", -5);
 	printf("%d\n\n", ret);
 
-	/* ret = ft_printf("test nr:4 -%-#5X- HEHEH ret: ", 255);
+	ret = ft_printf("test nr:4 -%-#5X- HEHEH ret: ", 255);
 	printf("%d\n", ret);
 	ret = printf("test nr:4 -%-#5X- HEHEH ret: ", 255);
 	printf("%d\n\n", ret);
@@ -196,8 +201,7 @@ int	main(void)
 	ret = ft_printf("test nr:4 -%p- HEHEH ret: ", &a);
 	printf("%d\n", ret);
 	ret = printf("test nr:4 -%p- HEHEH ret: ", &a);
-	printf("%d\n\n", ret); */
+	printf("%d\n\n", ret);  */
 	
-	system("leaks a.out");
 	return (0);
 }

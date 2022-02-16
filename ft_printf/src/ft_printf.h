@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 08:25:53 by leo               #+#    #+#             */
-/*   Updated: 2022/02/15 20:20:07 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/16 10:02:28 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,14 +58,14 @@ typedef enum e_length
 typedef struct s_formats
 {
 	u_int16_t		formatcombo;
-	t_flags			uint_flag[3];
+	t_flags			uint_flag[2];
 	t_length		length;
 	va_list			args;
 	char			*num;
 	int				flag[2];
 	int				width;
 	int				precision;
-	int				specifier;
+	char			specifier;
 	int				char_count;
 }	t_formats;
 
@@ -82,8 +82,8 @@ char	*get_width(char *format, t_formats *mod, int flag);
 
 void	initialize_t_formats(t_formats *mod);
 void	get_formats(char *format, t_formats *mod);
+void	get_specifier(t_formats *mod, int c);
 int		ft_printf(const char *format, ...);
-int		get_specifier(t_formats *mod, int c);
 int		get_formatcombo(t_formats *mod);
 int		get_num_length(t_formats *mod);
 

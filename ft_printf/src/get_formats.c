@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 18:05:01 by leo               #+#    #+#             */
-/*   Updated: 2022/02/16 00:45:47 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/16 10:05:12 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ char	*get_flag(char *format, t_formats *mod)
 		}	
 		i++;
 	}
+	get_formatcombo(mod);
 	return (get_width(&(*format++), mod, WIDTH));
 }
 
@@ -83,7 +84,7 @@ char	*get_length(char *format, t_formats *mod)
 	return (&(*format));
 }
 
-int	get_specifier(t_formats *mod, int c)
+void	get_specifier(t_formats *mod, int c)
 {
 	int	i;
 
@@ -96,10 +97,8 @@ int	get_specifier(t_formats *mod, int c)
 			if (g_conversion[i] == -1)
 				break ;
 			g_printf[g_conversion[i]](mod);
-
-			return (1);
+			return ;
 		}
 		i++;
 	}
-	return (0);
 }

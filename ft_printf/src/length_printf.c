@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 14:45:26 by leotran           #+#    #+#             */
-/*   Updated: 2022/02/16 00:15:18 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/16 10:16:33 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,11 @@ void	ulength_print(t_formats *mod)
 	if (mod->flag[0] != FLAGNULL)
 		return ;
 	if (mod->length == L)
-		ft_putnbr((unsigned long)num);
+		ft_put_u_nbr((unsigned long)num);
 	else if (mod->length == H)
-		ft_putnbr((unsigned short)num);
+		ft_put_u_nbr((unsigned short)num);
 	else if (mod->length == HH)
-		ft_putnbr((unsigned char)num);
+		ft_put_u_nbr((unsigned char)num);
 	else
 		ft_putnbr((unsigned long long)num);
 	mod->char_count += ft_uint_base_count(num, 10);
