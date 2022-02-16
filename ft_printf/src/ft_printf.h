@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 08:25:53 by leo               #+#    #+#             */
-/*   Updated: 2022/02/16 10:02:28 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/16 13:37:17 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,10 @@
 # define PRECISION 	1
 # define ERROR_FLAG	5
 
-# define HSP		22
-# define DHS		12
-# define HPSZD		9
+# define DASH_HSP	22
+# define DS			12
+# define HPS_ZD		9
+# define DASH_HS	6
 
 # include <unistd.h>
 # include <stdlib.h>
@@ -58,13 +59,13 @@ typedef enum e_length
 typedef struct s_formats
 {
 	u_int16_t		formatcombo;
-	t_flags			uint_flag[2];
-	t_length		length;
+	u_int16_t		uint_flag[2];
 	va_list			args;
 	char			*num;
 	int				flag[2];
 	int				width;
 	int				precision;
+	int				length;
 	char			specifier;
 	int				char_count;
 }	t_formats;
@@ -82,7 +83,7 @@ char	*get_width(char *format, t_formats *mod, int flag);
 
 void	initialize_t_formats(t_formats *mod);
 void	get_formats(char *format, t_formats *mod);
-void	get_specifier(t_formats *mod, int c);
+void	get_specifier(t_formats *mod, char c);
 int		ft_printf(const char *format, ...);
 int		get_formatcombo(t_formats *mod);
 int		get_num_length(t_formats *mod);

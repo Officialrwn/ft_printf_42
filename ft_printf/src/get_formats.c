@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_formats.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 18:05:01 by leo               #+#    #+#             */
-/*   Updated: 2022/02/16 10:05:12 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/16 12:32:10 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 char	*get_flag(char *format, t_formats *mod)
 {
-	int		i;
-	int		j;
-	char	c;
+	int			i;
+	int			j;
+	char		c;
 
 	i = 0;
 	j = 0;
@@ -24,7 +24,7 @@ char	*get_flag(char *format, t_formats *mod)
 	{
 		if (FLAGS[i] == *format && mod->uint_flag[j] == FLAGNULL && j != 2)
 		{
-			mod->uint_flag[j] = 1 << i;
+			mod->uint_flag[j] ^= 1 << i;
 			mod->flag[j++] = i;
 			c = *format;
 			while (*format == c)
@@ -84,7 +84,7 @@ char	*get_length(char *format, t_formats *mod)
 	return (&(*format));
 }
 
-void	get_specifier(t_formats *mod, int c)
+void	get_specifier(t_formats *mod, char c)
 {
 	int	i;
 

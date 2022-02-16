@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tools.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 16:44:08 by leotran           #+#    #+#             */
-/*   Updated: 2022/02/16 09:46:29 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/16 13:40:30 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,9 @@ int	get_num_length(t_formats *mod)
 	size_t	len;
 
 	len = ft_strlen(mod->num);
-	if (*mod->num == '-')
-		mod->num = &(*++mod->num);
 	if ((mod->formatcombo & HASH) != 0 && mod->specifier != 'o')
 		len += 2;
-	else if ((mod->formatcombo & HSP) != 0)
+	else if ((mod->formatcombo & DASH_HSP) != 0)
 		len++;
 	return ((int)len);
 }

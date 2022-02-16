@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   char_printf.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:00:57 by leo               #+#    #+#             */
-/*   Updated: 2022/02/15 23:54:07 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/16 14:04:58 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,21 @@
 
 void	char_print(t_formats *mod)
 {
+ 	char	c;
+
+	c = (char)va_arg(mod->args, int);
+	if (mod->uint_flag[0] == DASH)
+	{
+		ft_putchar(c);
+		//width_print(mod);
+	}
+	else
+	{
+		if (mod->width > 0)
+		//	width_print(mod);
+		ft_putchar(c);
+	}
 	mod->char_count += 1;
-	ft_putchar(va_arg(mod->args, int));
 }
 
 void	custom_putchar(t_formats *mod, int c)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   length_printf.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 14:45:26 by leotran           #+#    #+#             */
-/*   Updated: 2022/02/16 10:16:33 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/16 12:46:20 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	length_print(t_formats *mod)
 	num = va_arg(mod->args, long long);
 	mod->num = ft_itoa_base(num, 10, 0);
 	g_flagprint[mod->flag[0]](mod);
+	
 	if (mod->flag[0] != FLAGNULL)
 		return ;
 	if (mod->length == L)
@@ -48,7 +49,7 @@ void	ulength_print(t_formats *mod)
 	else if (mod->length == HH)
 		ft_put_u_nbr((unsigned char)num);
 	else
-		ft_putnbr((unsigned long long)num);
+		ft_put_u_nbr((unsigned long long)num);
 	mod->char_count += ft_uint_base_count(num, 10);
 }
 

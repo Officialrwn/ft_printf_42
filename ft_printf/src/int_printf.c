@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   int_printf.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:00:57 by leo               #+#    #+#             */
-/*   Updated: 2022/02/16 10:16:12 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/16 12:51:19 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ void	int_print(t_formats *mod)
 		g_flagprint[mod->flag[0]](mod);
 		if (mod->uint_flag[0] != FLAGNULL)
 			return ;
-		ft_putnbr(num);
-		mod->char_count += ft_int_base_count((long long)num, 10);
+		custom_putstr(mod, mod->num);
+		ft_strdel(&mod->num);
 	}
 	else
 		length_print(mod);
@@ -43,8 +43,8 @@ void	uint_print(t_formats *mod)
 		g_flagprint[mod->flag[0]](mod);
 		if (mod->uint_flag[0] != FLAGNULL)
 			return ;
-		ft_put_u_nbr(num);
-		mod->char_count += ft_uint_base_count((unsigned long long)num, 10);
+		custom_putstr(mod, mod->num);
+		ft_strdel(&mod->num);
 	}
 	else
 		ulength_print(mod);

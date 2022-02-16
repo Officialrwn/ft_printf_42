@@ -22,7 +22,7 @@
 # FLAG: # / 0 or - [only with oxXf conversion](+ and space is error)
 # FLAG: - / # or space [works with csp too](0 is ignored and + is error)
 # FLAG: + / 0 or - and [only with dif conversion]('space',# and oxX is error)
-# FLAG: space / - or 0 [csp only works with space- else works for diouf](+, # and conversion oxX is error)
+# FLAG: space / - or 0 [s only works with space- else works for diouf](+, # and conversion oxX is error)
 # 0 is always ignored if - is there.
 # if isdigit then no more flags and next is [width] or error.
 
