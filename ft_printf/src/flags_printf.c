@@ -6,7 +6,7 @@
 /*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 18:57:01 by leo               #+#    #+#             */
-/*   Updated: 2022/02/16 13:37:52 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/16 16:17:19 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ void	zero_print(t_formats *mod)
 		len -= is_negative;
 		while (mod->width-- - len)
 			custom_putchar(mod, '0');
-	if (*mod->num == '-')
-		temp = &(mod->num[1]);
+		if (*mod->num == '-')
+			temp = &(mod->num[1]);
 	}
 	custom_putstr(mod, temp);
 	ft_strdel(&mod->num);
@@ -52,6 +52,8 @@ void	hash_print(t_formats *mod)
 		return ;
 	}
 	custom_putstr(mod, mod->num);
+	if (mod->uint_flag[0] != DASH)
+		ft_strdel(&mod->num);
 }
 
 void	space_print(t_formats *mod)
@@ -69,6 +71,8 @@ void	space_print(t_formats *mod)
 		return ;
 	}
 	custom_putstr(mod, mod->num);
+	if (mod->uint_flag[0] != DASH)
+		ft_strdel(&mod->num);
 }
 
 void	dash_print(t_formats *mod)

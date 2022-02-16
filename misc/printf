@@ -1,11 +1,12 @@
 # TODO
 # instead if putnbr on ulength and length then just putstr the mod->num?
-# Fix percentage %
-# Fix CSP + Flags + return value is wrong
+# Fix S + Flags + return value is wrong
 # mod->num double mallocing? Error on 42
 # negative hex or octal etc
 # Fix floats.
 # Add function for precision,
+# % funkar med - och 0
+
 
 # Test for evals: 
 # Flag combos, repeteating 0 or same flag, newline count, memory leaks, negative oxX, print 0 with oxX

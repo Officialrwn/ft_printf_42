@@ -6,7 +6,7 @@
 /*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:00:57 by leo               #+#    #+#             */
-/*   Updated: 2022/02/16 13:50:28 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/16 15:27:20 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,9 @@ void	memaddr_print(t_formats *mod)
 		if (mod->width > 0)
 			width_print(mod);
 		custom_putstr(mod, mod->num);
-		ft_strdel(&temp);
 		ft_strdel(&mod->num);
 	}
+	ft_strdel(&temp);
 }
 
 void	custom_putstr(t_formats *mod, char *str)

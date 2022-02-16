@@ -6,7 +6,7 @@
 /*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:04:46 by leo               #+#    #+#             */
-/*   Updated: 2022/02/16 13:44:34 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/16 16:15:09 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	main(void)
 	int ret;
 	int count = 21;
 
- 	ret = ft_printf("test nr:0 -%%- HEHEH ret: ");
+	ret = ft_printf("test nr:0 -%%- HEHEH ret: ");
 	printf("%d\n", ret);
 	ret = printf("test nr:0 -%%- HEHEH ret: ");
 	printf("%d\ntest row nr: %d\n\n", ret, count); count += 5;
@@ -47,8 +47,8 @@ int	main(void)
 	printf("%d\n", ret);
 	ret = printf("test nr:4 -%-5d- HEHEH ret: ", -5);
 	printf("%d\ntest row nr: %d\n\n", ret, count); count += 5;
-
-	ret = ft_printf("test nr:4 -%-#5X- HEHEH ret: ", 255);
+ 
+ 	ret = ft_printf("test nr:4 -%-#5X- HEHEH ret: ", 255);
 	printf("%d\n", ret);
 	ret = printf("test nr:4 -%-#5X- HEHEH ret: ", 255);
 	printf("%d\ntest row nr: %d\n\n", ret, count); count += 5;
@@ -92,7 +92,7 @@ int	main(void)
 	printf("%d\n", ret);
 	ret = printf("test nr:4 -%+d- HEHEH ret: ", -255);
 	printf("%d\ntest row nr: %d\n\n", ret, count); count += 5;
-
+ 
 	ret = ft_printf("test nr:4 -%#X- HEHEH ret: ", 255255);
 	printf("%d\n", ret);
 	ret = printf("test nr:4 -%#X- HEHEH ret: ", 255255);
@@ -102,7 +102,7 @@ int	main(void)
 	printf("%d\n", ret);
 	ret = printf("test nr:4 -% d- HEHEH ret: ", 255255);
 	printf("%d\ntest row nr: %d\n\n", ret, count); count += 5;
-	
+
 	ret = ft_printf("test nr:4 -% d- HEHEH ret: ", -255255);
 	printf("%d\n", ret);
 	ret = printf("test nr:4 -% d- HEHEH ret: ", -255255);
@@ -197,9 +197,9 @@ int	main(void)
 	printf("%d\n", ret);
 	ret = printf("test nr:4 -%c- HEHEH ret: ", '@');
 	printf("%d\ntest row nr: %d\n\n", ret, count); count += 5;
-	
+
 	int a = 42; ret = ft_printf("test nr:4 -%p- HEHEH ret: ", &a);
-	printf("%d\n", ret);
+ 	printf("%d\n", ret);
 	ret = printf("test nr:4 -%p- HEHEH ret: ", &a);
 	printf("%d\ntest row nr: %d\n\n", ret, count); count += 5;
 	
@@ -207,8 +207,8 @@ int	main(void)
 	printf("%d\n", ret);
 	ret = printf("test nr:4 -%-30p- HEHEH ret: ", &a);
 	printf("%d\ntest row nr: %d\n\n", ret, count); count += 5;
-	
-	ret = ft_printf("test nr:4 -%-5c- HEHEH ret: ", '@');
+
+ 	ret = ft_printf("test nr:4 -%-5c- HEHEH ret: ", '@');
 	printf("%d\n", ret);
 	ret = printf("test nr:4 -%-5c- HEHEH ret: ", '@');
 	printf("%d\ntest row nr: %d\n\n", ret, count); count += 5;
@@ -222,7 +222,32 @@ int	main(void)
 	printf("%d\n", ret);
 	ret = printf("test nr:4 -%5c- HEHEH ret: ", '@');
 	printf("%d\ntest row nr: %d\n\n", ret, count); count += 5;
+
+	ret = ft_printf("test nr:4 -%5%- HEHEH ret: ");
+	printf("%d\n", ret);
+	ret = printf("test nr:4 -%5%- HEHEH ret: ");
+	printf("%d\ntest row nr: %d\n\n", ret, count); count += 5;
 	
+	ret = ft_printf("test nr:4 -%-5%- HEHEH ret: ");
+	printf("%d\n", ret);
+	ret = printf("test nr:4 -%-5%- HEHEH ret: ");
+	printf("%d\ntest row nr: %d\n\n", ret, count); count += 5;
+
+	ret = ft_printf("test nr:4 -%05%- HEHEH ret: ");
+	printf("%d\n", ret);
+	ret = printf("test nr:4 -%05%- HEHEH ret: ");
+	printf("%d\ntest row nr: %d\n\n", ret, count); count += 5;
+
+	ret = ft_printf("test nr:4 -%0-5%- HEHEH ret: ");
+	printf("%d\n", ret);
+	ret = printf("test nr:4 -%0-5%- HEHEH ret: ");
+	printf("%d\ntest row nr: %d\n\n", ret, count); count += 5;
+
+	ret = ft_printf("test nr:4 -%-05%- HEHEH ret: ");
+	printf("%d\n", ret);
+	ret = printf("test nr:4 -%-05%- HEHEH ret: ");
+	printf("%d\ntest row nr: %d\n\n", ret, count); count += 5;
+
 	system("leaks a.out");
 	return (0);
 }

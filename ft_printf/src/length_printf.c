@@ -6,7 +6,7 @@
 /*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 14:45:26 by leotran           #+#    #+#             */
-/*   Updated: 2022/02/16 12:46:20 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/16 15:17:35 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	length_print(t_formats *mod)
 	num = va_arg(mod->args, long long);
 	mod->num = ft_itoa_base(num, 10, 0);
 	g_flagprint[mod->flag[0]](mod);
-	
 	if (mod->flag[0] != FLAGNULL)
 		return ;
 	if (mod->length == L)
