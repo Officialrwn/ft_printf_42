@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   max_printftest.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 19:24:42 by mrantil           #+#    #+#             */
-/*   Updated: 2022/02/17 19:42:40 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/17 18:26:13 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -855,8 +855,8 @@ int	main(void)
 	test_int_minusminus_flag();
 	test_procentage();
 	test_address();
-	//test_asterix_with_int();
-	//test_asterix_with_str(); 
+	test_asterix_with_int();
+	test_asterix_with_str(); 
 	test_width_single();
 	test_width_multi();
 	test_width_multi2();
@@ -884,7 +884,7 @@ int	main(void)
 	test_length_h_unsigned_int2();
 	test_intmin();
 	test_42hex();
-	//test_asterix_with_int_plus(); //need more tests shere with width, precision, and minus flag
+	test_asterix_with_int_plus(); //need more tests shere with width, precision, and minus flag
 	test_hashoct();
 	test_hashoct_intmin();
 	test_hashhex_intmin();

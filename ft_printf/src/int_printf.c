@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   int_printf.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:00:57 by leo               #+#    #+#             */
-/*   Updated: 2022/02/17 15:52:40 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/17 19:28:55 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	int_print(t_formats *mod)
 	{
 		num = va_arg(mod->args, int);
 		mod->num = ft_itoa(num);
+		//printf("width: %d precision: %d\n", mod->width, mod->precision);
 		check_precision(mod, 0, 0);
 		if (mod->width > 0 && mod->uint_flag[0] == FLAGNULL)
 			width_print(mod);

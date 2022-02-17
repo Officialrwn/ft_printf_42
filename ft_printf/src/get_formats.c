@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_formats.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 18:05:01 by leo               #+#    #+#             */
-/*   Updated: 2022/02/16 12:32:10 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/17 19:25:26 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ char	*get_width(char *format, t_formats *mod, int flag)
 		i = *format++ - '0';
 		while (ft_isdigit(*format))
 		{
-			i *= 10 + (*format++ - '0');
+			i = (i * 10) + (*format++ - '0');
 		}	
 		if (flag == WIDTH)
 			mod->width = i;

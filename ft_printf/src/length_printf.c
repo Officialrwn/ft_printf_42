@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   length_printf.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 14:45:26 by leotran           #+#    #+#             */
-/*   Updated: 2022/02/17 15:53:32 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/17 19:40:12 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,8 @@ void	width_print(t_formats *mod)
 	int	len;
 
 	len = get_num_length(mod);
+	if (*mod->num == '-' && (mod->uint_flag[0] & PLUS) != 0)
+		len--;
 	if (mod->width-- - len <= 0)
 		return ;
 	while (mod->width-- - len >= 0)

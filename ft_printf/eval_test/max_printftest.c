@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   max_printftest.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 19:24:42 by mrantil           #+#    #+#             */
-/*   Updated: 2022/02/17 19:42:40 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/17 18:29:00 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -884,7 +884,7 @@ int	main(void)
 	test_length_h_unsigned_int2();
 	test_intmin();
 	test_42hex();
-	//test_asterix_with_int_plus(); //need more tests shere with width, precision, and minus flag
+	test_asterix_with_int_plus(); //need more tests shere with width, precision, and minus flag
 	test_hashoct();
 	test_hashoct_intmin();
 	test_hashhex_intmin();
