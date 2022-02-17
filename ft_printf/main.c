@@ -6,7 +6,7 @@
 /*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:04:46 by leo               #+#    #+#             */
-/*   Updated: 2022/02/16 16:15:09 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/17 15:51:25 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -247,7 +247,32 @@ int	main(void)
 	printf("%d\n", ret);
 	ret = printf("test nr:4 -%-05%- HEHEH ret: ");
 	printf("%d\ntest row nr: %d\n\n", ret, count); count += 5;
+ 
+ 	ret = ft_printf("test nr:4 -%-8.5d- HEHEH ret: ", 255);
+	printf("%d\n", ret);
+	ret = printf("test nr:4 -%-8.5d- HEHEH ret: ", 255);
+	printf("%d\ntest row nr: %d\n\n", ret, count); count += 5;
 
+ 	ret = ft_printf("test nr:4 -%-8.5d- HEHEH ret: ", -255);
+	printf("%d\n", ret);
+	ret = printf("test nr:4 -%-8.5d- HEHEH ret: ", -255);
+	printf("%d\ntest row nr: %d\n\n", ret, count); count += 5;
+
+	ret = ft_printf("test nr:4 -%-5.8d- HEHEH ret: ", -255);
+	printf("%d\n", ret);
+	ret = printf("test nr:4 -%-5.8d- HEHEH ret: ", -255);
+	printf("%d\ntest row nr: %d\n\n", ret, count); count += 5;
+
+	ret = ft_printf("test nr:4 -%-5.8d- HEHEH ret: ", 255);
+	printf("%d\n", ret);
+	ret = printf("test nr:4 -%-5.8d- HEHEH ret: ", 255);
+	printf("%d\ntest row nr: %d\n\n", ret, count); count += 5;
+	
+ 	ret = ft_printf("test nr:4 -%+8.5d- HEHEH ret: ", 255);
+	printf("%d\n", ret);
+	ret = printf("test nr:4 -%+8.5d- HEHEH ret: ", 255);
+	printf("%d\ntest row nr: %d\n\n", ret, count); count += 5;
+	
 	system("leaks a.out");
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:00:57 by leo               #+#    #+#             */
-/*   Updated: 2022/02/17 13:24:21 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/17 15:52:40 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	int_print(t_formats *mod)
 	{
 		num = va_arg(mod->args, int);
 		mod->num = ft_itoa(num);
+		check_precision(mod, 0, 0);
 		if (mod->width > 0 && mod->uint_flag[0] == FLAGNULL)
 			width_print(mod);
 		g_flagprint[mod->flag[0]](mod);
@@ -39,6 +40,7 @@ void	uint_print(t_formats *mod)
 	{
 		num = va_arg(mod->args, unsigned int);
 		mod->num = ft_uitoa_base(num, 10, 0);
+		check_precision(mod, 0, 0);
 		g_flagprint[mod->flag[0]](mod);
 		if (mod->uint_flag[0] != FLAGNULL)
 			return ;
@@ -60,6 +62,7 @@ void	base_int_printf(t_formats *mod)
 	if (mod->specifier == 'o')
 		base = 8;
 	mod->num = ft_uitoa_base(num, base, flag);
+	check_precision(mod, 0, 0);
 	g_flagprint[mod->flag[0]](mod);
 	if (mod->uint_flag[0] != FLAGNULL)
 		return ;

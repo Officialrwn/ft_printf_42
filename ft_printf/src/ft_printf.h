@@ -6,7 +6,7 @@
 /*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 08:25:53 by leo               #+#    #+#             */
-/*   Updated: 2022/02/16 13:37:17 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/17 15:52:56 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,8 @@ void	zero_print(t_formats *mod);
 void	space_print(t_formats *mod);
 void	dash_print(t_formats *mod);
 void	error_print(t_formats *mod);
+void	check_precision(t_formats *mod, int i, int j);
+
 
 char	*get_flag(char *format, t_formats *mod);
 char	*get_length(char *format, t_formats *mod);

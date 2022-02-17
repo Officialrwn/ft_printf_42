@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 09:13:31 by leotran           #+#    #+#             */
-/*   Updated: 2022/02/14 21:00:46 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/17 15:54:17 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,11 +113,11 @@ int		ft_countstrings(const char *s, char c);
 char	*ft_strccpy(char *src, int c);
 int		ft_get_next_line(const int fd, char **line);
 void	ft_foreach(int *tab, int length, void (*f)(int));
-char	*ft_uitoa_base(unsigned long long num, int base, int flag);
 void	ft_putaddr(void *arr);
-int		ft_uint_base_count(unsigned long long num, int base);
 void	ft_put_u_nbr(unsigned long long n);
+int		ft_uint_base_count(unsigned long long num, int base);
 int		ft_int_base_count(long long num, int base);
+char	*ft_uitoa_base(unsigned long long num, int base, int flag);
 char	*ft_itoa_base(long long num, int base, int flag);
 
 #endif
