@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:04:46 by leo               #+#    #+#             */
-/*   Updated: 2022/02/17 23:21:03 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/17 23:26:08 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,12 @@ int	main(void)
 	printf ("\nret: %d\n", ret);
 	ret = printf("%.0p, %.p", &a, &a);
 	printf ("\nret: %d\n", ret); */
+	
+	
+	/*
+	** FLOATS!!!!!
+	*/
+
 	/* long double num;
 	long double remainder;
 	long floatnum;
@@ -41,7 +47,11 @@ int	main(void)
 	printf("\n");
 	printf("%.16Lf\n", num);
 	 */
-	
+
+	/*
+	** FLOATS!!!!!
+	*/
+
 	/* int ret;
 	int count = 21;
 
