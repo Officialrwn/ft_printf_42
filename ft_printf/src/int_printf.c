@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:00:57 by leo               #+#    #+#             */
-/*   Updated: 2022/02/17 19:28:55 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/17 23:02:08 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,11 +53,11 @@ void	uint_print(t_formats *mod)
 
 void	base_int_printf(t_formats *mod)
 {
-	unsigned long long	num;
-	int					flag;
-	int					base;
+	unsigned int	num;
+	int				flag;
+	int				base;
 
-	num = va_arg(mod->args, unsigned long long);
+	num = va_arg(mod->args, unsigned int);
 	flag = 1 * (mod->specifier == 'X');
 	base = 16;
 	if (mod->specifier == 'o')

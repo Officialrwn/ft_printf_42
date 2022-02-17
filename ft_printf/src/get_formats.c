@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 18:05:01 by leo               #+#    #+#             */
-/*   Updated: 2022/02/17 19:25:26 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/17 23:16:22 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ char	*get_length(char *format, t_formats *mod)
 	return (&(*format));
 }
 
-void	get_specifier(t_formats *mod, char c)
+int	get_specifier(t_formats *mod, char c)
 {
 	int	i;
 
@@ -95,10 +95,12 @@ void	get_specifier(t_formats *mod, char c)
 		{
 			mod->specifier = c;
 			if (g_conversion[i] == -1)
-				break ;
+				return (0);
 			g_printf[g_conversion[i]](mod);
-			return ;
+			ft_strdel(&mod->num);
+			break ;
 		}
 		i++;
 	}
+	return (1);
 }

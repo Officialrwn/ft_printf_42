@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 08:25:53 by leo               #+#    #+#             */
-/*   Updated: 2022/02/17 23:15:06 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/17 15:52:56 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ char	*get_width(char *format, t_formats *mod, int flag);
 
 void	initialize_t_formats(t_formats *mod);
 void	get_formats(char *format, t_formats *mod);
-int		get_specifier(t_formats *mod, char c);
+void	get_specifier(t_formats *mod, char c);
 int		ft_printf(const char *format, ...);
 int		get_formatcombo(t_formats *mod);
 int		get_num_length(t_formats *mod);

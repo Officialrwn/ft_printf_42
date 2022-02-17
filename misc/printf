@@ -1,12 +1,19 @@
 # TODO
+# get_formats has no check for '\0'!!!!!!!!
 # instead if putnbr on ulength and length then just putstr the mod->num?
 # Fix S + Flags + return value is wrong
 # mod->num double mallocing? Error on 42
 # negative hex or octal etc
 # Fix floats.
-# Add function for precision,
-# % funkar med - och 0
+# Add function for precision should not print number if value is 0 and precision is 0 (+)?
+# precision for S (C)? P INVALID.
+# if %s and va_arg is NULL;
+# widht tillsammans med octal funkar inte.
 
+# 42FIle fails: 
+# l, ll flags
+
+# % funkar med - och 0
 
 # Test for evals: 
 # Flag combos, repeteating 0 or same flag, newline count, memory leaks, negative oxX, print 0 with oxX
