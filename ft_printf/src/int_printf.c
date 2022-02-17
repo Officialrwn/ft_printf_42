@@ -6,7 +6,7 @@
 /*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:00:57 by leo               #+#    #+#             */
-/*   Updated: 2022/02/16 12:51:19 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/17 13:24:21 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ void	int_print(t_formats *mod)
 		if (mod->uint_flag[0] != FLAGNULL)
 			return ;
 		custom_putstr(mod, mod->num);
-		ft_strdel(&mod->num);
 	}
 	else
 		length_print(mod);
@@ -44,7 +43,6 @@ void	uint_print(t_formats *mod)
 		if (mod->uint_flag[0] != FLAGNULL)
 			return ;
 		custom_putstr(mod, mod->num);
-		ft_strdel(&mod->num);
 	}
 	else
 		ulength_print(mod);
@@ -68,5 +66,4 @@ void	base_int_printf(t_formats *mod)
 	if (mod->width > 0)
 		width_print(mod);
 	custom_putstr(mod, mod->num);
-	ft_strdel(&mod->num);
 }
