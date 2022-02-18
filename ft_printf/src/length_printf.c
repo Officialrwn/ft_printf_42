@@ -6,7 +6,7 @@
 /*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 14:45:26 by leotran           #+#    #+#             */
-/*   Updated: 2022/02/18 13:20:20 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/18 17:24:58 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,30 +59,15 @@ void	width_print(t_formats *mod)
 		custom_putchar(mod, ' ');
 }
 
-void	check_precision(t_formats *mod, int i, int j)
+void	check_precision(t_formats *mod)
 {
-	char	*temp;
-	int		len;
+	int	len;
+	int	sign;
 
-	temp = mod->num;
-	len = mod->precision - (int)ft_strlen(mod->num) + (mod->num[0] == '-');
-	if (len > 0)
-	{
-		mod->num = ft_strnew((size_t)mod->precision);
-		if (mod->num)
-		{
-			if (temp[j] == '-')
-			{
-				mod->num[i++] = '-';
-				j++;
-			}
-			while (mod->precision--)
-			{
-				while (len-- > 0)
-					mod->num[i++] = '0';
-				mod->num[i++] = temp[j++];
-			}
-		}
-		ft_strdel(&temp);
-	}
+	sign = (mod->num[0] == '-');
+	len = mod->precision + sign - (int)ft_strlen(mod->num);
+	if (sign)
+		ft_putchar('-');
+	while (len--)
+		mod->char_count += write(1, "0", 1);
 }

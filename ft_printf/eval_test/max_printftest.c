@@ -6,7 +6,7 @@
 /*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 19:24:42 by mrantil           #+#    #+#             */
-/*   Updated: 2022/02/18 13:30:33 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/18 14:30:52 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -522,7 +522,7 @@ void test_mindfuck_minusminint2(void)
 	long	a = -2147483648;
 	long	b = -2147483648;
 	ret = printf("pri: %13.13dLol\n", (int)b);
-	a = ft_printf("ft_: %13.13dLol\n",(int)a);
+	ret2 = ft_printf("ft_: %13.13dLol\n",(int)a);
 	printf("\nret: %ld \n", b);
 	printf("ret: %ld \n", a);
 	if (a == b)

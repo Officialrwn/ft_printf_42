@@ -6,7 +6,7 @@
 /*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 08:55:01 by leo               #+#    #+#             */
-/*   Updated: 2022/02/18 12:57:39 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/18 17:21:47 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	ft_printf(const char *format, ...)
 
 void	get_formats(char *format, t_formats *mod)
 {
-	while (*format)
+	while (*format != '\0')
 	{
 		if (*format == '%')
 		{

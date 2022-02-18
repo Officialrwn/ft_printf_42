@@ -6,7 +6,7 @@
 /*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 16:44:08 by leotran           #+#    #+#             */
-/*   Updated: 2022/02/18 11:27:38 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/18 17:29:39 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,14 +40,14 @@ void	initialize_t_formats(t_formats *mod)
 
 int	get_num_length(t_formats *mod)
 {
-	size_t	len;
+	int	len;
 
-	len = ft_strlen(mod->num);
+	len = (int)ft_strlen(mod->num);
 	if ((mod->formatcombo & HASH) != 0 && mod->specifier != 'o')
 		len += 2;
 	else if ((mod->formatcombo & DASH_HSP) != 0)
 		len++;
-	return ((int)len);
+	return (len);
 }
 
 void printformats(t_formats *mod)
@@ -57,5 +57,6 @@ void printformats(t_formats *mod)
 	printf("width: %d\n", mod->width);
 	printf("precision: %d\n", mod->precision);
 	printf("length: %d [5 = LENGTH_NULL]\n", mod->length);
+	printf("num: %s\n\n", mod->num);
 	printf("specifier: %c\n\n", mod->specifier);
 }
