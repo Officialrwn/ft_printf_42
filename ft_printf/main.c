@@ -6,7 +6,7 @@
 /*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:04:46 by leo               #+#    #+#             */
-/*   Updated: 2022/02/18 11:33:48 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/18 13:26:32 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,12 @@
 
 int	main(void)
 {
+	/* int	a;
+	int	b;
+	a = printf("%hhd\n", (signed char)287);
+	b = ft_printf("%hhd\n", (signed char)287);
+	printf("\nret: %d \n", a);
+	printf("ret: %d \n", b); */
 /* 	int ret;
 	ret = ft_printf("%");
 	printf("\nret: %d\n", ret); */
@@ -24,7 +30,6 @@ int	main(void)
 	printf ("\nret: %d\n", ret);
 	ret = printf("%.0p, %.p", &a, &a);
 	printf ("\nret: %d\n", ret); */
-	
 	
 	/*
 	** FLOATS!!!!!

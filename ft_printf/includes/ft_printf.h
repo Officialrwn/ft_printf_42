@@ -6,7 +6,7 @@
 /*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 08:25:53 by leo               #+#    #+#             */
-/*   Updated: 2022/02/18 13:08:23 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/18 12:18:50 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,8 @@ int		get_formatcombo(t_formats *mod);
 int		get_num_length(t_formats *mod);
 
 void	width_print(t_formats *mod);
+void	ulength_print(t_formats *mod);
+void	length_print(t_formats *mod);
 void	char_print(t_formats *mod);
 void	str_print(t_formats *mod);
 void	memaddr_print(t_formats *mod);

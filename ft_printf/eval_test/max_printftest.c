@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   max_printftest.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 19:24:42 by mrantil           #+#    #+#             */
-/*   Updated: 2022/02/17 18:29:00 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/18 13:30:33 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "src/ft_printf.h"
+#include "../src/ft_printf.h"
 #include <stdio.h>
 #include <assert.h>
 
@@ -517,9 +517,11 @@ void test_mindfuck_minusminint(void)
 
 void test_mindfuck_minusminint2(void) 
 {
+	int	ret;
+	int ret2;
 	long	a = -2147483648;
 	long	b = -2147483648;
-	b = printf("pri: %13.13dLol\n", (int)b);
+	ret = printf("pri: %13.13dLol\n", (int)b);
 	a = ft_printf("ft_: %13.13dLol\n",(int)a);
 	printf("\nret: %ld \n", b);
 	printf("ret: %ld \n", a);
@@ -624,8 +626,6 @@ void test_length_h(void)
 {
 	int	a = -32769;
 	int	b = -32769;
-/* 	int b;
-	int a; */
 	b = printf("pri: %hd\n", (short)b);
 	a = ft_printf("ft_: %hd\n", (short)a);
 	printf("\nret: %d \n", b);
@@ -836,7 +836,7 @@ void test_hashhex_intmin(void)
 
 int	main(void)
 {
-	mix_ezz();
+/* 	mix_ezz();
 	mix_ez1();
 	mix_ez2();
 	mix_ez3();
@@ -857,41 +857,54 @@ int	main(void)
 	test_address();
 	//test_asterix_with_int();
 	//test_asterix_with_str(); 
+
 	test_width_single();
 	test_width_multi();
 	test_width_multi2();
  	test_precision();
  	test_precision_1();
-	test_mindfuck();
+
+ 	test_mindfuck();
 	test_mindfuck_minus();
 	test_mindfuck_minusminus();
+	
 	test_mindfuck_simpleminus();
- 	test_mindfuck_minusminint();
-	test_mindfuck_minusminint2();
+ 	*/test_mindfuck_minusminint();
+	 
+	test_mindfuck_minusminint2(); //30
+	
 	test_mindfuck_plus_craz();
-	test_mindfuck_plus_craz2();
+	/*test_mindfuck_plus_craz2();
+	
 	test_mindfuck_plus_craz3();
 	test_mindfuck_plus_craz4();
+	
 	test_flag_space_minus();
 	test_flag_space();
+	
 	test_length_h();
+	
 	test_length_h2();
 	test_length_hh();
 	test_length_hh2();
+	
 	test_length_hh_unsigned_int();
 	test_length_hh_unsigned_int2();
 	test_length_h_unsigned_int();
+	
 	test_length_h_unsigned_int2();
 	test_intmin();
 	test_42hex();
-	test_asterix_with_int_plus(); //need more tests shere with width, precision, and minus flag
+	
+	//test_asterix_with_int_plus(); //need more tests shere with width, precision, and minus flag
 	test_hashoct();
 	test_hashoct_intmin();
 	test_hashhex_intmin();
 	test_hashhex_intmax();
 //	test_binary();
 
-	printf("\n%d/%d completed\n", tests, done);
+	printf("\n%d/%d completed\n", tests, done); */
+	system("leaks a.out");
 	return (0);
 }
 	
