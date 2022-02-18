@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 08:55:01 by leo               #+#    #+#             */
-/*   Updated: 2022/02/17 23:23:09 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/18 11:03:37 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,15 @@ void	get_formats(char *format, t_formats *mod)
 				return ;
 			format = get_flag(&(*format), mod);
 			if ((*format) == '.')
-				format = get_width(&(*++format), mod, PRECISION);
+				format = get_width(&(*format), mod, PRECISION);
 			format = get_length(&(*format), mod);
-			if (get_specifier(mod, *format++))
+			if (get_specifier(mod, *format))
+			{
+				format++;
 				continue ;
+			}
 		}
-		if (*format == '\0')
-			exit(1);
-		custom_putchar(mod, *format++);
+		if (*format != '\0')
+			custom_putchar(mod, *format++);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 18:05:01 by leo               #+#    #+#             */
-/*   Updated: 2022/02/17 23:16:22 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/18 11:01:15 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,11 @@ char	*get_flag(char *format, t_formats *mod)
 				format++;
 			i = 0;
 			continue ;
-		}	
+		}
 		i++;
 	}
 	get_formatcombo(mod);
-	return (get_width(&(*format++), mod, WIDTH));
+	return (get_width(&(*format), mod, WIDTH));
 }
 
 char	*get_width(char *format, t_formats *mod, int flag)
@@ -43,15 +43,15 @@ char	*get_width(char *format, t_formats *mod, int flag)
 	int	i;
 
 	i = 0;
+	if (*format != '\0' && *format != '%')
+		format++;
 	while (*format == '0')
 		format++;
 	if (ft_isdigit(*format))
 	{
 		i = *format++ - '0';
 		while (ft_isdigit(*format))
-		{
 			i = (i * 10) + (*format++ - '0');
-		}	
 		if (flag == WIDTH)
 			mod->width = i;
 		else
@@ -94,13 +94,11 @@ int	get_specifier(t_formats *mod, char c)
 		if (CONVERSION[i] == c)
 		{
 			mod->specifier = c;
-			if (g_conversion[i] == -1)
-				return (0);
 			g_printf[g_conversion[i]](mod);
 			ft_strdel(&mod->num);
-			break ;
+			return (1);
 		}
 		i++;
 	}
-	return (1);
+	return (0);
 }
