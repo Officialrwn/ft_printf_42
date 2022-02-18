@@ -6,7 +6,7 @@
 /*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 14:45:26 by leotran           #+#    #+#             */
-/*   Updated: 2022/02/18 17:24:58 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/18 18:14:29 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,8 @@ void	check_precision(t_formats *mod)
 
 	sign = (mod->num[0] == '-');
 	len = mod->precision + sign - (int)ft_strlen(mod->num);
-	if (sign)
-		ft_putchar('-');
-	while (len--)
+	if (sign == 1 && mod->precision > (int)ft_strlen(mod->num))
+		mod->char_count += write(1, "-", 1);
+	while (len >= 0 && len--)
 		mod->char_count += write(1, "0", 1);
 }

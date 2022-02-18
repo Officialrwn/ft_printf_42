@@ -6,7 +6,7 @@
 /*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:00:57 by leo               #+#    #+#             */
-/*   Updated: 2022/02/16 15:27:20 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/18 18:48:05 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,12 @@ void	memaddr_print(t_formats *mod)
 
 void	custom_putstr(t_formats *mod, char *str)
 {
-	size_t	size;
+	int	i;
 
-	size = ft_strlen(str);
-	mod->char_count += (int)size;
-	ft_putstr(str);
+	i = 0;
+	if (str[i] == '-' && (mod->precision > (int)ft_strlen(mod->num) \
+	|| ((mod->formatcombo & ZERO) != 0 && mod->width > 0)))
+		i++;
+	while(str[i])
+		mod->char_count += write(1, &str[i++], 1);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   flags_printf.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 18:57:01 by leo               #+#    #+#             */
-/*   Updated: 2022/02/17 19:30:48 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/18 18:49:45 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,19 @@ void	zero_print(t_formats *mod)
 {
 	int		len;
 	int		is_negative;
-	char	*temp;
 
-	temp = mod->num;
 	if (mod->width > 0)
 	{
 		is_negative = 1 * (*mod->num == '-');
 		len = get_num_length(mod);
 		len -= is_negative;
+		if (is_negative)
+			mod->char_count += write(1, "-", 1);
 		while (mod->width-- - len)
 			custom_putchar(mod, '0');
-		if (*mod->num == '-')
-			temp = &(mod->num[1]);
 	}
-	custom_putstr(mod, temp);
+	check_precision(mod);
+	custom_putstr(mod, mod->num);
 }
 
 void	hash_print(t_formats *mod)
@@ -50,6 +49,7 @@ void	hash_print(t_formats *mod)
 		g_flagprint[mod->flag[1]](mod);
 		return ;
 	}
+	check_precision(mod);
 	custom_putstr(mod, mod->num);
 }
 
@@ -67,6 +67,7 @@ void	space_print(t_formats *mod)
 		g_flagprint[mod->flag[1]](mod);
 		return ;
 	}
+	check_precision(mod);
 	custom_putstr(mod, mod->num);
 }
 
@@ -82,6 +83,7 @@ void	dash_print(t_formats *mod)
 	}
 	if (mod->uint_flag[0] == DASH && mod->uint_flag[1] == FLAGNULL)
 	{
+		check_precision(mod);
 		custom_putstr(mod, mod->num);
 		width_print(mod);
 	}
@@ -89,26 +91,20 @@ void	dash_print(t_formats *mod)
 
 void	plus_print(t_formats *mod)
 {
-	int		flag;
-	char	*temp;
+	int	flag;
 
 	flag = 0;
-	temp = mod->num;
 	if (mod->uint_flag[0] == PLUS && (mod->formatcombo & HPS_ZD) != 0)
 		flag = 1;
 	if ((mod->formatcombo & HPS_ZD) == 0)
 		width_print(mod);
 	if (mod->num[0] != '-')
 		custom_putchar(mod, '+');
-	else
-	{
-		custom_putchar(mod, '-');
-		temp = &(mod->num[1]);
-	}
 	if (flag == 1 && mod->uint_flag[1] != 0)
 	{
 		g_flagprint[mod->flag[1]](mod);
 		return ;
 	}
-	custom_putstr(mod, temp);
+	check_precision(mod);
+	custom_putstr(mod, mod->num);
 }
