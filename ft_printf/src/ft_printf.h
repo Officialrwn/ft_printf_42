@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 08:25:53 by leo               #+#    #+#             */
-/*   Updated: 2022/02/18 10:28:23 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/18 11:25:24 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ typedef struct s_formats
 	int				char_count;
 }	t_formats;
 
+void 	printformats(t_formats *mod);
 void	plus_print(t_formats *mod);
 void	hash_print(t_formats *mod);
 void	zero_print(t_formats *mod);

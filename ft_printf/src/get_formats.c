@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_formats.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 18:05:01 by leo               #+#    #+#             */
-/*   Updated: 2022/02/18 11:01:15 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/18 11:32:10 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ char	*get_width(char *format, t_formats *mod, int flag)
 	int	i;
 
 	i = 0;
-	if (*format != '\0' && *format != '%')
+	if (*format != '\0' && *format == '.')
 		format++;
 	while (*format == '0')
 		format++;

@@ -6,7 +6,7 @@
 /*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 16:44:08 by leotran           #+#    #+#             */
-/*   Updated: 2022/02/16 13:40:30 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/18 11:27:38 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,14 @@ int	get_num_length(t_formats *mod)
 	else if ((mod->formatcombo & DASH_HSP) != 0)
 		len++;
 	return ((int)len);
+}
+
+void printformats(t_formats *mod)
+{
+	printf("\n\nflag0: %d [5 = FLAGNULL]\n", mod->flag[0]);
+	printf("flag1: %d [5 = FLAGNULL]\n", mod->flag[1]);
+	printf("width: %d\n", mod->width);
+	printf("precision: %d\n", mod->precision);
+	printf("length: %d [5 = LENGTH_NULL]\n", mod->length);
+	printf("specifier: %c\n\n", mod->specifier);
 }
