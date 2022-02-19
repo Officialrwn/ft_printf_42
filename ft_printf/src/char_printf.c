@@ -6,7 +6,7 @@
 /*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:00:57 by leo               #+#    #+#             */
-/*   Updated: 2022/02/16 15:16:51 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/19 17:00:43 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,6 @@ void	char_print(t_formats *mod)
 		ft_putchar(c);
 	}
 	mod->char_count += 1;
-}
-
-void	custom_putchar(t_formats *mod, int c)
-{
-	mod->char_count += 1;
-	ft_putchar(c);
 }
 
 void	percentage_putchar(t_formats *mod)

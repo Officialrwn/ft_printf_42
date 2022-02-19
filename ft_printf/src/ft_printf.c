@@ -6,7 +6,7 @@
 /*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 08:55:01 by leo               #+#    #+#             */
-/*   Updated: 2022/02/18 17:21:47 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/19 17:00:23 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,6 @@ void	get_formats(char *format, t_formats *mod)
 			}
 		}
 		if (*format != '\0')
-			custom_putchar(mod, *format++);
+			mod->char_count += write(1, &(*format++), 1);
 	}
 }

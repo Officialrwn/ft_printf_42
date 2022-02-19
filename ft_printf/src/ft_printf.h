@@ -6,7 +6,7 @@
 /*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 08:25:53 by leo               #+#    #+#             */
-/*   Updated: 2022/02/18 16:03:25 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/19 18:26:37 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,15 @@
 # define CONVERSION "cspdiouxX%"
 # define FLAGS 		"0# -+"
 # define LENGTH 	"hhllL"
-# define WIDTH 		0
-# define PRECISION 	1
-# define ERROR_FLAG	5
 
-# define DASH_HSP	22
-# define DS			12
-# define HPS_ZD		9
-# define DASH_HS	6
+# define PRECISION_FLAG	32
+# define ERROR_FLAG		5
+# define WIDTH			0
+
+# define DASH_HSP		22
+# define DS				12
+# define HPS_ZD			9
+# define DASH_HS		6
 
 # include <unistd.h>
 # include <stdlib.h>
@@ -59,7 +60,7 @@ typedef enum e_length
 typedef struct s_formats
 {
 	u_int16_t		formatcombo;
-	u_int16_t		uint_flag[2];
+	u_int16_t		uint_flag[3];
 	va_list			args;
 	char			*num;
 	int				flag[2];
@@ -101,7 +102,6 @@ void	int_print(t_formats *mod);
 void	base_int_printf(t_formats *mod);
 void	uint_print(t_formats *mod);
 void	percentage_putchar(t_formats *mod);
-void	custom_putchar(t_formats *mod, int c);
 void	custom_putstr(t_formats *mod, char *str);
 
 typedef void				(*t_printf)(t_formats *mod);

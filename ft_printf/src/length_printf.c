@@ -6,7 +6,7 @@
 /*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 14:45:26 by leotran           #+#    #+#             */
-/*   Updated: 2022/02/18 18:14:29 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/19 17:02:03 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	width_print(t_formats *mod)
 	if (mod->width-- - len <= 0)
 		return ;
 	while (mod->width-- - len >= 0)
-		custom_putchar(mod, ' ');
+		mod->char_count += write(1, " ",1);
 }
 
 void	check_precision(t_formats *mod)

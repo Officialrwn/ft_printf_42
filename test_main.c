@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   test_main.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 20:23:30 by leo               #+#    #+#             */
-/*   Updated: 2022/02/17 21:15:27 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/19 19:17:29 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,9 @@
 
 int main(void)
 {
-	long double num;
+
+	printf("-%05d-\n", -255);
+	/* 	long double num;
 	long double remainder;
 	num = 444565444646.6465424242242;
 	// 				  .6465454101562
@@ -28,7 +30,7 @@ int main(void)
 	//   46.6465424242242008290304511
 	remainder = num - (long)num;
 	printf("%.5Lf\n", num);
-	printf("%.5Lf\n", remainder);
+	printf("%.5Lf\n", remainder); */
 	return (0);
 }
 /* Hashkey algo for flags: #0- +

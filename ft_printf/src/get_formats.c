@@ -6,7 +6,7 @@
 /*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 18:05:01 by leo               #+#    #+#             */
-/*   Updated: 2022/02/18 16:02:21 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/19 18:27:22 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,10 @@ char	*get_width(char *format, t_formats *mod, int flag)
 		if (flag == WIDTH)
 			mod->width = i;
 		else
+		{
 			mod->precision = i;
+			mod->uint_flag[2] = PRECISION_FLAG;
+		}
 	}
 	return (&(*format));
 }

@@ -6,7 +6,7 @@
 /*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 18:57:01 by leo               #+#    #+#             */
-/*   Updated: 2022/02/18 18:49:45 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/19 17:06:23 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ void	zero_print(t_formats *mod)
 		if (is_negative)
 			mod->char_count += write(1, "-", 1);
 		while (mod->width-- - len)
-			custom_putchar(mod, '0');
+			mod->char_count += write(1, "0", 1);
+
 	}
 	check_precision(mod);
 	custom_putstr(mod, mod->num);
@@ -40,16 +41,16 @@ void	hash_print(t_formats *mod)
 		flag = 1;
 	if (*mod->num != '0')
 	{
-		custom_putchar(mod, '0');
+		mod->char_count += write(1, "0", 1);
 		if (mod->specifier != 'o')
-			custom_putchar(mod, mod->specifier);
+			mod->char_count += write(1, &mod->specifier, 1);
 	}
 	if (flag == 1 && mod->uint_flag[1] != 0)
 	{
 		g_flagprint[mod->flag[1]](mod);
 		return ;
 	}
-	check_precision(mod);
+	check_precision(mod);	
 	custom_putstr(mod, mod->num);
 }
 
@@ -61,7 +62,7 @@ void	space_print(t_formats *mod)
 	if (mod->uint_flag[0] == SPACE && (mod->formatcombo & HPS_ZD) != 0)
 		flag = 1;
 	if (*mod->num != '-')
-		custom_putchar(mod, ' ');
+		mod->char_count += write(1, " ", 1);
 	if (mod->uint_flag[0] == SPACE && mod->uint_flag[1] != 0)
 	{
 		g_flagprint[mod->flag[1]](mod);
@@ -99,7 +100,7 @@ void	plus_print(t_formats *mod)
 	if ((mod->formatcombo & HPS_ZD) == 0)
 		width_print(mod);
 	if (mod->num[0] != '-')
-		custom_putchar(mod, '+');
+		mod->char_count += write(1, "+", 1);
 	if (flag == 1 && mod->uint_flag[1] != 0)
 	{
 		g_flagprint[mod->flag[1]](mod);
