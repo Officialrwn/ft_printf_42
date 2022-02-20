@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 18:57:01 by leo               #+#    #+#             */
-/*   Updated: 2022/02/20 03:21:36 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/21 00:58:47 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,7 @@ void	zero_print(t_formats *mod)
 	char	c;
 
 	c = '0';
-	if (mod->specifier == 'c' || mod->specifier == 's' \
-	|| mod->specifier == 'p')
+	if ((mod->formatcombo & DASH) != 0)
 		return ;
 	if (mod->uint_flag[2] == PRECISION)
 		c = ' ';
@@ -28,8 +27,10 @@ void	zero_print(t_formats *mod)
 
 void	hash_print(t_formats *mod)
 {
-	if (mod->specifier != 'o' && mod->specifier != 'x' \
-	&& mod->specifier != 'X')
+	int	sign;
+
+	sign = (mod->specifier == 'X') + (mod->specifier == 'x');
+	if (sign == 0 && mod->specifier != 'o')
 		return ;
 	mod->char_count += write(1, "0", 1);
 	if (mod->specifier != 'o')

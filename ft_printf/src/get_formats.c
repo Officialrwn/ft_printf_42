@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 18:05:01 by leo               #+#    #+#             */
-/*   Updated: 2022/02/20 02:38:05 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/20 20:30:17 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ char	*get_width(char *format, t_formats *mod, int flag)
 	int	i;
 
 	i = 0;
-	if (*format != '\0' && *format == '.')
+	if (flag == PRECISION)
 		format++;
 	while (*format == '0')
 		format++;
@@ -52,10 +52,10 @@ char	*get_width(char *format, t_formats *mod, int flag)
 		i = *format++ - '0';
 		while (ft_isdigit(*format))
 			i = (i * 10) + (*format++ - '0');
-		if (flag == WIDTH)
-			mod->width = i;
-		else
+		if (flag == PRECISION)
 			mod->precision = i;
+		else
+			mod->width = i;
 	}
 	mod->uint_flag[2] = flag;
 	return (&(*format));

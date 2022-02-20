@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:04:46 by leo               #+#    #+#             */
-/*   Updated: 2022/02/20 03:18:25 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/21 00:48:49 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,14 @@
 
 int	main(void)
 {
-	int a = -2147483648;
+	int	ret;
+	
+	ret = printf("-%0-5d-\n", 5);
+	printf(" ret: %d\n", ret);
+	ret = ft_printf("-%0-5d-\n", 5);
+	printf(" ret: %d\n", ret);
+	
+	/* int a = -2147483648;
 	int ret;
 
 	ret = printf("pri: %-10.5dLol\n", 42);
@@ -36,13 +43,13 @@ int	main(void)
 	ret = printf("pri: %-30.25dLol\n", 2147483647);
 	printf(" ret: %d\n", ret);
 	ret = ft_printf("ft_: %-30.25dLol\n", 2147483647);
-	printf(" ret: %d\n", ret);		
+	printf(" ret: %d\n", ret);	 */	
 	
-	
-	/* int ret;
-	ret = printf("-%#08.5x-\n", 42);
+/* 	
+	int ret;
+	ret = printf("-%#8.5x-\n", 42);
 	printf(" ret: %d\n", ret);
-	ret = ft_printf("-%#08.5x-\n", 42);
+	ret = ft_printf("-%#8.5x-\n", 42);
 	printf(" ret: %d\n", ret); */
 	
 	/* int	a;
@@ -378,6 +385,11 @@ int	main(void)
 	ret = printf("-%13p-\n", &a);
 	printf(" ret: %d\n", ret);
 	ret = ft_printf("-%13p-\n", &a);
+	printf(" ret: %d\n", ret);
+	
+	ret = printf("pri: %+10.5dLol\n", 42);
+	printf(" ret: %d\n", ret);
+	ret = ft_printf("ft_: %+10.5dLol\n", 42);
 	printf(" ret: %d\n", ret);
 	
 	system("leaks a.out"); */

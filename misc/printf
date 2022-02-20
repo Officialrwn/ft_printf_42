@@ -4,7 +4,7 @@
 # Fix floats.
 # if %s and va_arg is NULL;
 
-# % works with ZERO flag and width AND DASH
+# % works with ZERO flag OR DASH and width
 # p works with width and DASH
 
 # 42FIle fails: 

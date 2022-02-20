@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:00:57 by leo               #+#    #+#             */
-/*   Updated: 2022/02/20 03:04:58 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/20 20:43:30 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,7 @@ void	base_int_printf(t_formats *mod)
 	base = 16 - 8 * (mod->specifier == 'o');
 	get_unsigned_type(mod, base, flag);
 	get_format_lengths(mod);
-	if ((mod->formatcombo & HPS_ZD) == 0 || ((mod->formatcombo & ZERO) != 0 \
-		&& mod->uint_flag[2] == PRECISION))
+	if ((mod->formatcombo & HPS_ZD) == 0 || mod->uint_flag[2] == PRECISION)
 		width_print(mod);
 	g_flagprint[mod->flag[0]](mod);
 	precision_print(mod);

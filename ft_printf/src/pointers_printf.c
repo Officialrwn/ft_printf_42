@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:00:57 by leo               #+#    #+#             */
-/*   Updated: 2022/02/20 03:19:04 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/21 00:50:30 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,6 @@ void	custom_putstr(t_formats *mod)
 		i++;
 	while (mod->num[i])
 		mod->char_count += write(1, &mod->num[i++], 1);
-	if (sign == 1 || mod->uint_flag[0] == DASH)
+	if (sign == 1 || (mod->formatcombo & DASH) != 0)
 		width_print(mod);
 }

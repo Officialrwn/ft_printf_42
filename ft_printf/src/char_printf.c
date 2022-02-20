@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   char_printf.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:00:57 by leo               #+#    #+#             */
-/*   Updated: 2022/02/19 17:00:43 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/21 00:48:19 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,45 +17,25 @@ void	char_print(t_formats *mod)
 	char	c;
 
 	c = (char)va_arg(mod->args, int);
-	if (mod->uint_flag[0] == DASH)
+	while (mod->width -1 > 0 && mod->uint_flag[0] != DASH)
 	{
-		ft_putchar(c);
-		while (mod->width-- - 1 > 0)
-			mod->char_count += write(1, " ", 1);
+		mod->char_count += write(1, " ", 1);
+		mod->width--;
 	}
-	else
-	{
-		while (mod->width-- - 1 > 0)
-			mod->char_count += write(1, " ", 1);
-		ft_putchar(c);
-	}
-	mod->char_count += 1;
+	mod->char_count += write(1, &c, 1);
+	while (mod->width-- - 1 > 0)
+		mod->char_count += write(1, " ", 1);
 }
 
 void	percentage_putchar(t_formats *mod)
 {
-	int		flag;
-	char	c;
-
-	flag = 0;
-	c = ' ';
-	if (mod->uint_flag[0] == ZERO && mod->uint_flag[1] != DASH)
-	{
-		c = '0';
-		while (mod->width-- - 1 > 0)
-			mod->char_count += write(1, &c, 1);
-	}
-	else if ((mod->formatcombo & DASH) != 0)
-	{
-		mod->char_count += write(1, "%", 1);
-		while (mod->width-- - 1 > 0)
-			mod->char_count += write(1, &c, 1);
-		return ;
-	}
-	while (mod->width-- - 1 > 0)
-		mod->char_count += write(1, &c, 1);
-	write(1, "%", 1);
-	mod->char_count += 1;
+	if ((mod->formatcombo & HPS_ZD) == 0 && mod->width - 1 > 0)
+		width_print(mod);
+	if (mod->uint_flag[0] == ZERO)
+		zero_print(mod);
+	mod->char_count += write(1, "%", 1);
+	while (mod->width-- - 1 > 0 && (mod->formatcombo & DASH) != 0)
+		mod->char_count += write(1, " ", 1);
 }
 
 void	error_print(t_formats *mod)
