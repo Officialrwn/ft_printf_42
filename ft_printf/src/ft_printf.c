@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 08:55:01 by leo               #+#    #+#             */
-/*   Updated: 2022/02/19 17:00:23 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/20 03:20:02 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ void	get_formats(char *format, t_formats *mod)
 			format = get_length(&(*format), mod);
 			if (get_specifier(mod, *format))
 			{
-				//printformats(mod);
 				format++;
 				continue ;
 			}

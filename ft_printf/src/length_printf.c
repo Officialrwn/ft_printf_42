@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   length_printf.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 14:45:26 by leotran           #+#    #+#             */
-/*   Updated: 2022/02/19 17:02:03 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/20 01:40:41 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,26 +48,12 @@ void	get_unsigned_type(t_formats *mod, int base, int flag)
 
 void	width_print(t_formats *mod)
 {
-	int	len;
-
-	len = get_num_length(mod);
-	if (*mod->num == '-' && (mod->uint_flag[0] & PLUS) != 0)
-		len--;
-	if (mod->width-- - len <= 0)
-		return ;
-	while (mod->width-- - len >= 0)
-		mod->char_count += write(1, " ",1);
+	while (mod->width-- > 0)
+		mod->char_count += write(1, " ", 1);
 }
 
-void	check_precision(t_formats *mod)
+void	precision_print(t_formats *mod)
 {
-	int	len;
-	int	sign;
-
-	sign = (mod->num[0] == '-');
-	len = mod->precision + sign - (int)ft_strlen(mod->num);
-	if (sign == 1 && mod->precision > (int)ft_strlen(mod->num))
-		mod->char_count += write(1, "-", 1);
-	while (len >= 0 && len--)
+	while (mod->precision-- > 0)
 		mod->char_count += write(1, "0", 1);
 }

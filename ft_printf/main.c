@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:04:46 by leo               #+#    #+#             */
-/*   Updated: 2022/02/18 18:45:09 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/20 03:18:25 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,36 @@
 
 int	main(void)
 {
-/* 	int ret;
-	ret = printf("%8.3d\n", 21);
-	printf("ret: %d\n", ret);
-	ret = ft_printf("%8.3d\n", 21);
-	printf("ret: %d\n", ret);
-	 */
+	int a = -2147483648;
+	int ret;
+
+	ret = printf("pri: %-10.5dLol\n", 42);
+	printf(" ret: %d\n", ret);
+	ret = ft_printf("ft_: %-10.5dLol\n", 42);
+	printf(" ret: %d\n", ret);
+
+	ret = printf("pri: %-10.5dLol\n", -42);
+	printf(" ret: %d\n", ret);
+	ret = ft_printf("ft_: %-10.5dLol\n", -42);
+	printf(" ret: %d\n", ret);
+	
+	ret = printf("pri: %-30.25dLol\n", a);
+	printf(" ret: %d\n", ret);
+	ret = ft_printf("ft_: %-30.25dLol\n", a);
+	printf(" ret: %d\n", ret);
+	
+	ret = printf("pri: %-30.25dLol\n", 2147483647);
+	printf(" ret: %d\n", ret);
+	ret = ft_printf("ft_: %-30.25dLol\n", 2147483647);
+	printf(" ret: %d\n", ret);		
+	
+	
+	/* int ret;
+	ret = printf("-%#08.5x-\n", 42);
+	printf(" ret: %d\n", ret);
+	ret = ft_printf("-%#08.5x-\n", 42);
+	printf(" ret: %d\n", ret); */
+	
 	/* int	a;
 	int	b;
 	a = printf("%hhd\n", (signed char)287);
@@ -62,9 +86,9 @@ int	main(void)
 	/*
 	** FLOATS!!!!!
 	*/
-
+/* 
 	int ret;
-	int count = 69;
+	int count = 76;
 
 	ret = ft_printf("test nr:0 -%%- HEHEH ret: ");
 	printf("%d\n", ret);
@@ -341,6 +365,21 @@ int	main(void)
 	ret = printf("test nr:4 -%+8.5d- HEHEH ret: ", 255);
 	printf("%d\ntest row nr: %d\n\n", ret, count); count += 5;
 	
-	system("leaks a.out");
+	ret = printf("-%#08.5x-\n", 42);
+	printf(" ret: %d\n", ret);
+	ret = ft_printf("-%#08.5x-\n", 42);
+	printf(" ret: %d\n", ret);
+
+	ret = printf("-%-13p-\n", &a);
+	printf(" ret: %d\n", ret);
+	ret = ft_printf("-%-13p-\n", &a);
+	printf(" ret: %d\n", ret);
+	
+	ret = printf("-%13p-\n", &a);
+	printf(" ret: %d\n", ret);
+	ret = ft_printf("-%13p-\n", &a);
+	printf(" ret: %d\n", ret);
+	
+	system("leaks a.out"); */
 	return (0);
 }

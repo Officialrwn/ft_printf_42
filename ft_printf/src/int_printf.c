@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   int_printf.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:00:57 by leo               #+#    #+#             */
-/*   Updated: 2022/02/18 17:41:07 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/20 03:04:58 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,26 +15,25 @@
 void	int_print(t_formats *mod)
 {
 	get_signed_type(mod);
-	if (mod->uint_flag[0] == FLAGNULL)
-	{
+	get_format_lengths(mod);
+	if ((mod->formatcombo & HPS_ZD) == 0)
 		width_print(mod);
-		check_precision(mod);
-	}	
+	if (*mod->num == '-' && (mod->flag[0] != PLUS))
+		mod->char_count += write(1, "-", 1);
 	g_flagprint[mod->flag[0]](mod);
-	if (mod->uint_flag[0] != FLAGNULL)
-		return ;
-	custom_putstr(mod, mod->num);
+	precision_print(mod);
+	custom_putstr(mod);
 }
 
 void	uint_print(t_formats *mod)
 {
 	get_unsigned_type(mod, 10, 0);
-	if (mod->width > 0 && mod->uint_flag[0] == FLAGNULL)
+	get_format_lengths(mod);
+	if ((mod->formatcombo & HPS_ZD) == 0)
 		width_print(mod);
 	g_flagprint[mod->flag[0]](mod);
-	if (mod->uint_flag[0] != FLAGNULL)
-		return ;
-	custom_putstr(mod, mod->num);
+	precision_print(mod);
+	custom_putstr(mod);
 }
 
 void	base_int_printf(t_formats *mod)
@@ -43,16 +42,13 @@ void	base_int_printf(t_formats *mod)
 	int	flag;
 
 	flag = 1 * (mod->specifier == 'X');
-	base = 16;
-	if (mod->specifier == 'o')
-		base = 8;
+	base = 16 - 8 * (mod->specifier == 'o');
 	get_unsigned_type(mod, base, flag);
-	if (mod->width > 0 && mod->uint_flag[0] == FLAGNULL)
+	get_format_lengths(mod);
+	if ((mod->formatcombo & HPS_ZD) == 0 || ((mod->formatcombo & ZERO) != 0 \
+		&& mod->uint_flag[2] == PRECISION))
 		width_print(mod);
 	g_flagprint[mod->flag[0]](mod);
-	if (mod->uint_flag[0] != FLAGNULL)
-		return ;
-	if (mod->width > 0)
-		width_print(mod);
-	custom_putstr(mod, mod->num);
+	precision_print(mod);
+	custom_putstr(mod);
 }

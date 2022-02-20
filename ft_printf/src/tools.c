@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tools.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 16:44:08 by leotran           #+#    #+#             */
-/*   Updated: 2022/02/19 19:19:02 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/20 03:21:56 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,38 +25,21 @@ int	get_formatcombo(t_formats *mod)
 
 void	initialize_t_formats(t_formats *mod)
 {
-	mod->uint_flag[0] = FLAGNULL;
-	mod->uint_flag[1] = FLAGNULL;
+	mod->uint_flag[0] = FLAG_NULL;
+	mod->uint_flag[1] = FLAG_NULL;
+	mod->uint_flag[2] = FLAG_NULL;
 	mod->flag[0] = ERROR_FLAG;
 	mod->flag[1] = ERROR_FLAG;
+	mod->length = LENGTH_NULL;
 	mod->width = 0;
 	mod->precision = 0;
-	mod->length = LENGTH_NULL;
 	mod->specifier = 0;
 	mod->char_count = 0;
 	mod->formatcombo = 0;
 	mod->num = NULL;
 }
 
-int	get_num_length(t_formats *mod)
-{
-	int	len;
-
-	len = (int)ft_strlen(mod->num);
-	if (mod->precision > len)
-	{
-		len += mod->precision - len;
-		if (*mod->num == '-')
-			len++;
-	}	
-	if ((mod->formatcombo & HASH) != 0 && mod->specifier != 'o')
-		len += 2;
-	else if ((mod->formatcombo & DASH_HSP) != 0)
-		len++;
-	return (len);
-}
-
-void printformats(t_formats *mod)
+void	printformats(t_formats *mod)
 {
 	printf("\n\nflag0: %d [5 = FLAGNULL]\n", mod->flag[0]);
 	printf("flag1: %d [5 = FLAGNULL]\n", mod->flag[1]);
@@ -67,32 +50,17 @@ void printformats(t_formats *mod)
 	printf("specifier: %c\n\n", mod->specifier);
 }
 
-void	correct_formats(t_formats *mod)
+void	get_format_lengths(t_formats *mod)
 {
 	int	len;
+	int	i;
 
-	len = ft_strlen(mod->num) - (*mod->num == '-');
-	len += ((mod->formatcombo & HASH) != 0 && mod->specifier == 'o');
-	mod->precision -= len;
-	if ((mod->formatcombo & HASH) != 0)
-		len += 1 + (mod->specifier != 'o');
-	
-	
-	//print order:
-	/*
-		width (if flagcombo != dash) 
-		PLUS FLAG (plus/minus) / - om negativt
-		HASHflag (0/0x/0X)
-		ZERO / precision // ZERO flag ignored when precision > 0. ZERO FLAG CARES ABOUT -. 
-		Precision doesnt care about HASH_prefix or negative/plus.
-		width (if flagcombo == dash)
-		
-	*/
-	//in ZERO flag print , if precision > 0 then exit
-	//width
-	//precision
-	//0flag
-	//plus flag
-	//hash flag
-	//negative number
+	len = (int)ft_strlen(mod->num) - (*mod->num == '-');
+	i = ((mod->formatcombo & HASH) != 0 && mod->specifier == 'o');
+	if (mod->precision > 0)
+		mod->precision -= (len + i);
+	if ((mod->formatcombo & DASH_HSP) != 0 || (*mod->num == '-'))
+		len += 1 + ((mod->formatcombo & HASH) != 0 && mod->specifier != 'o');
+	if (mod->width > 0)
+		mod->width -= (len + mod->precision);
 }

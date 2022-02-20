@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_formats.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 18:05:01 by leo               #+#    #+#             */
-/*   Updated: 2022/02/19 18:27:22 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/20 02:38:05 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*get_flag(char *format, t_formats *mod)
 	j = 0;
 	while (FLAGS[i])
 	{
-		if (FLAGS[i] == *format && mod->uint_flag[j] == FLAGNULL && j != 2)
+		if (FLAGS[i] == *format && mod->uint_flag[j] == FLAG_NULL && j != 2)
 		{
 			mod->uint_flag[j] ^= 1 << i;
 			mod->flag[j++] = i;
@@ -55,11 +55,9 @@ char	*get_width(char *format, t_formats *mod, int flag)
 		if (flag == WIDTH)
 			mod->width = i;
 		else
-		{
 			mod->precision = i;
-			mod->uint_flag[2] = PRECISION_FLAG;
-		}
 	}
+	mod->uint_flag[2] = flag;
 	return (&(*format));
 }
 
