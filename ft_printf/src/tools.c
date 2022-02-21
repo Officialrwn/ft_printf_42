@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tools.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 16:44:08 by leotran           #+#    #+#             */
-/*   Updated: 2022/02/21 19:03:37 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/21 21:52:58 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	initialize_t_formats(t_formats *mod)
 	mod->num = NULL;
 }
 
-void printformats(t_formats *mod)
+void	printformats(t_formats *mod)
 {
 	printf("\n\nflag0: %d [5 = FLAGNULL]\n", mod->flag[0]);
 	printf("flag1: %d [5 = FLAGNULL]\n", mod->flag[1]);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 09:13:31 by leotran           #+#    #+#             */
-/*   Updated: 2022/02/21 18:37:55 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/21 22:43:17 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,7 +117,7 @@ void	ft_putaddr(void *arr);
 void	ft_put_u_nbr(unsigned long long n);
 int		ft_uint_base_count(unsigned long long num, int base);
 int		ft_int_base_count(long long num, int base);
-int		ft_float_count(long double num, int precision);
+size_t	ft_float_count(long double num, int precision);
 char	*ft_uitoa_base(unsigned long long num, int base, int flag);
 char	*ft_itoa_base(long long num, int base, int flag);
 char	*ft_ftoa(long double num, int precision);

@@ -5,7 +5,11 @@
 
 # FLOATS
 # if only . then bankers rounding?
-# only 14x fractional numbers. 
+# Bankers rounding: 
+# if last 2 digits == 50 then 
+# if (n + (50 / 100)) % 2 == 0)
+#	  n++;
+# 
 
 # Test for evals: 
 # Flag combos, repeteating 0 or same flag, newline count, memory leaks, negative oxX, print 0 with oxX

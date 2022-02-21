@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 15:49:29 by leotran           #+#    #+#             */
-/*   Updated: 2022/02/15 08:32:41 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/21 23:00:18 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,17 +37,22 @@ static char	*convert_itoa_base(long long num, int base, char *arr, int flag)
 
 char	*ft_itoa_base(long long num, int base, int flag)
 {
-	char		*arr;
-	int			count;
+	char	*arr;
+	char	*head;
+	int		count;
 
 	count = ft_int_base_count(num, base);
-	arr = (char *)malloc(sizeof(char) * count + 1);
+	arr = (char *)malloc(sizeof(char) * (count + 1));
+	head = arr;
 	if (arr)
 	{
 		if (num < 0)
-			arr[0] = '-';
+		{
+			*arr++ = '-';
+			num *= -1;
+		}	
 		arr[count] = '\0';
 		arr = convert_itoa_base(num, base, arr, flag);
 	}
-	return (arr);
+	return (head);
 }

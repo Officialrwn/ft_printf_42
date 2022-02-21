@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:04:46 by leo               #+#    #+#             */
-/*   Updated: 2022/02/21 18:30:34 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/22 00:46:11 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,21 @@
 int	main(void)
 {
 	// 444565444646.6465454101562
-	double num =  51.64654541015622324214;
+	//1.6465454101562000384
+	//1.6465454101562000384
+	
+	long double num = -6.6465454101562;
+	//					1.6465454102
 	//int	count = float_count(num, 7);
-	printf("count %d\n", ft_float_count(num, 19));
-	printf("num: %.19f\n", num);
+	char *arr = ft_ftoa(num, 11);
+	
+	printf("num arr: %s\n", arr);
+	printf("num std: %.11Lf\n", num);
+	
+	//ft_strdel(&arr);
+	
+	
+	//ft_strdel(&arr);
 	/* int	ret;
 	
 	ret = printf("-%f-\n", 42.0);
