@@ -3,24 +3,33 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:04:46 by leo               #+#    #+#             */
-/*   Updated: 2022/02/21 00:48:49 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/21 18:30:34 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "src/ft_printf.h"
 #include <stdio.h>
 
+/* 	count = (num < 0) + 1;
+	if (count > 1)
+		num *= -1; */
+		
 int	main(void)
 {
-	int	ret;
+	// 444565444646.6465454101562
+	double num =  51.64654541015622324214;
+	//int	count = float_count(num, 7);
+	printf("count %d\n", ft_float_count(num, 19));
+	printf("num: %.19f\n", num);
+	/* int	ret;
 	
-	ret = printf("-%0-5d-\n", 5);
+	ret = printf("-%f-\n", 42.0);
 	printf(" ret: %d\n", ret);
-	ret = ft_printf("-%0-5d-\n", 5);
-	printf(" ret: %d\n", ret);
+	ret = ft_printf("-%o-\n", 42);
+	printf(" ret: %d\n", ret); */
 	
 	/* int a = -2147483648;
 	int ret;
@@ -71,25 +80,32 @@ int	main(void)
 	/*
 	** FLOATS!!!!!
 	*/
+/* 	int ret;
+	double num = 1.5;
+	ret = printf("-%f-\n", num);
+	printf(" ret: %d\n", ret);
+	ret = ft_printf("-%f-\n", num);
+	printf(" ret: %d\n", ret); */
+	
 
-	/* long double num;
+/* 	long double num;
 	long double remainder;
-	long floatnum;
+	long double floatnum;
 	int exponent = 15;
 	long base = 10;
 	while (exponent--)
 		base *= 10;
-	printf("base: %ld\n", base);
+	//printf("base: %ld\n", base);
 	num = 444565444646.6465454101562;
 	remainder = num - (long)num;
 	floatnum = remainder * base;
-	ft_putnbr(num);
+	ft_putnbr((long long)num);
 	printf("\n");
-	ft_putnbr(floatnum);
+	ft_putnbr((long long)floatnum);
 	printf("\n");
-	printf("%.16Lf\n", num);
-	 */
-
+	printf("%.18Lf\n", num);
+	
+ */
 	/*
 	** FLOATS!!!!!
 	*/

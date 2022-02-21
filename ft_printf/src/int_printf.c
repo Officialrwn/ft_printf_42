@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   int_printf.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:00:57 by leo               #+#    #+#             */
-/*   Updated: 2022/02/20 20:43:30 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/21 12:59:00 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	uint_print(t_formats *mod)
 	custom_putstr(mod);
 }
 
-void	base_int_printf(t_formats *mod)
+void	base_uint_printf(t_formats *mod)
 {
 	int	base;
 	int	flag;
@@ -50,4 +50,13 @@ void	base_int_printf(t_formats *mod)
 	g_flagprint[mod->flag[0]](mod);
 	precision_print(mod);
 	custom_putstr(mod);
+}
+
+void	float_printf(t_formats *mod)
+{
+	long double	num;
+
+	num = va_arg(mod->args, long double);
+	//printf("%f", num);
+	mod->char_count += 0;
 }

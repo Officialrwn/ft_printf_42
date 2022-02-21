@@ -1,14 +1,11 @@
 # TODO
-# Fix S + Flags + return value is wrong
-# negative hex or octal etc
+# 3rd flag = DASH ignores the ZERO? Undefined behavior?
 # Fix floats.
-# if %s and va_arg is NULL;
+# Can pointers have - flag? 
 
-# % works with ZERO flag OR DASH and width
-# p works with width and DASH
-
-# 42FIle fails: 
-# l, ll flags
+# FLOATS
+# if only . then bankers rounding?
+# only 14x fractional numbers. 
 
 # Test for evals: 
 # Flag combos, repeteating 0 or same flag, newline count, memory leaks, negative oxX, print 0 with oxX
@@ -28,6 +25,21 @@
 # FLAG: space / - or 0 [s only works with space- else works for diouf](+, # and conversion oxX is error)
 # 0 is always ignored if - is there.
 # if isdigit then no more flags and next is [width] or error.
+
+# LENGTH: hh - ui
+
+# LENGTH: h - diouxX
+# The argument is interpreted as a short int or unsigned short int 
+# (only applies to integer specifiers: i, d, o, u, x and X).
+
+# LENGTH: l - diouxXf
+# The argument is interpreted as a long int or unsigned long int for integer specifiers (i, d, o, u, x and X), 
+# and as a wide character or wide character string for specifiers c and s.
+
+# LENGTH: ll - diouxX
+# The argument is interpreted as a long double (only applies to floating point specifiers: e, E, f, g and G).
+
+# LENGTH: L - f
 
 	//print order:
 	/*
@@ -86,20 +98,7 @@ x - unsigned hexadecimal integer
 X - unsigned hexadecimal integer (capital letters)
 %% - no arguments expected
 
-# LENGTH: hh
 
-# LENGTH: h - idouxX
-# The argument is interpreted as a short int or unsigned short int 
-# (only applies to integer specifiers: i, d, o, u, x and X).
-
-# LENGTH: l - idouxX and cs 
-# The argument is interpreted as a long int or unsigned long int for integer specifiers (i, d, o, u, x and X), 
-# and as a wide character or wide character string for specifiers c and s.
-
-# LENGTH: ll - f
-# The argument is interpreted as a long double (only applies to floating point specifiers: e, E, f, g and G).
-
-# LENGTH: L - f
 
 # Flag: # - oxX (0, 0x, 0X) and f (.atleast 1 decimal)
 # Used with o, x or X specifiers the value is preceded with 0, 0x or 0X 	    # respectively for values different than zero.

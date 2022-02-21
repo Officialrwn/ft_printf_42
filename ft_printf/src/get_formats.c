@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_formats.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 18:05:01 by leo               #+#    #+#             */
-/*   Updated: 2022/02/20 20:30:17 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/21 15:44:19 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ char	*get_width(char *format, t_formats *mod, int flag)
 		else
 			mod->width = i;
 	}
-	mod->uint_flag[2] = flag;
+	mod->uint_flag[2] ^= flag;
 	return (&(*format));
 }
 

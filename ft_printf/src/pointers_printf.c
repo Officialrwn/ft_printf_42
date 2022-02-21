@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pointers_printf.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:00:57 by leo               #+#    #+#             */
-/*   Updated: 2022/02/21 00:50:30 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/21 12:23:29 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,20 @@
 void	str_print(t_formats *mod)
 {
 	char	*str;
-	size_t	size;
+	int		len;
 
 	str = va_arg(mod->args, char *);
-	size = ft_strlen(str);
-	mod->char_count += (int)size;
-	ft_putstr(str);
+	if (str == NULL)
+		str = "(null)";
+	len = (int)ft_strlen(str);
+	while (mod->width - len > 0 && (mod->formatcombo & DASH) == 0)
+	{
+		mod->char_count += write(1, " ", 1);
+		mod->width--;
+	}
+	mod->char_count += write(1, &(*str++), (size_t)len);
+	while (mod->width-- - len > 0)
+		mod->char_count += write(1, " ", 1);
 }
 
 void	memaddr_print(t_formats *mod)
