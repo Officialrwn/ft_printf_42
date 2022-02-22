@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:04:46 by leo               #+#    #+#             */
-/*   Updated: 2022/02/22 13:42:31 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/22 18:15:45 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,19 @@ int	main(void)
 	//1.6465454101562000384
 	//1.6465454101562000384
 	
-	long double num = 2.5;
+	//double num = 1.124245;
 	//					1.6465454102
 	//int	count = float_count(num, 7);
-	char *arr = ft_ftoa(num, 2, 1);
+	//char *arr = ft_ftoa(num, 2, 1);
 	
-	printf("num arr: %s\n", arr);
-	printf("num std: %.2Lf\n", num);
-	
-	ft_strdel(&arr);
+	//printf("num arr: %s\n", arr);
+	int ret;
+	ret = printf("-%.f-\n", 0.0);
+	printf(" ret: %d\n", ret);
+	ret = ft_printf("-%.f-\n", 0.0);
+	printf(" ret: %d\n", ret);
+	//ft_strdel(&arr);
+	// need to check .. ret = ft_printf("-%#.x %#.0x-\n", 0, 0);
 	
 	
 	//ft_strdel(&arr);
@@ -417,6 +421,11 @@ int	main(void)
 	ret = printf("pri: %+10.5dLol\n", 42);
 	printf(" ret: %d\n", ret);
 	ret = ft_printf("ft_: %+10.5dLol\n", 42);
+	printf(" ret: %d\n", ret);
+	
+	ret = ft_printf("num arr: -%+05.0f-", num);
+	printf(" ret: %d\n", ret);
+	ret = printf("num std: -%+05.0f-", num);
 	printf(" ret: %d\n", ret);
 	
 	system("leaks a.out"); */

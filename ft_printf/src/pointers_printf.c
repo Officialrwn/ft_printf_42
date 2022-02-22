@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pointers_printf.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:00:57 by leo               #+#    #+#             */
-/*   Updated: 2022/02/21 12:23:29 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/22 18:19:31 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,13 +50,20 @@ void	custom_putstr(t_formats *mod)
 {
 	int	i;
 	int	sign;
+	int	precision_check;
 
 	i = 0;
 	sign = (((mod->formatcombo ^ DASH) & DASH_HSP) != 0);
+	precision_check = (mod->precision == 0 && mod->uint_flag[2] == PRECISION);
+	if (precision_check == 1 && *mod->num == '0' && mod->specifier != 'f')
+		*mod->num = '\0';
 	if (*mod->num == '-')
 		i++;
 	while (mod->num[i])
 		mod->char_count += write(1, &mod->num[i++], 1);
+	if ((mod->formatcombo & HASH) != 0 && precision_check == PRECISION \
+		&& mod->specifier == 'f')
+		mod->char_count += write(1, ".", 1);
 	if (sign == 1 || (mod->formatcombo & DASH) != 0)
 		width_print(mod);
 }

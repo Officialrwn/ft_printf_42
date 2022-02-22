@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 08:25:53 by leo               #+#    #+#             */
-/*   Updated: 2022/02/20 03:19:39 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/21 15:55:49 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# define CONVERSION "cspdiouxX%"
+# define CONVERSION "cspdiouxXf%"
 # define FLAGS 		"0# -+"
 # define LENGTH 	"hhllL"
 
@@ -96,10 +96,11 @@ void	char_print(t_formats *mod);
 void	str_print(t_formats *mod);
 void	memaddr_print(t_formats *mod);
 void	int_print(t_formats *mod);
-void	base_int_printf(t_formats *mod);
+void	base_uint_printf(t_formats *mod);
 void	uint_print(t_formats *mod);
 void	percentage_putchar(t_formats *mod);
 void	custom_putstr(t_formats *mod);
+void	float_printf(t_formats *mod);
 
 typedef void				(*t_printf)(t_formats *mod);
 typedef void				(*t_flagprint)(t_formats *mod);
@@ -109,9 +110,10 @@ static const t_printf		g_printf[8] = {
 	str_print,
 	memaddr_print,
 	int_print,
-	base_int_printf,
+	base_uint_printf,
 	uint_print,
-	percentage_putchar
+	float_printf,
+	percentage_putchar,
 };
 
 static const t_flagprint	g_flagprint[6] = {
@@ -123,7 +125,7 @@ static const t_flagprint	g_flagprint[6] = {
 	error_print
 };
 
-static const int			g_conversion[11] = {
+static const int			g_conversion[12] = {
 	0,
 	1,
 	2,
@@ -134,6 +136,7 @@ static const int			g_conversion[11] = {
 	4,
 	4,
 	6,
+	7,
 	-1
 };
 

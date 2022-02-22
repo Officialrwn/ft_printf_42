@@ -10,7 +10,12 @@
 # if last 2 digits == 50 then 
 # if (n + (50 / 100)) % 2 == 0)
 #	  n++;
+
+# print width if != ZD
+# 0 flag will pad 0 (width size - len(ftoa) - plus/minus - 1 if precision == 0 and prec flag == 1
 # 
+# -space+ flag
+# HASH flag will print the . no matter what.
 
 # Test for evals: 
 # Flag combos, repeteating 0 or same flag, newline count, memory leaks, negative oxX, print 0 with oxX
@@ -54,13 +59,16 @@
 		ZERO / precision // ZERO flag ignored when precision > 0. 
 		ZERO FLAG CARES ABOUT NEGATIVE and prefix. 
 		Precision doesnt care about HASH_prefix or negative/plus
-		putstr(mod->num)
+		putstr(mod->num) // if precision is . and mod->num == 0
 		width (if flagcombo == dash)
 	*/
 		//precision = precision - numlen - 1(if c == 'o' and HASH)
 		//width = width - precision - numlen - (- sign || plus) - HASH(1/2) - space(1)
 
-
+	Floats: 
+	
+		
+	
 # define flag combos: 2 combo per flag
 # 0
 # #0

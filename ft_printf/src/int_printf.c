@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:00:57 by leo               #+#    #+#             */
-/*   Updated: 2022/02/21 21:53:14 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/22 18:09:11 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,15 @@ void	float_printf(t_formats *mod)
 	long double	num;
 
 	num = va_arg(mod->args, long double);
-	//printf("%f", num);
-	mod->char_count += 0;
+	if (mod->length == L)
+		mod->num = ft_ftoa(num, mod->precision, mod->uint_flag[2]);
+	else
+		mod->num = ft_ftoa((double)num, mod->precision, mod->uint_flag[2]);
+	get_format_lengths(mod);
+	if ((mod->formatcombo & HPS_ZD) == 0)
+		width_print(mod);
+	if (*mod->num == '-' && (mod->flag[0] != PLUS))
+		mod->char_count += write(1, "-", 1);
+	g_flagprint[mod->flag[0]](mod);
+	custom_putstr(mod);
 }
