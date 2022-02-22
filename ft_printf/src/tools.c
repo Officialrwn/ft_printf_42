@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 16:44:08 by leotran           #+#    #+#             */
-/*   Updated: 2022/02/22 20:59:01 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/22 22:33:48 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ void	get_format_lengths(t_formats *mod)
 	int	len;
 	int	i;
 	int	sign;
-
 	len = (int)ft_strlen(mod->num) - (*mod->num == '-');
 	i = ((mod->formatcombo & HASH) != 0 && mod->specifier == 'o');
 	sign = (mod->precision == 0 && mod->uint_flag[2] == PRECISION);

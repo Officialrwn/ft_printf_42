@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 18:57:01 by leo               #+#    #+#             */
-/*   Updated: 2022/02/22 21:22:10 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/22 22:26:05 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,9 @@ void	zero_print(t_formats *mod)
 	if ((mod->formatcombo & DASH) != 0)
 		return ;
 	if (mod->uint_flag[2] == PRECISION && mod->specifier != 'f')
+	{
 		c = ' ';
+	}	
 	while (mod->width-- > 0)
 		mod->char_count += write(1, &c, 1);
 }
