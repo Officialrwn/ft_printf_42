@@ -6,20 +6,23 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 15:49:29 by leotran           #+#    #+#             */
-/*   Updated: 2022/02/22 02:14:34 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/22 13:42:05 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
+#include <stdio.h>
 static int	bankers_rounding(long double num)
 {
 	long long	i;
 	long long	n;
+	long long	sign;
 	long long	last_digit;
 
-	last_digit = ((long long)num % 10) + 1;
-	num *= 100;
+	sign = 1 - 2 * (num < 0);
+	last_digit = ((long long)num % 10) + sign;
+	last_digit *= sign;
+	num *= 100 * sign;
 	n = (long long)num % 100;
 	i = (n > 50);
 	if (n == 50)
@@ -35,13 +38,13 @@ static char	*fract_to_a(long double num, int precision, int precision_flag)
 
 	sign = 1 - 2 * (num < 0);
 	exponent = 6 * (precision_flag == 0);
-	if (precision > 0 && precision <= 19 && precision_flag == 1)
+	if (precision >= 0 && precision <= 19 && precision_flag == 1)
 		exponent = precision;
 	num -= (long long)num;
 	num *= sign;
 	while (exponent-- > 0)
 		num *= 10;
-	num += (bankers_rounding(num));
+	num += (bankers_rounding(num)) * (precision != 0);
 	fractnum = ft_itoa_base((long long)num, 10, 0);
 	return (fractnum);
 }
@@ -75,8 +78,14 @@ char	*ft_ftoa(long double num, int precision, int precision_flag)
 	char	*int_num;
 	char	*fract_num;
 	size_t	size;
+	long long	roundup;
 
-	int_num = ft_itoa_base((long long)num, 10, 0);
+	roundup = 0;
+	if (precision == 0 && precision_flag == 1)
+		roundup = (bankers_rounding(num)) * (1 - 2 * (num < 0));
+	int_num = ft_itoa_base((long long)num + roundup, 10, 0);
+	if (precision == 0 && precision_flag == 1)
+		return (int_num);
 	fract_num = fract_to_a(num, precision, precision_flag);
 	size = ft_float_count(num, precision);
 	float_num = strjoin_int_fract(int_num, fract_num, size);
