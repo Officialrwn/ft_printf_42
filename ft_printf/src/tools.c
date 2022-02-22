@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 16:44:08 by leotran           #+#    #+#             */
-/*   Updated: 2022/02/22 18:45:54 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/22 20:59:01 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void	get_format_lengths(t_formats *mod)
 		len--;
 	}	
 	if (mod->width > 0)
-		mod->width -= (len + mod->precision);
+		mod->width -= (len + (mod->precision * (mod->precision > 0)));
 }
 
 void	get_float_format_lengths(t_formats *mod)
@@ -79,8 +79,8 @@ void	get_float_format_lengths(t_formats *mod)
 	int	len;
 	int	sign;
 
-	sign = (mod->precision == 0 && mod->uint_flag[2] == PRECISION);
 	len = (int)ft_strlen(mod->num) - (*mod->num == '-');
+	sign = (mod->precision == 0 && mod->uint_flag[2] == PRECISION);
 	if (*mod->num == '-' || (mod->formatcombo & (PLUS | SPACE)) != 0)
 		len++;
 	if ((mod->formatcombo & HASH) != 0 && sign == 1)

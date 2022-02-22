@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:04:46 by leo               #+#    #+#             */
-/*   Updated: 2022/02/22 19:15:54 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/22 21:45:34 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,14 @@ int	main(void)
 	//char *arr = ft_ftoa(num, 2, 1);
 	
 	//printf("num arr: %s\n", arr);
-	int a = 42;
+//	int a = 42;
+	//-9223372036854775808
 	int ret;
-	ret = printf("-%5.s-\n", "");
+	ret = printf("%2.s is a string\n", "");
 	printf(" ret: %d\n", ret);
-	ret = ft_printf("-%5.s-\n", "");
+	ret = ft_printf("%2.s is a string\n", "");
 	printf(" ret: %d\n", ret);
+	
 	//ft_strdel(&arr);
 	// need to check .. ret = ft_printf("-%#.x %#.0x-\n", 0, 0);
 	
@@ -125,9 +127,9 @@ int	main(void)
 	/*
 	** FLOATS!!!!!
 	*/
-/* 
-	int ret;
-	int count = 76;
+
+	/* int ret;
+	int count = 134;
 
 	ret = ft_printf("test nr:0 -%%- HEHEH ret: ");
 	printf("%d\n", ret);
@@ -404,31 +406,35 @@ int	main(void)
 	ret = printf("test nr:4 -%+8.5d- HEHEH ret: ", 255);
 	printf("%d\ntest row nr: %d\n\n", ret, count); count += 5;
 	
-	ret = printf("-%#08.5x-\n", 42);
-	printf(" ret: %d\n", ret);
-	ret = ft_printf("-%#08.5x-\n", 42);
-	printf(" ret: %d\n", ret);
-
 	ret = printf("-%-13p-\n", &a);
 	printf(" ret: %d\n", ret);
 	ret = ft_printf("-%-13p-\n", &a);
-	printf(" ret: %d\n", ret);
+	printf("%d\ntest row nr: %d\n\n", ret, count); count += 5;
 	
 	ret = printf("-%13p-\n", &a);
 	printf(" ret: %d\n", ret);
 	ret = ft_printf("-%13p-\n", &a);
-	printf(" ret: %d\n", ret);
+	printf("%d\ntest row nr: %d\n\n", ret, count); count += 5;
 	
 	ret = printf("pri: %+10.5dLol\n", 42);
 	printf(" ret: %d\n", ret);
 	ret = ft_printf("ft_: %+10.5dLol\n", 42);
-	printf(" ret: %d\n", ret);
+	printf("%d\ntest row nr: %d\n\n", ret, count); count += 5;
 	
 	ret = ft_printf("num arr: -%+05.0f-", num);
 	printf(" ret: %d\n", ret);
 	ret = printf("num std: -%+05.0f-", num);
+	printf("%d\ntest row nr: %d\n\n", ret, count); count += 5;
+
+	ret = printf("-%-10.5o-\n", 2500);
 	printf(" ret: %d\n", ret);
+	ret = ft_printf("-%-10.5o-\n", 2500);
+	printf("%d\ntest row nr: %d\n\n", ret, count); count += 5;
 	
-	system("leaks a.out"); */
+	ret = printf("-%#08.5x-\n", 42);
+	printf(" ret: %d\n", ret);
+	ret = ft_printf("-%#08.5x-\n", 42);
+	printf("%d\ntest row nr: %d\n\n", ret, count); count += 5; 
+ 	system("leaks a.out"); */
 	return (0);
 }

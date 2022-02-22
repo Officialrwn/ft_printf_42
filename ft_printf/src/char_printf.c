@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:00:57 by leo               #+#    #+#             */
-/*   Updated: 2022/02/22 17:34:42 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/22 21:12:55 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,15 @@ void	char_print(t_formats *mod)
 
 void	percentage_putchar(t_formats *mod)
 {
+	mod->width -= 1;
 	if ((mod->formatcombo & HPS_ZD) == 0 && mod->width - 1 > 0)
 	{
-		mod->width -= 1;
 		width_print(mod);
 	}	
 	if ((mod->formatcombo & ZERO) != 0)
 		zero_print(mod);
 	mod->char_count += write(1, "%", 1);
-	while (mod->width-- - 1 > 0 && (mod->formatcombo & DASH) != 0)
+	while (mod->width-- > 0 && (mod->formatcombo & DASH) != 0)
 		mod->char_count += write(1, " ", 1);
 }
 
