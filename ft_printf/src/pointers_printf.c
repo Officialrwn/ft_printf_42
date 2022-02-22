@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:00:57 by leo               #+#    #+#             */
-/*   Updated: 2022/02/22 18:19:31 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/22 19:14:42 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,22 @@ void	str_print(t_formats *mod)
 {
 	char	*str;
 	int		len;
+	int		checker;
 
 	str = va_arg(mod->args, char *);
+	checker = (mod->precision == 0 && mod->uint_flag[2] == PRECISION);
 	if (str == NULL)
 		str = "(null)";
-	len = (int)ft_strlen(str);
+	len = (int)ft_strlen(str) * (checker == 0);
+	if (mod->precision > 0)
+		len = mod->precision;
 	while (mod->width - len > 0 && (mod->formatcombo & DASH) == 0)
 	{
 		mod->char_count += write(1, " ", 1);
 		mod->width--;
 	}
-	mod->char_count += write(1, &(*str++), (size_t)len);
+	if (checker == 0)
+		mod->char_count += write(1, &(*str++), (size_t)len);
 	while (mod->width-- - len > 0)
 		mod->char_count += write(1, " ", 1);
 }
@@ -55,7 +60,8 @@ void	custom_putstr(t_formats *mod)
 	i = 0;
 	sign = (((mod->formatcombo ^ DASH) & DASH_HSP) != 0);
 	precision_check = (mod->precision == 0 && mod->uint_flag[2] == PRECISION);
-	if (precision_check == 1 && *mod->num == '0' && mod->specifier != 'f')
+	if (precision_check == 1 && *mod->num == '0' \
+		&& mod->specifier != 'f' && mod->specifier != 'o')
 		*mod->num = '\0';
 	if (*mod->num == '-')
 		i++;

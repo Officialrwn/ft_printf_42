@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:04:46 by leo               #+#    #+#             */
-/*   Updated: 2022/02/22 18:15:45 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/22 19:15:54 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,11 @@ int	main(void)
 	//char *arr = ft_ftoa(num, 2, 1);
 	
 	//printf("num arr: %s\n", arr);
+	int a = 42;
 	int ret;
-	ret = printf("-%.f-\n", 0.0);
+	ret = printf("-%5.s-\n", "");
 	printf(" ret: %d\n", ret);
-	ret = ft_printf("-%.f-\n", 0.0);
+	ret = ft_printf("-%5.s-\n", "");
 	printf(" ret: %d\n", ret);
 	//ft_strdel(&arr);
 	// need to check .. ret = ft_printf("-%#.x %#.0x-\n", 0, 0);

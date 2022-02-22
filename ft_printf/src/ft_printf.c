@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 08:55:01 by leo               #+#    #+#             */
-/*   Updated: 2022/02/20 20:37:11 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/22 18:46:48 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_printf(const char *format, ...)
 	t_formats	mod;
 	char		*str;
 
-	initialize_t_formats(&mod);
+	reset_t_formats(&mod, 1);
 	va_start(mod.args, format);
 	str = (char *)format;
 	get_formats(str, &mod);
@@ -40,6 +40,7 @@ void	get_formats(char *format, t_formats *mod)
 			if (get_specifier(mod, *format))
 			{
 				format++;
+				reset_t_formats(mod, 0);
 				continue ;
 			}
 		}

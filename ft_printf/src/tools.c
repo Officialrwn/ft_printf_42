@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 16:44:08 by leotran           #+#    #+#             */
-/*   Updated: 2022/02/22 18:39:42 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/22 18:45:54 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	get_formatcombo(t_formats *mod)
 	return (0);
 }
 
-void	initialize_t_formats(t_formats *mod)
+void	reset_t_formats(t_formats *mod, int flag)
 {
 	mod->uint_flag[0] = FLAG_NULL;
 	mod->uint_flag[1] = FLAG_NULL;
@@ -34,9 +34,10 @@ void	initialize_t_formats(t_formats *mod)
 	mod->width = 0;
 	mod->precision = 0;
 	mod->specifier = 0;
-	mod->char_count = 0;
 	mod->formatcombo = 0;
 	mod->num = NULL;
+	if (flag == 1)
+		mod->char_count = 0;
 }
 
 void	printformats(t_formats *mod)
@@ -54,9 +55,11 @@ void	get_format_lengths(t_formats *mod)
 {
 	int	len;
 	int	i;
+	int	sign;
 
 	len = (int)ft_strlen(mod->num) - (*mod->num == '-');
 	i = ((mod->formatcombo & HASH) != 0 && mod->specifier == 'o');
+	sign = (mod->precision == 0 && mod->uint_flag[2] == PRECISION);
 	if (mod->precision > 0)
 		mod->precision -= (len + i);
 	if ((mod->formatcombo & DASH_HSP) != 0 || (*mod->num == '-'))

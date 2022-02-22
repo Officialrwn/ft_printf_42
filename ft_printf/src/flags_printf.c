@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 18:57:01 by leo               #+#    #+#             */
-/*   Updated: 2022/02/22 18:39:59 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/22 19:00:52 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,11 @@ void	hash_print(t_formats *mod)
 
 	check_num = (*mod->num == '0' || *mod->num == '\0');
 	sign = (mod->specifier == 'X') + (mod->specifier == 'x');
-	if (check_num != 1 && (sign == 1 || mod->specifier == 'o'))
+	if ((sign == 1 && check_num != 1) || \
+	(*mod->num != '0' && mod->specifier == 'o'))
 	{	
 		mod->char_count += write(1, "0", 1);
-		if (mod->specifier != 'o')
+		if (mod->specifier != 'o' && check_num != 1)
 			mod->char_count += write(1, &mod->specifier, 1);
 	}
 	if (mod->uint_flag[1] == ZERO && (mod->uint_flag[2] != PRECISION \

@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 08:25:53 by leo               #+#    #+#             */
-/*   Updated: 2022/02/22 18:38:16 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/22 18:45:31 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ char	*get_flag(char *format, t_formats *mod);
 char	*get_length(char *format, t_formats *mod);
 char	*get_width(char *format, t_formats *mod, int flag);
 
-void	initialize_t_formats(t_formats *mod);
+void	reset_t_formats(t_formats *mod, int flag);
 void	get_formats(char *format, t_formats *mod);
 int		get_specifier(t_formats *mod, char c);
 int		ft_printf(const char *format, ...);
