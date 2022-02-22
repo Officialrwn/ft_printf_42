@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:04:46 by leo               #+#    #+#             */
-/*   Updated: 2022/02/22 22:25:01 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/22 22:54:47 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,11 @@ int	main(void)
 //	int a = 42;
 	//-9223372036854775808
 	int ret;
-	ret = printf("-%03.2d-\n", 1);
+
+	ret = printf("-%5.2s- is a string", "");
 	printf(" ret: %d\n", ret);
-	ret = ft_printf("-%03.2d-\n", 1);
+	ret = ft_printf("-%5.2s- is a string", "");
 	printf(" ret: %d\n", ret);
-/* 	ret = printf("%2.s is a string\n", "");
-	printf(" ret: %d\n", ret);
-	ret = ft_printf("%2.s is a string\n", "");
-	printf(" ret: %d\n", ret); */
 	
 	//ft_strdel(&arr);
 	// need to check .. ret = ft_printf("-%#.x %#.0x-\n", 0, 0);
