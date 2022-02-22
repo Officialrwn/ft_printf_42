@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:04:46 by leo               #+#    #+#             */
-/*   Updated: 2022/02/22 00:46:11 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/22 02:14:41 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,15 @@ int	main(void)
 	//1.6465454101562000384
 	//1.6465454101562000384
 	
-	long double num = -6.6465454101562;
+	long double num = 1.6465454102;
 	//					1.6465454102
 	//int	count = float_count(num, 7);
-	char *arr = ft_ftoa(num, 11);
+	char *arr = ft_ftoa(num, 2, 1);
 	
 	printf("num arr: %s\n", arr);
-	printf("num std: %.11Lf\n", num);
+	printf("num std: %.2Lf\n", num);
 	
-	//ft_strdel(&arr);
+	ft_strdel(&arr);
 	
 	
 	//ft_strdel(&arr);

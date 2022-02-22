@@ -1,4 +1,5 @@
 # TODO
+# need to fix floats rounding when its with only . flag
 # 3rd flag = DASH ignores the ZERO? Undefined behavior?
 # Fix floats.
 # Can pointers have - flag? 

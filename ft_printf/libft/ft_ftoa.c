@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 15:49:29 by leotran           #+#    #+#             */
-/*   Updated: 2022/02/22 00:45:29 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/22 02:14:34 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,21 +27,21 @@ static int	bankers_rounding(long double num)
 	return ((int)i);
 }
 
-static char	*fract_to_a(long double num, int precision)
+static char	*fract_to_a(long double num, int precision, int precision_flag)
 {
 	long double	sign;
 	char		*fractnum;
 	int			exponent;
 
 	sign = 1 - 2 * (num < 0);
-	exponent = 6;
-	if (precision > 0 && precision <= 19)
+	exponent = 6 * (precision_flag == 0);
+	if (precision > 0 && precision <= 19 && precision_flag == 1)
 		exponent = precision;
 	num -= (long long)num;
 	num *= sign;
 	while (exponent-- > 0)
 		num *= 10;
-	num += bankers_rounding(num);
+	num += (bankers_rounding(num));
 	fractnum = ft_itoa_base((long long)num, 10, 0);
 	return (fractnum);
 }
@@ -69,7 +69,7 @@ static char	*strjoin_int_fract(char *int_num, char *fract_num, size_t size)
 	return (float_num);
 }
 
-char	*ft_ftoa(long double num, int precision)
+char	*ft_ftoa(long double num, int precision, int precision_flag)
 {
 	char	*float_num;
 	char	*int_num;
@@ -77,7 +77,7 @@ char	*ft_ftoa(long double num, int precision)
 	size_t	size;
 
 	int_num = ft_itoa_base((long long)num, 10, 0);
-	fract_num = fract_to_a(num, precision);
+	fract_num = fract_to_a(num, precision, precision_flag);
 	size = ft_float_count(num, precision);
 	float_num = strjoin_int_fract(int_num, fract_num, size);
 	return (float_num);
