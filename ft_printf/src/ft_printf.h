@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 08:25:53 by leo               #+#    #+#             */
-/*   Updated: 2022/02/21 15:55:49 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/22 18:38:16 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,7 @@ void	dash_print(t_formats *mod);
 void	error_print(t_formats *mod);
 void	precision_print(t_formats *mod);
 void	get_format_lengths(t_formats *mod);
+void	get_float_format_lengths(t_formats *mod);
 
 char	*get_flag(char *format, t_formats *mod);
 char	*get_length(char *format, t_formats *mod);

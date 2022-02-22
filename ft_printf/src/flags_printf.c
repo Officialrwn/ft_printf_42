@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 18:57:01 by leo               #+#    #+#             */
-/*   Updated: 2022/02/22 18:28:44 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/22 18:39:59 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,8 @@ void	hash_print(t_formats *mod)
 
 void	space_print(t_formats *mod)
 {
-	if (*mod->num != '-' && mod->specifier != 'u' && (mod->formatcombo & PLUS) == 0)
+	if (*mod->num != '-' && mod->specifier != 'u' \
+		&& (mod->formatcombo & PLUS) == 0)
 		mod->char_count += write(1, " ", 1);
 	if (mod->uint_flag[1] == ZERO)
 		zero_print(mod);
