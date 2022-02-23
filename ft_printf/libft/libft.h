@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 09:13:31 by leotran           #+#    #+#             */
-/*   Updated: 2022/02/22 01:32:11 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/23 10:46:10 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,5 +121,6 @@ size_t	ft_float_count(long double num, int precision);
 char	*ft_uitoa_base(unsigned long long num, int base, int flag);
 char	*ft_itoa_base(long long num, int base, int flag);
 char	*ft_ftoa(long double num, int precision, int precision_flag);
+char	*ft_strjoin_update(char const *s1, char const *s2);
 
 #endif

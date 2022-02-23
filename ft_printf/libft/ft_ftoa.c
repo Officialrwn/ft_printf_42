@@ -6,12 +6,12 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 15:49:29 by leotran           #+#    #+#             */
-/*   Updated: 2022/02/22 13:42:05 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/23 10:54:16 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
+
 static int	bankers_rounding(long double num)
 {
 	long long	i;
@@ -74,11 +74,11 @@ static char	*strjoin_int_fract(char *int_num, char *fract_num, size_t size)
 
 char	*ft_ftoa(long double num, int precision, int precision_flag)
 {
-	char	*float_num;
-	char	*int_num;
-	char	*fract_num;
-	size_t	size;
+	char		*float_num;
+	char		*int_num;
+	char		*fract_num;
 	long long	roundup;
+	size_t		size;
 
 	roundup = 0;
 	if (precision == 0 && precision_flag == 1)
