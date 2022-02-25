@@ -6,11 +6,11 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 14:52:08 by leotran           #+#    #+#             */
-/*   Updated: 2022/02/26 01:07:09 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/26 01:08:30 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "src/ft_printf.h"
+#include "ft_printf.h"
 
 void	binary_printf(t_formats *mod)
 {

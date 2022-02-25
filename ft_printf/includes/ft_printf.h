@@ -6,16 +6,16 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 08:25:53 by leo               #+#    #+#             */
-/*   Updated: 2022/02/22 23:17:11 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/26 01:11:07 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# define CONVERSION "cspdiouxXf%"
+# define CONVERSION "cspdiouxXf%bn"
 # define FLAGS 		"0# -+"
-# define LENGTH 	"hhllL"
+# define LENGTH 	"hhllLz"
 
 # define ERROR_FLAG		5
 # define PRECISION		1
@@ -28,12 +28,10 @@
 # include <stdlib.h>
 # include <stdarg.h>
 # include "../libft/libft.h"
+# include "ft_string_mod.h"
 
 /* Forbidden header */
 # include <stdio.h> 
-
-/* %[flags][width][.precision][length]specifier */
-/* as long as compare is not 0 (bits); */
 
 typedef enum e_flags
 {
@@ -52,7 +50,8 @@ typedef enum e_length
 	L = 2,
 	LL = 3,
 	UPPER_L = 4,
-	LENGTH_NULL = 5,
+	Z = 5,
+	LENGTH_NULL = 6,
 }	t_length;
 
 typedef struct s_formats
@@ -101,11 +100,14 @@ void	uint_print(t_formats *mod);
 void	percentage_putchar(t_formats *mod);
 void	custom_putstr(t_formats *mod);
 void	float_printf(t_formats *mod);
+void	asterisk_flag(t_formats *mod, int flag);
+void	binary_printf(t_formats *mod);
+void	n_conversion_printf(t_formats *mod);
 
 typedef void				(*t_printf)(t_formats *mod);
 typedef void				(*t_flagprint)(t_formats *mod);
 
-static const t_printf		g_printf[8] = {
+static const t_printf		g_printf[15] = {
 	char_print,
 	str_print,
 	memaddr_print,
@@ -114,6 +116,8 @@ static const t_printf		g_printf[8] = {
 	uint_print,
 	float_printf,
 	percentage_putchar,
+	binary_printf,
+	n_conversion_printf,
 };
 
 static const t_flagprint	g_flagprint[6] = {
@@ -125,7 +129,7 @@ static const t_flagprint	g_flagprint[6] = {
 	error_print
 };
 
-static const int			g_conversion[12] = {
+static const int			g_conversion[20] = {
 	0,
 	1,
 	2,
@@ -137,7 +141,9 @@ static const int			g_conversion[12] = {
 	4,
 	6,
 	7,
-	-1
+	8,
+	9,
+	-1,
 };
 
 #endif
