@@ -6,7 +6,7 @@
 #    By: leo <leo@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/20 12:39:13 by leotran           #+#    #+#              #
-#    Updated: 2022/02/26 01:13:36 by leo              ###   ########.fr        #
+#    Updated: 2022/02/26 01:22:31 by leo              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ SRC = 	char_printf.c flags_printf.c int_printf.c length_tools.c \
 		pointers_printf.c ft_printf.c tools.c get_formats.c bonus.c
 SRCS = $(addprefix ./src/, $(SRC))
 HEADERS = /includes/
-FLAGS = -Wall -Wextra -Werror -O3 -I. -I$(HEADERS)
+FLAGS = -Wall -Wextra -Werror -O3 -I. -Iincludes/
 OBJ = *.o
 
 all: $(NAME)
