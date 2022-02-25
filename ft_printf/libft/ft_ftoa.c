@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_ftoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 15:49:29 by leotran           #+#    #+#             */
-/*   Updated: 2022/02/25 13:37:38 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/25 13:55:09 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 static int	bankers_rounding(long double num)
 {
 	long long	i;
@@ -23,7 +22,6 @@ static int	bankers_rounding(long double num)
 	last_digit = ((long long)num % 10) + sign;
 	last_digit *= sign;
 	num *= 100 * sign;
-	printf("\nnum: %Lf\n", num);
 	fractnum = (long long)num % 100;
 	i = (fractnum > 50);
 	if (fractnum == 50)

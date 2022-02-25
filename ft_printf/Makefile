@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: leo <leo@student.42.fr>                    +#+  +:+       +#+         #
+#    By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/20 12:39:13 by leotran           #+#    #+#              #
-#    Updated: 2022/02/25 12:48:03 by leo              ###   ########.fr        #
+#    Updated: 2022/02/25 14:06:36 by leotran          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME = libftprintf.a
 SRC = 	char_printf.c flags_printf.c int_printf.c length_printf.c \
 		pointers_printf.c ft_printf.c tools.c get_formats.c
 SRCS = $(addprefix ./src/, $(SRC))
-FLAGS = -Wall -Wextra -Werror -I. -I includes
+FLAGS = -Wall -Wextra -Werror -O3 -I. -I includes
 OBJ = *.o
 
 all: $(NAME)

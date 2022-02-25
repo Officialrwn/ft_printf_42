@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   int_printf.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:00:57 by leo               #+#    #+#             */
-/*   Updated: 2022/02/22 22:27:40 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/25 14:31:02 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,13 +54,21 @@ void	base_uint_printf(t_formats *mod)
 
 void	float_printf(t_formats *mod)
 {
-	long double	num;
+	long double	lnum;
+	double		num;
 
-	num = va_arg(mod->args, long double);
-	if (mod->length == L)
-		mod->num = ft_ftoa(num, mod->precision, mod->uint_flag[2]);
+	if (mod->length == UPPER_L)
+	{
+		num = 0;
+		lnum = va_arg(mod->args, long double);
+		mod->num = ft_ftoa(lnum, mod->precision, mod->uint_flag[2]);
+	}	
 	else
+	{
+		lnum = 0;
+		num = va_arg(mod->args, double);
 		mod->num = ft_ftoa((double)num, mod->precision, mod->uint_flag[2]);
+	}
 	get_float_format_lengths(mod);
 	if ((mod->formatcombo & HPS_ZD) == 0)
 		width_print(mod);
