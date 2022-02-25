@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 16:44:08 by leotran           #+#    #+#             */
-/*   Updated: 2022/02/25 22:35:41 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/26 01:06:01 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	get_signed_type(t_formats *mod)
 		mod->num = ft_itoa((short)num);
 	else if (mod->length == HH)
 		mod->num = ft_itoa((signed char)num);
-	else if (mod->length == L)
+	else if (mod->length == L || mod->length == Z)
 		mod->num = ft_itoa_base((long)num, 10, 0);
 	else if (mod->length == LL)
 		mod->num = ft_itoa_base((long long)num, 10, 0);
@@ -66,7 +66,7 @@ void	get_unsigned_type(t_formats *mod, int base, int flag)
 		mod->num = ft_uitoa_base((unsigned short)num, base, flag);
 	else if (mod->length == HH)
 		mod->num = ft_uitoa_base((unsigned char)num, base, flag);
-	else if (mod->length == L)
+	else if (mod->length == L || mod->length == Z)
 		mod->num = ft_uitoa_base((unsigned long)num, base, flag);
 	else if (mod->length == LL)
 		mod->num = ft_uitoa_base((unsigned long long)num, base, flag);

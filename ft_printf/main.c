@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:04:46 by leo               #+#    #+#             */
-/*   Updated: 2022/02/26 00:45:56 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/26 01:06:39 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ int	main(void)
 	//-9223372036854775808
 	int ret;
 	long double num = 0.05;
-	ret = ft_printf("-%.1Lf-", num);
+	ret = ft_printf("-%zx-", 42l);
 	printf(" ret: %d\n", ret);
-	ret = printf("-%.1Lf-", num);
+	ret = printf("-%zx-", 42l);
 	printf(" ret: %d\n", ret);
 	
 	//ft_strdel(&arr);

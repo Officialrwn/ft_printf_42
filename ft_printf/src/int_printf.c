@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:00:57 by leo               #+#    #+#             */
-/*   Updated: 2022/02/26 00:32:27 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/26 00:57:46 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,5 @@ void	float_printf(t_formats *mod)
 	if (*mod->num == '-' && (mod->flag[0] != PLUS))
 		mod->char_count += write(1, "-", 1);
 	g_flagprint[mod->flag[0]](mod);
-	//e_lowerc_printf(mod, lnum, num);
 	custom_putstr(mod);
 }

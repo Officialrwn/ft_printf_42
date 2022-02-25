@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 08:25:53 by leo               #+#    #+#             */
-/*   Updated: 2022/02/25 23:49:31 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/26 01:07:19 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # define CONVERSION "cspdiouxXf%bn"
 # define FLAGS 		"0# -+"
-# define LENGTH 	"hhllL"
+# define LENGTH 	"hhllLz"
 
 # define ERROR_FLAG		5
 # define PRECISION		1
@@ -50,7 +50,8 @@ typedef enum e_length
 	L = 2,
 	LL = 3,
 	UPPER_L = 4,
-	LENGTH_NULL = 5,
+	Z = 5,
+	LENGTH_NULL = 6,
 }	t_length;
 
 typedef struct s_formats
@@ -102,7 +103,6 @@ void	float_printf(t_formats *mod);
 void	asterisk_flag(t_formats *mod, int flag);
 void	binary_printf(t_formats *mod);
 void	n_conversion_printf(t_formats *mod);
-void	e_lowerc_printf(t_formats *mod, long double lnum, double dnum);
 
 typedef void				(*t_printf)(t_formats *mod);
 typedef void				(*t_flagprint)(t_formats *mod);
