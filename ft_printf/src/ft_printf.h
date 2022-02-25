@@ -6,14 +6,14 @@
 /*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 08:25:53 by leo               #+#    #+#             */
-/*   Updated: 2022/02/25 15:49:48 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/25 17:25:44 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# define CONVERSION "cspdiouxXf%"
+# define CONVERSION "cspdiouxXf%b"
 # define FLAGS 		"0# -+"
 # define LENGTH 	"hhllL"
 
@@ -102,11 +102,14 @@ void	percentage_putchar(t_formats *mod);
 void	custom_putstr(t_formats *mod);
 void	float_printf(t_formats *mod);
 void	asterisk_flag(t_formats *mod, int flag);
+void	binary_printf(t_formats *mod);
+void	n_conversion_printf(t_formats *mod);
+
 
 typedef void				(*t_printf)(t_formats *mod);
 typedef void				(*t_flagprint)(t_formats *mod);
 
-static const t_printf		g_printf[8] = {
+static const t_printf		g_printf[9] = {
 	char_print,
 	str_print,
 	memaddr_print,
@@ -115,6 +118,7 @@ static const t_printf		g_printf[8] = {
 	uint_print,
 	float_printf,
 	percentage_putchar,
+	binary_printf,
 };
 
 static const t_flagprint	g_flagprint[6] = {
@@ -126,7 +130,7 @@ static const t_flagprint	g_flagprint[6] = {
 	error_print
 };
 
-static const int			g_conversion[12] = {
+static const int			g_conversion[13] = {
 	0,
 	1,
 	2,
@@ -138,7 +142,8 @@ static const int			g_conversion[12] = {
 	4,
 	6,
 	7,
-	-1
+	8,
+	-1,
 };
 
 #endif

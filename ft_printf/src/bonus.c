@@ -6,15 +6,22 @@
 /*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 14:52:08 by leotran           #+#    #+#             */
-/*   Updated: 2022/02/25 15:58:29 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/25 17:25:15 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "src/ft_printf.h"
 
-//%b
-
 //colors
+
+void	binary_printf(t_formats *mod)
+{
+	long long	num;
+
+	num = va_arg(mod->args, long long);
+	mod->num = ft_itoa_base(num, 2, 0);
+	mod->char_count += write(1, mod->num, ft_strlen(mod->num));
+}
 
 void	asterisk_flag(t_formats *mod, int flag)
 {
@@ -39,6 +46,12 @@ void	asterisk_flag(t_formats *mod, int flag)
 	}
 }
 
-//%n
+void	n_conversion_printf(t_formats *mod)
+{
+	void	*num;
+	
+	num = va_arg(mod->args, void *);
+	*(int *)num = mod->char_count;
+}
 
 //%e
