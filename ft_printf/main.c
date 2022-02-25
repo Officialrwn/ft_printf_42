@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:04:46 by leo               #+#    #+#             */
-/*   Updated: 2022/02/25 17:19:48 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/26 00:45:56 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,7 @@
 		
 int	main(void)
 {
-	int *ret;
-	int i;
-	i = printf("test 1234%n\n", ret);
-	printf("ret: %d\n", i);
-	printf("n: %d\n", *ret);
+
 	//ret = printf("-%*d-\n", -3, 42);
 	//ret = printf("-%.*f-", 8, 42.515f);
 	// 444565444646.6465454101562
@@ -38,12 +34,12 @@ int	main(void)
 	//printf("num arr: %s\n", arr);
 //	int a = 42;
 	//-9223372036854775808
-/* 	int ret;
-	double num = 1.64650515;
-	ret = printf("-%.3f-", num);
+	int ret;
+	long double num = 0.05;
+	ret = ft_printf("-%.1Lf-", num);
 	printf(" ret: %d\n", ret);
-	ret = ft_printf("-%.3f-", num);
-	printf(" ret: %d\n", ret); */
+	ret = printf("-%.1Lf-", num);
+	printf(" ret: %d\n", ret);
 	
 	//ft_strdel(&arr);
 	// need to check .. ret = ft_printf("-%#.x %#.0x-\n", 0, 0);

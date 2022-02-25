@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 16:44:08 by leotran           #+#    #+#             */
-/*   Updated: 2022/02/22 23:16:59 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/25 22:35:41 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,39 +40,36 @@ void	reset_t_formats(t_formats *mod, int flag)
 		mod->char_count = 0;
 }
 
-void	get_format_lengths(t_formats *mod)
+void	get_signed_type(t_formats *mod)
 {
-	int	len;
-	int	i;
-	int	sign;
+	long long	num;
 
-	len = (int)ft_strlen(mod->num) - (*mod->num == '-');
-	i = ((mod->formatcombo & HASH) != 0 && mod->specifier == 'o');
-	sign = (mod->precision == 0 && mod->uint_flag[2] == PRECISION);
-	if (mod->precision > 0)
-		mod->precision -= (len + i);
-	if ((mod->formatcombo & DASH_HSP) != 0 || (*mod->num == '-'))
-		len += 1 + \
-		((mod->formatcombo & HASH) != 0 && mod->specifier != 'o');
-	if (*mod->num == '0' && sign == 1)
-	{
-		*mod->num = '\0';
-		len--;
-	}	
-	if (mod->width > 0)
-		mod->width -= (len + (mod->precision * (mod->precision > 0)));
+	num = va_arg(mod->args, long long);
+	if (mod->length == H)
+		mod->num = ft_itoa((short)num);
+	else if (mod->length == HH)
+		mod->num = ft_itoa((signed char)num);
+	else if (mod->length == L)
+		mod->num = ft_itoa_base((long)num, 10, 0);
+	else if (mod->length == LL)
+		mod->num = ft_itoa_base((long long)num, 10, 0);
+	else
+		mod->num = ft_itoa((int)num);
 }
 
-void	get_float_format_lengths(t_formats *mod)
+void	get_unsigned_type(t_formats *mod, int base, int flag)
 {
-	int	len;
-	int	sign;
+	unsigned long long	num;
 
-	len = (int)ft_strlen(mod->num) - (*mod->num == '-');
-	sign = (mod->precision == 0 && mod->uint_flag[2] == PRECISION);
-	if (*mod->num == '-' || (mod->formatcombo & (PLUS | SPACE)) != 0)
-		len++;
-	if ((mod->formatcombo & HASH) != 0 && sign == 1)
-		len++;
-	mod->width -= len;
+	num = va_arg(mod->args, unsigned long long);
+	if (mod->length == H)
+		mod->num = ft_uitoa_base((unsigned short)num, base, flag);
+	else if (mod->length == HH)
+		mod->num = ft_uitoa_base((unsigned char)num, base, flag);
+	else if (mod->length == L)
+		mod->num = ft_uitoa_base((unsigned long)num, base, flag);
+	else if (mod->length == LL)
+		mod->num = ft_uitoa_base((unsigned long long)num, base, flag);
+	else
+		mod->num = ft_uitoa_base((unsigned int)num, base, flag);
 }

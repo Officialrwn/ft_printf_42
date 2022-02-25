@@ -3,16 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   bonus.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 14:52:08 by leotran           #+#    #+#             */
-/*   Updated: 2022/02/25 17:25:15 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/26 00:29:06 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "src/ft_printf.h"
-
-//colors
 
 void	binary_printf(t_formats *mod)
 {
@@ -48,10 +46,40 @@ void	asterisk_flag(t_formats *mod, int flag)
 
 void	n_conversion_printf(t_formats *mod)
 {
-	void	*num;
-	
-	num = va_arg(mod->args, void *);
-	*(int *)num = mod->char_count;
+	int	*num;
+
+	num = (int *)va_arg(mod->args, void *);
+	*num = mod->char_count;
 }
 
-//%e
+void	e_lowerc_printf(t_formats *mod, long double lnum, double dnum)
+{
+	long double	num;
+	int			count;
+
+	count = 0;
+	num = 0;
+	num += lnum + dnum;
+	while (num > 1)
+	{
+		num /= 10;
+		count++;
+	}
+	num *= 10;
+	ft_strdel(&mod->num);
+	mod->num = ft_ftoa(num, mod->precision, mod->uint_flag[2]);
+	mod->char_count += write(1, mod->num, ft_strlen(mod->num));
+	printf("\ncount: %d\n", count - 1);
+
+
+	//while (num > 0)
+	/* int	i;
+
+	i = 0;
+	while (mod->num[i] != '.')
+		i++;
+	i += (*mod->num == '0');
+	printf("\ni: %d\n", i - 1); //right number
+ */	//if *mod->num == 0 then e-01 
+	//else e+nn
+}

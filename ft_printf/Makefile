@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+         #
+#    By: leo <leo@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/20 12:39:13 by leotran           #+#    #+#              #
-#    Updated: 2022/02/25 15:55:53 by leotran          ###   ########.fr        #
+#    Updated: 2022/02/25 22:36:09 by leo              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 LIBFT = libft/
 NAME = libftprintf.a
-SRC = 	char_printf.c flags_printf.c int_printf.c length_printf.c \
+SRC = 	char_printf.c flags_printf.c int_printf.c length_tools.c \
 		pointers_printf.c ft_printf.c tools.c get_formats.c bonus.c
 SRCS = $(addprefix ./src/, $(SRC))
 FLAGS = -Wall -Wextra -Werror -O3 -I. -I includes
