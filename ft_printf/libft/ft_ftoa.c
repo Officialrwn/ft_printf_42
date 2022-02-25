@@ -6,16 +6,16 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 15:49:29 by leotran           #+#    #+#             */
-/*   Updated: 2022/02/23 11:01:14 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/25 13:37:38 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
+#include <stdio.h>
 static int	bankers_rounding(long double num)
 {
 	long long	i;
-	long long	n;
+	long long	fractnum;
 	long long	sign;
 	long long	last_digit;
 
@@ -23,9 +23,10 @@ static int	bankers_rounding(long double num)
 	last_digit = ((long long)num % 10) + sign;
 	last_digit *= sign;
 	num *= 100 * sign;
-	n = (long long)num % 100;
-	i = (n > 50);
-	if (n == 50)
+	printf("\nnum: %Lf\n", num);
+	fractnum = (long long)num % 100;
+	i = (fractnum > 50);
+	if (fractnum == 50)
 		i += (last_digit % 2 == 0);
 	return ((int)i);
 }
