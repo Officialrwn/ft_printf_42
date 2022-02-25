@@ -6,25 +6,28 @@
 /*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 15:49:29 by leotran           #+#    #+#             */
-/*   Updated: 2022/02/25 13:55:09 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/25 14:51:07 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/* REMOVE HEADER */
+#include <stdio.h>
+
 static int	bankers_rounding(long double num)
 {
 	long long	i;
-	long long	fractnum;
+	long double	fractnum;
 	long long	sign;
 	long long	last_digit;
 
 	sign = 1 - 2 * (num < 0);
 	last_digit = ((long long)num % 10) + sign;
 	last_digit *= sign;
-	num *= 100 * sign;
-	fractnum = (long long)num % 100;
-	i = (fractnum > 50);
-	if (fractnum == 50)
+	fractnum = (num - (long long)num) * sign;
+	i = (fractnum > 0.5);
+	if (fractnum == 0.5)
 		i += (last_digit % 2 == 0);
 	return ((int)i);
 }
@@ -39,6 +42,8 @@ static char	*fract_to_a(long double num, int precision, int precision_flag)
 	exponent = 6 * (precision_flag == 0);
 	if (precision >= 0 && precision <= 19 && precision_flag == 1)
 		exponent = precision;
+	else if (precision > 19)
+		exponent = 19;
 	num -= (long long)num;
 	num *= sign;
 	while (exponent-- > 0)

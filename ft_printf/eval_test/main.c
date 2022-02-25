@@ -6,7 +6,7 @@
 /*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 19:24:42 by mrantil           #+#    #+#             */
-/*   Updated: 2022/02/18 17:10:38 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/25 15:59:40 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -905,8 +905,8 @@ int	main(void)
 	test_int_minusminus_flag();
 	test_procentage();
 	test_address();
-//	test_asterix_with_int();
-//	test_asterix_with_str(); 
+	test_asterix_with_int();
+	test_asterix_with_str(); 
 	test_width_single();
 	test_width_multi();
 	test_width_multi2();
@@ -936,7 +936,7 @@ int	main(void)
 	test_length_h_unsigned_int2();
 	test_intmin();
 	test_42hex();
-//	test_asterix_with_int_plus(); //need more tests shere with width, precision, and minus flag
+	test_asterix_with_int_plus(); //need more tests shere with width, precision, and minus flag
 	test_hashoct();
 	test_hashoct_intmin();
 	test_hashhex_intmin();

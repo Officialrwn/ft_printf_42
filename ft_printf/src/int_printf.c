@@ -6,7 +6,7 @@
 /*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:00:57 by leo               #+#    #+#             */
-/*   Updated: 2022/02/25 14:31:02 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/25 15:03:06 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	float_printf(t_formats *mod)
 	{
 		lnum = 0;
 		num = va_arg(mod->args, double);
-		mod->num = ft_ftoa((double)num, mod->precision, mod->uint_flag[2]);
+		mod->num = ft_ftoa((double)num, mod->precision, mod->uint_flag[2]);	
 	}
 	get_float_format_lengths(mod);
 	if ((mod->formatcombo & HPS_ZD) == 0)

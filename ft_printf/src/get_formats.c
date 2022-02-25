@@ -6,7 +6,7 @@
 /*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 18:05:01 by leo               #+#    #+#             */
-/*   Updated: 2022/02/25 14:24:30 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/25 15:52:57 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,11 @@ char	*get_width(char *format, t_formats *mod, int flag)
 			mod->width = i;
 	}
 	mod->uint_flag[2] ^= flag;
+	if (*format == '*')
+	{
+		asterisk_flag(mod, flag);
+		format++;
+	}	
 	return (&(*format));
 }
 
