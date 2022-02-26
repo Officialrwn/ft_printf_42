@@ -6,11 +6,42 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 15:49:29 by leotran           #+#    #+#             */
-/*   Updated: 2022/02/26 00:44:13 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/26 12:00:03 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/* REMOVE HEADER */
+#include <stdio.h>
+
+static char	*correct_float(char *float_num, long double num, int precision)
+{
+	char	*new_float;
+	int		count;
+	int		i;
+	int		j;
+
+	count = 0;
+	i = 2;
+	j = 2;
+	while (precision-- > 0 && num < 1 && num > -1)
+	{
+		num *= 10;
+		count++;
+	}
+	new_float = ft_strnew(ft_strlen(float_num) + count);
+	ft_strcpy(new_float, "0.");
+	while (float_num[j])
+	{
+		if (--count > 0)
+			new_float[i++] = '0';
+		else
+			new_float[i++] = float_num[j++];
+	}
+	ft_strdel(&float_num);
+	return (new_float);
+}
 
 static int	bankers_rounding(long double num)
 {
@@ -90,5 +121,9 @@ char	*ft_ftoa(long double num, int precision, int precision_flag)
 	fract_num = fract_to_a(num, precision, precision_flag);
 	size = ft_float_count(num, precision);
 	float_num = strjoin_int_fract(int_num, fract_num, size);
+	//need to move correct float up to after fract_to_a and
+	//correct it if theres 0 before actual digit. 
+/* 	if (num < 1 && num > -1)
+		float_num = correct_float(float_num, num, precision); */
 	return (float_num);
 }

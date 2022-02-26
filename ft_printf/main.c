@@ -6,11 +6,11 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:04:46 by leo               #+#    #+#             */
-/*   Updated: 2022/02/26 01:06:39 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/26 12:00:25 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "src/ft_printf.h"
+#include "includes/ft_printf.h"
 #include <stdio.h>
 
 /* 	count = (num < 0) + 1;
@@ -35,10 +35,10 @@ int	main(void)
 //	int a = 42;
 	//-9223372036854775808
 	int ret;
-	long double num = 0.05;
-	ret = ft_printf("-%zx-", 42l);
+	double num = 123.05;
+	ret = ft_printf("-%.3f-", num); // mine 0.5
 	printf(" ret: %d\n", ret);
-	ret = printf("-%zx-", 42l);
+	ret = printf("-%.3f-", num); // real 0.05
 	printf(" ret: %d\n", ret);
 	
 	//ft_strdel(&arr);
@@ -439,6 +439,19 @@ int	main(void)
 	printf(" ret: %d\n", ret);
 	ret = ft_printf("-%#08.5x-\n", 42);
 	printf("%d\ntest row nr: %d\n\n", ret, count); count += 5; 
- 	system("leaks a.out"); */
+ 	system("leaks a.out");
+	 
+	double num = 0.05;
+	ret = ft_printf("-%.2f-", num);
+	printf(" ret: %d\n", ret);
+	ret = printf("-%.2f-", num);
+	printf(" ret: %d\n", ret); 
+	
+	num = 123.05;
+	ret = ft_printf("-%.3f-", num); // mine 0.5
+	printf(" ret: %d\n", ret);
+	ret = printf("-%.3f-", num); // real 0.05
+	printf(" ret: %d\n", ret); */
+	
 	return (0);
 }

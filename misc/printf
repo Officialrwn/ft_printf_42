@@ -1,5 +1,5 @@
 # TODO
-# need to fix floats rounding when its with only . flag
+# need to fix floats not printing correctly for .05 (0 before 1-9 in fract)
 # 3rd flag = DASH ignores the ZERO? Undefined behavior?
 # Fix floats.
 # Can pointers have - flag? 
