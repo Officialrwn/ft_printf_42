@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 15:49:29 by leotran           #+#    #+#             */
-/*   Updated: 2022/02/27 11:43:12 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/27 11:50:03 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ static int	bankers_rounding(long double num)
 	long long	sign;
 	long long	last_digit;
 
+	printf("bankers: %.19Lf\n", num);
 	sign = 1 - 2 * (num < 0);
 	if (num == 0.5)
 		return (1);
