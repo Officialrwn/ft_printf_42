@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 15:49:29 by leotran           #+#    #+#             */
-/*   Updated: 2022/02/26 12:00:03 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/27 11:43:12 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,32 +15,24 @@
 /* REMOVE HEADER */
 #include <stdio.h>
 
-static char	*correct_float(char *float_num, long double num, int precision)
+static char	*correct_float(long double num, int precision)
 {
-	char	*new_float;
-	int		count;
+	char	*temp;
 	int		i;
-	int		j;
+	int		count;
 
+	i = 0;
 	count = 0;
-	i = 2;
-	j = 2;
-	while (precision-- > 0 && num < 1 && num > -1)
+	while (--precision > 0)
 	{
 		num *= 10;
-		count++;
+		if ((long long)num == 0)
+			count++;
 	}
-	new_float = ft_strnew(ft_strlen(float_num) + count);
-	ft_strcpy(new_float, "0.");
-	while (float_num[j])
-	{
-		if (--count > 0)
-			new_float[i++] = '0';
-		else
-			new_float[i++] = float_num[j++];
-	}
-	ft_strdel(&float_num);
-	return (new_float);
+	temp = ft_strnew(19);
+	while (count-- > 0)
+		temp[i++] = '0';
+	return (temp);
 }
 
 static int	bankers_rounding(long double num)
@@ -51,12 +43,14 @@ static int	bankers_rounding(long double num)
 	long long	last_digit;
 
 	sign = 1 - 2 * (num < 0);
+	if (num == 0.5)
+		return (1);
 	last_digit = ((long long)num % 10) + sign;
 	last_digit *= sign;
 	fractnum = (num - (long long)num) * sign;
-	i = (fractnum > 0.5);
-	if (fractnum == 0.5)
-		i += (last_digit % 2 == 0);
+	i = (fractnum >= 0.5);
+/* 	if (fractnum == 0.5)
+		i += (last_digit % 2 == 0); */
 	return ((int)i);
 }
 
@@ -64,6 +58,7 @@ static char	*fract_to_a(long double num, int precision, int precision_flag)
 {
 	long double	sign;
 	char		*fractnum;
+	char		*temp;
 	int			exponent;
 
 	sign = 1 - 2 * (num < 0);
@@ -74,10 +69,12 @@ static char	*fract_to_a(long double num, int precision, int precision_flag)
 		exponent = 19;
 	num -= (long long)num;
 	num *= sign;
+	temp = correct_float(num, precision);
 	while (exponent-- > 0)
 		num *= 10;
 	num += (bankers_rounding(num)) * (precision != 0);
 	fractnum = ft_itoa_base((long long)num, 10, 0);
+	fractnum = ft_strjoin_update(temp, fractnum);
 	return (fractnum);
 }
 
@@ -121,9 +118,5 @@ char	*ft_ftoa(long double num, int precision, int precision_flag)
 	fract_num = fract_to_a(num, precision, precision_flag);
 	size = ft_float_count(num, precision);
 	float_num = strjoin_int_fract(int_num, fract_num, size);
-	//need to move correct float up to after fract_to_a and
-	//correct it if theres 0 before actual digit. 
-/* 	if (num < 1 && num > -1)
-		float_num = correct_float(float_num, num, precision); */
 	return (float_num);
 }

@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:04:46 by leo               #+#    #+#             */
-/*   Updated: 2022/02/26 12:00:25 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/27 11:39:31 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,54 @@ int	main(void)
 //	int a = 42;
 	//-9223372036854775808
 	int ret;
-	double num = 123.05;
-	ret = ft_printf("-%.3f-", num); // mine 0.5
+
+	double num = 0.005;
+	ret = ft_printf("-%.1f-", num);
 	printf(" ret: %d\n", ret);
-	ret = printf("-%.3f-", num); // real 0.05
-	printf(" ret: %d\n", ret);
+	ret = printf("-%.1f-", num);
+	printf(" ret: %d\n\n", ret);
 	
+	num = 0.015; //real one rounds down
+	ret = ft_printf("-%.2f-", num);
+	printf(" ret: %d\n", ret);
+	ret = printf("-%.2f-", num);
+	printf(" ret: %d\n\n", ret);
+	
+	num = 0.005;
+	ret = ft_printf("-%.2f-", num);
+	printf(" ret: %d\n", ret);
+	ret = printf("-%.2f-", num);
+	printf(" ret: %d\n\n", ret);
+	
+	num = 0.005;
+	ret = ft_printf("-%.3f-", num);
+	printf(" ret: %d\n", ret);
+	ret = printf("-%.3f-", num);
+	printf(" ret: %d\n\n", ret);
+
+	num = 0.005;	
+	ret = ft_printf("-%.1f-", num);
+	printf(" ret: %d\n", ret);
+	ret = printf("-%.1f-", num);
+	printf(" ret: %d\n\n", ret);
+
+	num = 0.05;	
+	ret = ft_printf("-%.1f-", num);
+	printf(" ret: %d\n", ret);
+	ret = printf("-%.1f-", num);
+	printf(" ret: %d\n\n", ret);
+	
+	num = 0.025; // real one rounds up
+	ret = ft_printf("-%.2f-", num);
+	printf(" ret: %d\n", ret);
+	ret = printf("-%.2f-", num);
+	printf(" ret: %d\n\n", ret);
+
+	num = 0.035;	
+	ret = ft_printf("-%.2f-", num);
+	printf(" ret: %d\n", ret);
+	ret = printf("-%.2f-", num);
+	printf(" ret: %d\n\n", ret);
 	//ft_strdel(&arr);
 	// need to check .. ret = ft_printf("-%#.x %#.0x-\n", 0, 0);
 	
