@@ -6,12 +6,14 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:04:46 by leo               #+#    #+#             */
-/*   Updated: 2022/02/27 11:52:27 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/27 13:02:34 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/ft_printf.h"
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 /* 	count = (num < 0) + 1;
 	if (count > 1)
@@ -37,24 +39,23 @@ int	main(void)
 	int ret;
 
 	double num = 0.005;
-	/* ret = ft_printf("-%.1f-", num);
+	ret = ft_printf("-%.1f-", num);
 	printf(" ret: %d\n", ret);
 	ret = printf("-%.1f-", num);
 	printf(" ret: %d\n\n", ret);
-	*/
-	num = 0.015; //real one rounds down
+	
+	num = 0.015;
 	ret = ft_printf("-%.2f-", num);
 	printf(" ret: %d\n", ret);
 	ret = printf("-%.2f-", num);
 	printf(" ret: %d\n\n", ret);
 	
-	num = 0.055; //real one rounds down
+	num = 0.055;
 	ret = ft_printf("-%.2f-", num);
 	printf(" ret: %d\n", ret);
 	ret = printf("-%.2f-", num);
 	printf(" ret: %d\n\n", ret);
 	
-	/*
 	num = 0.005;
 	ret = ft_printf("-%.2f-", num);
 	printf(" ret: %d\n", ret);
@@ -78,21 +79,42 @@ int	main(void)
 	printf(" ret: %d\n", ret);
 	ret = printf("-%.1f-", num);
 	printf(" ret: %d\n\n", ret);
-	 */
 	
-/* 	num = 0.025; // real one rounds up
+ 	num = 0.025;
 	ret = ft_printf("-%.2f-", num);
 	printf(" ret: %d\n", ret);
 	ret = printf("-%.2f-", num);
-	printf(" ret: %d\n\n", ret); */
+	printf(" ret: %d\n\n", ret);
 
-	/* num = 0.035;	
+	num = 0.035;	
 	ret = ft_printf("-%.2f-", num);
 	printf(" ret: %d\n", ret);
 	ret = printf("-%.2f-", num);
-	printf(" ret: %d\n\n", ret); */
-	//ft_strdel(&arr);
-	// need to check .. ret = ft_printf("-%#.x %#.0x-\n", 0, 0);
+	printf(" ret: %d\n\n", ret);
+	
+	num = -0.2150;	 // if int is 0 then 1 rounds down.
+	ret = ft_printf("-%.2f-", num);
+	printf(" ret: %d\n", ret);
+	ret = printf("-%.2f-", num);
+	printf(" ret: %d\n\n", ret);
+	
+	num = -1.2150;	 // if int is 0 then 1 rounds down.
+	ret = ft_printf("-%.2f-", num);
+	printf(" ret: %d\n", ret);
+	ret = printf("-%.2f-", num);
+	printf(" ret: %d\n\n", ret);
+	
+	num = 0.2150;	 // if int is 0 then 1 rounds down.
+	ret = ft_printf("-%.2f-", num);
+	printf(" ret: %d\n", ret);
+	ret = printf("-%.2f-", num);
+	printf(" ret: %d\n\n", ret);
+
+	num = 1.2150;	 // if int is 0 then 1 rounds down.
+	ret = ft_printf("-%.2f-", num);
+	printf(" ret: %d\n", ret);
+	ret = printf("-%.2f-", num);
+	printf(" ret: %d\n\n", ret);	//ft_strdel(&arr);
 	
 	
 	//ft_strdel(&arr);

@@ -6,15 +6,12 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 15:49:29 by leotran           #+#    #+#             */
-/*   Updated: 2022/02/27 11:50:03 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/27 12:58:56 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-/* REMOVE HEADER */
 #include <stdio.h>
-
 static char	*correct_float(long double num, int precision)
 {
 	char	*temp;
@@ -42,16 +39,16 @@ static int	bankers_rounding(long double num)
 	long long	sign;
 	long long	last_digit;
 
-	printf("bankers: %.19Lf\n", num);
+	printf("num: %Lf\n", num);
 	sign = 1 - 2 * (num < 0);
-	if (num == 0.5)
-		return (1);
 	last_digit = ((long long)num % 10) + sign;
 	last_digit *= sign;
 	fractnum = (num - (long long)num) * sign;
-	i = (fractnum >= 0.5);
-/* 	if (fractnum == 0.5)
-		i += (last_digit % 2 == 0); */
+	i = (fractnum >= 0.5) * (last_digit != 2);
+	if (num == 0.5)
+		return (1);
+	if (last_digit == 2)
+		return (0);
 	return ((int)i);
 }
 
@@ -79,15 +76,17 @@ static char	*fract_to_a(long double num, int precision, int precision_flag)
 	return (fractnum);
 }
 
-static char	*strjoin_int_fract(char *int_num, char *fract_num, size_t size)
+static char	*strjoin_int_fract(long double num, char *int_num, char *fract_num, size_t size)
 {
 	char	*float_num;
 	int		i;
 	int		j;
 
-	float_num = ft_strnew(size);
+	float_num = ft_strnew(size + (num < 0));
 	i = 0;
 	j = 0;
+	if (num < 0)
+		float_num[i++] = '-';
 	if (float_num)
 	{
 		while (int_num[j])
@@ -118,6 +117,6 @@ char	*ft_ftoa(long double num, int precision, int precision_flag)
 		return (int_num);
 	fract_num = fract_to_a(num, precision, precision_flag);
 	size = ft_float_count(num, precision);
-	float_num = strjoin_int_fract(int_num, fract_num, size);
+	float_num = strjoin_int_fract(num, int_num, fract_num, size);
 	return (float_num);
 }
