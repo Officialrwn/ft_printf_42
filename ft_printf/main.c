@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:04:46 by leo               #+#    #+#             */
-/*   Updated: 2022/02/27 13:02:34 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/28 00:07:36 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,11 @@ int	main(void)
 	//-9223372036854775808
 	int ret;
 
-	double num = 0.005;
-	ret = ft_printf("-%.1f-", num);
+	double num = 0.015;
+	ret = printf("-%.100f-", num);
+	printf(" ret: %d\n", ret);
+	
+	/* ret = ft_printf("-%.1f-", num);
 	printf(" ret: %d\n", ret);
 	ret = printf("-%.1f-", num);
 	printf(" ret: %d\n\n", ret);
@@ -115,7 +118,7 @@ int	main(void)
 	printf(" ret: %d\n", ret);
 	ret = printf("-%.2f-", num);
 	printf(" ret: %d\n\n", ret);	//ft_strdel(&arr);
-	
+	 */
 	
 	//ft_strdel(&arr);
 	/* int	ret;
