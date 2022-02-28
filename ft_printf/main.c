@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:04:46 by leo               #+#    #+#             */
-/*   Updated: 2022/02/28 08:32:22 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/28 14:04:07 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,9 @@
 		
 int	main(void)
 {
+	double num = 0.85;
 
+	printf("%.0f\n", num);
 	//ret = printf("-%*d-\n", -3, 42);
 	//ret = printf("-%.*f-", 8, 42.515f);
 	// 444565444646.6465454101562
@@ -36,12 +38,80 @@ int	main(void)
 	//printf("num arr: %s\n", arr);
 //	int a = 42;
 	//-9223372036854775808
-	int ret;
+	/* int ret;
 
-	double num = 0.015;
-	ret = ft_printf("-%.100Lf-", num);
-	printf(" ret: %d\n", ret);
-	
+	double num = 0.005;
+	double add = 0.010;
+	for (int i = 0; i < 10; i++)
+	{
+		ret = ft_printf("-%.2f-", num);
+		printf(" ret: %d\n", ret);
+		ret = printf("-%.2f-", num);
+		printf(" ret: %d\n\n", ret);
+		num += add;
+	}
+	printf("\n");
+	num = 0.05;
+	add = 0.10;
+	for (int i = 0; i < 10; i++)
+	{
+		ret = ft_printf("-%.1f-", num);
+		printf(" ret: %d\n", ret);
+		ret = printf("-%.1f-", num);
+		printf(" ret: %d\n\n", ret);
+		num += add;
+	}
+	printf("\n");
+	num = 1.05;
+	add = 0.10;
+	for (int i = 0; i < 10; i++)
+	{
+		ret = ft_printf("-%.1f-", num);
+		printf(" ret: %d\n", ret);
+		ret = printf("-%.1f-", num);
+		printf(" ret: %d\n\n", ret);
+		num += add;
+	}
+	printf("\n");
+	num = 1.005;
+	add = 0.010;
+	for (int i = 0; i < 10; i++)
+	{
+		ret = ft_printf("-%.2f-", num);
+		printf(" ret: %d\n", ret);
+		ret = printf("-%.2f-", num);
+		printf(" ret: %d\n\n", ret);
+		num += add;
+	}
+	printf("\n");
+	num = 2.05;
+	add = 0.10;
+	for (int i = 0; i < 10; i++)
+	{
+		ret = ft_printf("-%.1f-", num);
+		printf(" ret: %d\n", ret);
+		ret = printf("-%.1f-", num);
+		printf(" ret: %d\n\n", ret);
+		num += add;
+	}
+	printf("\n");
+	num = 2.005;
+	add = 0.010;
+	for (int i = 0; i < 10; i++)
+	{
+		ret = ft_printf("-%.2f-", num);
+		printf(" ret: %d\n", ret);
+		ret = printf("-%.2f-", num);
+		printf(" ret: %d\n\n", ret);
+		num += add;
+	}
+	printf("\n");
+
+
+ */
+
+
+
 	/* ret = ft_printf("-%.1f-", num);
 	printf(" ret: %d\n", ret);
 	ret = printf("-%.1f-", num);

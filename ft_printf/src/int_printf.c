@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   int_printf.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:00:57 by leo               #+#    #+#             */
-/*   Updated: 2022/02/28 09:42:50 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/28 13:30:52 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,14 +61,12 @@ void	float_printf(t_formats *mod)
 	{
 		num = 0;
 		lnum = va_arg(mod->args, long double);
-		printf("inside num: %.20Lf\n", lnum);
 		mod->num = ft_ftoa(lnum, mod->precision, mod->uint_flag[2]);
 	}	
 	else
 	{
 		lnum = 0;
 		num = va_arg(mod->args, double);
-		printf("inside num: %.20f\n", num);
 		mod->num = ft_ftoa((double)num, mod->precision, mod->uint_flag[2]);
 	}
 	get_float_format_lengths(mod);

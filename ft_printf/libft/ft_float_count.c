@@ -3,39 +3,36 @@
 /*                                                        :::      ::::::::   */
 /*   ft_float_count.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 13:58:23 by leotran           #+#    #+#             */
-/*   Updated: 2022/02/22 01:23:06 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/28 13:12:08 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static long long	get_fractionalnum(long double num, int precision)
+static size_t	get_fractionalnum_count(int precision, int precision_flag)
 {
-	int	exponent;
+	size_t	count;
 
-	exponent = 6;
-	if (precision > 0 && precision <= 19)
-		exponent = precision;
-	num -= (long long)num;
-	while (exponent-- > 0)
-		num *= 10;
-	return ((long long)num);
+	count = (size_t)precision + 1;
+	if (precision == 0 && precision_flag == 1)
+		count = 0;
+	else if (precision_flag == 0)
+		count = 7;
+	return (count);
 }
 
-size_t	ft_float_count(long double num, int precision)
+size_t	ft_float_count(long double num, int precision, int precision_flag)
 {
 	size_t		count;
-	long long	frac_num;
-	long double	d_num;
+	long double	sign;
 
-	count = (num < 0) + 1;
-	d_num = num;
-	d_num *= 1 - 2 * (num < 0);
-	frac_num = get_fractionalnum(d_num, precision);
-	count += ft_int_base_count(frac_num, 10);
-	count += ft_int_base_count((long long)d_num, 10);
+	count = (num < 0);
+	sign = 1 - 2 * (num < 0);
+	num *= sign;
+	count += get_fractionalnum_count(precision, precision_flag);
+	count += ft_int_base_count((long long)num, 10);
 	return (count);
 }
