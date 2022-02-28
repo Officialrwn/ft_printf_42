@@ -4,6 +4,12 @@
 # Fix floats.
 # Can pointers have - flag? 
 
+#
+#
+#
+
+
+
 # FLOATS
 # if only . then bankers rounding?
 # Bankers rounding: 

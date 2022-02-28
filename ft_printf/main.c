@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:04:46 by leo               #+#    #+#             */
-/*   Updated: 2022/02/28 00:07:36 by leo              ###   ########.fr       */
+/*   Updated: 2022/02/28 08:32:22 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	main(void)
 	int ret;
 
 	double num = 0.015;
-	ret = printf("-%.100f-", num);
+	ret = ft_printf("-%.100Lf-", num);
 	printf(" ret: %d\n", ret);
 	
 	/* ret = ft_printf("-%.1f-", num);
