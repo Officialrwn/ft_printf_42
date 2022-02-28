@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:04:46 by leo               #+#    #+#             */
-/*   Updated: 2022/02/28 14:04:07 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/28 20:51:05 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,11 @@
 		
 int	main(void)
 {
-	double num = 0.85;
-
+	double num = 0.50;
+	char *arr = NULL;
 	printf("%.0f\n", num);
+	printf("%d\n", (int)num % 10);
+	printf("%zu\n", ft_strlen(arr));
 	//ret = printf("-%*d-\n", -3, 42);
 	//ret = printf("-%.*f-", 8, 42.515f);
 	// 444565444646.6465454101562

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_ftoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 15:49:29 by leotran           #+#    #+#             */
-/*   Updated: 2022/02/28 13:44:52 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/28 19:16:52 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static char	*correct_float(long double num, int precision)
 		if ((long long)num == 0)
 			count++;
 	}
-	temp = ft_strnew(18	);
+	temp = ft_strnew(18);
 	while (count-- > 0)
 		temp[i++] = '0';
 	return (temp);
