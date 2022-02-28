@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   int_printf.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:00:57 by leo               #+#    #+#             */
-/*   Updated: 2022/02/28 13:30:52 by leotran          ###   ########.fr       */
+/*   Updated: 2022/02/28 23:59:29 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,19 +61,19 @@ void	float_printf(t_formats *mod)
 	{
 		num = 0;
 		lnum = va_arg(mod->args, long double);
-		mod->num = ft_ftoa(lnum, mod->precision, mod->uint_flag[2]);
+		mod->num = ft_ftoa(lnum, mod->uint_flag[2], mod->precision);
 	}	
 	else
 	{
 		lnum = 0;
 		num = va_arg(mod->args, double);
-		mod->num = ft_ftoa((double)num, mod->precision, mod->uint_flag[2]);
+		mod->num = ft_ftoa((double)num, mod->uint_flag[2], mod->precision);
 	}
-	get_float_format_lengths(mod);
+	/* get_float_format_lengths(mod);
 	if ((mod->formatcombo & HPS_ZD) == 0)
 		width_print(mod);
 	if (*mod->num == '-' && (mod->flag[0] != PLUS))
 		mod->char_count += write(1, "-", 1);
-	g_flagprint[mod->flag[0]](mod);
+	g_flagprint[mod->flag[0]](mod); */
 	custom_putstr(mod);
 }
