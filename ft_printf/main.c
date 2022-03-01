@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:04:46 by leo               #+#    #+#             */
-/*   Updated: 2022/03/01 13:46:14 by leotran          ###   ########.fr       */
+/*   Updated: 2022/03/01 22:31:18 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,11 @@ int	main(void)
 	//-9223372036854775808
 	int ret;
 
-	double num = 0.005;
-	double add = 0.010;
-	for (int i = 0; i < 10; i++)
+	double num = -1.56;
+	ret = ft_printf("%.2f\n", num);
+	//double num = 0.005;
+	//double add = 0.010;
+	/* for (int i = 0; i < 10; i++)
 	{
 		ret = ft_printf("ft_: -%.2f-	-%.30f-", num, num);
 		printf(" ret: %d\n", ret);
@@ -110,7 +112,7 @@ int	main(void)
 		printf(" ret: %d\n\n", ret);
 		num += add;
 	}
-	printf("\n");
+	printf("\n"); */
 
 
 
