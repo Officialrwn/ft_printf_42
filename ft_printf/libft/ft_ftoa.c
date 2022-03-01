@@ -3,37 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   ft_ftoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 15:49:29 by leotran           #+#    #+#             */
-/*   Updated: 2022/03/01 01:03:22 by leo              ###   ########.fr       */
+/*   Updated: 2022/03/01 13:44:58 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 
-static long long	bankers_rounding(long double num, int precision)
+static int	bankers_rounding(long double num, char last_digit)
 {
-	long long	last_digit;
-	long double	fract_num;
-	long long	res;
-	long long	sign;
+	int	rounding_num;
+	int	res;
 
+	rounding_num = last_digit - 48;
 	res = 0;
-	sign = 1 - 2 * (num < 0);
-	while (precision-- > 0)
-		num *= 10;
-	last_digit = (long long)num % 10;
-	fract_num = num - (long long)num;
-	if (fract_num > 0.5)
-	{
+	if (num > 0.5)
 		res++;
-	}	
-	else if (fract_num == 0.5)
-	{
-		res = ((last_digit + sign) % 2 == 0);
-	}
+	else if (res == 0.5)
+		res = (rounding_num % 2 == 0);
 	return (res);
 }	
 
@@ -42,21 +32,25 @@ static char	*fract_to_a(long double num, int precision_flag, int precision)
 {
 	char	*fract_num;
 	int		i;
-
+	long double	sign;
+	
 	i = 0;
+	sign = 1.0 - 2.0 * (num < 0);
+	num *= sign;
 	if (precision_flag == 0)
 		precision = 6;
 	fract_num = ft_strnew(precision);
-	num = (num * 10) + bankers_rounding(num, precision);
 	while (precision-- > 0)
 	{
-		fract_num[i++] = ((long long)num % 10) + '0';
 		num *= 10;
+		fract_num[i++] = ((long long)num % 10) + '0';
+		num -= (long long)num;
 	}
+	fract_num[i - 1] += bankers_rounding(num, fract_num[i - 1]);
 	return (fract_num);
 }
 
-static char	*strjoin_int_fract(char *int_num, char *fract_num)
+static char	*strjoin_int_fract(char *int_num, char *fract_num, int sign)
 {
 	char	*res;
 	size_t	size;
@@ -65,10 +59,12 @@ static char	*strjoin_int_fract(char *int_num, char *fract_num)
 
 	i = 0;
 	j = 0;
-	size = ft_strlen(int_num) + ft_strlen(fract_num) + 1;
+	size = ft_strlen(int_num) + ft_strlen(fract_num) + 1 + (sign && *int_num == '0');
 	res = ft_strnew(size);
 	if (res)
 	{
+		if (sign == 1 && *int_num == '0')
+			res[i++] = '-';
 		while (int_num[j])
 			res[i++] = int_num[j++];
 		res[i++] = '.';
@@ -85,15 +81,17 @@ char	*ft_ftoa(long double num, int precision_flag, int precision)
 	char	*int_num;
 	char	*fract_num;
 	char	*res;
+	size_t	len;
 
+	int_num = ft_itoa_base((long long)num, 10, 0);
+	len = ft_strlen(int_num);
 	if (precision_flag == 1 && precision == 0)
 	{
-		num += bankers_rounding(num, precision);
-		return (ft_itoa_base((long long)num, 10, 0));
+		int_num[len - 1] += bankers_rounding(num, int_num[len - 1]);
+		return (int_num);
 	}	
 	fract_num = fract_to_a(num, precision_flag, precision);
-	int_num = ft_itoa_base((long long)num, 10, 0);
-	res = strjoin_int_fract(int_num, fract_num);
+	res = strjoin_int_fract(int_num, fract_num, (num < 0));
 	ft_strdel(&int_num);
 	ft_strdel(&fract_num);
 	return (res);

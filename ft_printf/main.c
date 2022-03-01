@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:04:46 by leo               #+#    #+#             */
-/*   Updated: 2022/03/01 01:04:05 by leo              ###   ########.fr       */
+/*   Updated: 2022/03/01 13:46:14 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,12 @@
 int	main(void)
 {
 	
-/* 	long double num = 0.05;
-	long double num2 = 0.125;
-	num *= 10;
+	/* long double num2 = 0.95;
 	
-	printf("test: %.60Lf\n", num);
+	ft_printf("ft_: %.Lf\n", num2);
 	//printf("ft_: %s\n", ft_ftoa(num, 1, 19));
 	
-	printf("std: %.60Lf\n", num2); */
+	printf("std: %.Lf\n", num2); */
 	
 	//ret = printf("-%*d-\n", -3, 42);
 	//ret = printf("-%.*f-", 8, 42.515f);
