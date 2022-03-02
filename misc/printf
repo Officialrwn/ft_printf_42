@@ -1,12 +1,15 @@
 # TODO
-# need to fix floats not printing correctly for .05 (0 before 1-9 in fract)
 # 3rd flag = DASH ignores the ZERO? Undefined behavior?
-# Fix floats.
 # Can pointers have - flag? 
 
-#
-#
-#
+# Colors bonus
+# str[10] = "\033[0;30m" // no nullbyte?
+# char colors[8][3] = { "BLK", "ETC"}
+# loop through 2d array and strcmp if find equal then
+# if index == last 
+# 	then end_color 
+# else
+# 	str[8] += i; (index 8 is the 0 that determines color)
 
 
 
