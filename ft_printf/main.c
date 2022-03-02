@@ -6,7 +6,7 @@
 /*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:04:46 by leo               #+#    #+#             */
-/*   Updated: 2022/03/02 12:46:08 by leotran          ###   ########.fr       */
+/*   Updated: 2022/03/02 13:28:53 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,8 @@ int	main(void)
 	//-9223372036854775808
 	int ret;
 
-/* 	double num = -1.005;
- 	printf("%s\n", ft_ftoa(num, 1, 2));
-	//ret = ft_printf("%.1f\n", num);
+//	double num = -1.2150;
+/*= 	ret = ft_printf("%.2f\n", num);
 	ret = printf("%.2f\n", num); */
 	//system("leaks a.out");
 
@@ -187,20 +186,18 @@ int	main(void)
 	}
 	printf("\n");
 
-
-
-
-
-	/* ret = ft_printf("-%.1f-", num);
-	printf(" ret: %d\n", ret);
-	ret = printf("-%.1f-", num);
-	printf(" ret: %d\n\n", ret);
-	
 	num = 0.015;
 	ret = ft_printf("-%.2f-", num);
 	printf(" ret: %d\n", ret);
 	ret = printf("-%.2f-", num);
 	printf(" ret: %d\n\n", ret);
+	
+		
+	num = -1.2150;	 // if int is 0 then 1 rounds down.
+	ret = ft_printf("-%.2f-", num);
+	printf(" ret: %d\n", ret);
+	ret = printf("-%.2f-", num);
+	printf(" ret: %d\n\n", ret);	//ft_strdel(&arr);
 	
 	num = 0.055;
 	ret = ft_printf("-%.2f-", num);
@@ -213,6 +210,8 @@ int	main(void)
 	printf(" ret: %d\n", ret);
 	ret = printf("-%.2f-", num);
 	printf(" ret: %d\n\n", ret);
+
+	
 	
 	num = 0.005;
 	ret = ft_printf("-%.3f-", num);
@@ -250,24 +249,25 @@ int	main(void)
 	ret = printf("-%.2f-", num);
 	printf(" ret: %d\n\n", ret);
 	
-	num = -1.2150;	 // if int is 0 then 1 rounds down.
-	ret = ft_printf("-%.2f-", num);
-	printf(" ret: %d\n", ret);
-	ret = printf("-%.2f-", num);
-	printf(" ret: %d\n\n", ret);
 	
 	num = 0.2150;	 // if int is 0 then 1 rounds down.
 	ret = ft_printf("-%.2f-", num);
 	printf(" ret: %d\n", ret);
 	ret = printf("-%.2f-", num);
 	printf(" ret: %d\n\n", ret);
-
+	
 	num = 1.2150;	 // if int is 0 then 1 rounds down.
 	ret = ft_printf("-%.2f-", num);
 	printf(" ret: %d\n", ret);
 	ret = printf("-%.2f-", num);
 	printf(" ret: %d\n\n", ret);	//ft_strdel(&arr);
-	 */
+
+	num = -1.2150;	 // if int is 0 then 1 rounds down.
+	ret = ft_printf("-%.2f-", num);
+	printf(" ret: %d\n", ret);
+	ret = printf("-%.2f-", num);
+	printf(" ret: %d\n\n", ret);	//ft_strdel(&arr);
+	//system("leaks a.out");
 	
 	//ft_strdel(&arr);
 	/* int	ret;

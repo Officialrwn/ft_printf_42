@@ -6,7 +6,7 @@
 /*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 15:49:29 by leotran           #+#    #+#             */
-/*   Updated: 2022/03/01 13:36:26 by leotran          ###   ########.fr       */
+/*   Updated: 2022/03/02 13:31:22 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static char	*convert_itoa_base(long long num, int base, char *arr, int flag)
 		flag = 55;
 	else
 		flag = 87;
-	while (--i >= 0)
+	while (i-- > 0)
 	{
 		remainder = num % (long long)base;
 		if (remainder > 9)
@@ -37,21 +37,21 @@ static char	*convert_itoa_base(long long num, int base, char *arr, int flag)
 
 char	*ft_itoa_base(long long num, int base, int flag)
 {
-	char				*arr;
-	char				*head;
-	int					count;
+	char	*arr;
+	char	*head;
+	int		count;
 
 	count = ft_int_base_count(num, base);
 	arr = (char *)malloc(sizeof(char) * (count + 1));
 	head = arr;
 	if (arr)
 	{
+		arr[count] = '\0';
 		if (num < 0)
 		{
 			*arr++ = '-';
 			num *= -1;
-		}	
-		arr[count] = '\0';
+		}
 		arr = convert_itoa_base(num, base, arr, flag);
 	}
 	return (head);

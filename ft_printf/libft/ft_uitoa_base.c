@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_uitoa_base.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 15:49:29 by leotran           #+#    #+#             */
-/*   Updated: 2022/02/15 08:34:55 by leo              ###   ########.fr       */
+/*   Updated: 2022/03/02 13:30:40 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int base, char *arr, int flag)
 		flag = 55;
 	else
 		flag = 87;
-	while (--i >= 0)
+	while (i-- > 0)
 	{
 		remainder = num % (unsigned long long)base;
 		if (remainder > 9)
@@ -38,8 +38,8 @@ int base, char *arr, int flag)
 
 char	*ft_uitoa_base(unsigned long long num, int base, int flag)
 {
-	char		*arr;
-	int			count;
+	char	*arr;
+	int		count;
 
 	count = ft_uint_base_count(num, base);
 	arr = (char *)malloc(sizeof(char) * count + 1);
