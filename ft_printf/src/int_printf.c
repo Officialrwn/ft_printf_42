@@ -6,7 +6,7 @@
 /*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:00:57 by leo               #+#    #+#             */
-/*   Updated: 2022/03/02 11:42:38 by leotran          ###   ########.fr       */
+/*   Updated: 2022/03/02 13:32:58 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	float_printf(t_formats *mod)
 	long double	lnum;
 	double		num;
 
-	if (mod->length == UPPER_L)
+	if (mod->length == UPPER_L || mod->length == L)
 	{
 		num = 0;
 		lnum = va_arg(mod->args, long double);
