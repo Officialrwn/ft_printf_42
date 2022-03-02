@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 20:23:30 by leo               #+#    #+#             */
-/*   Updated: 2022/02/19 23:55:36 by leo              ###   ########.fr       */
+/*   Updated: 2022/03/02 14:02:01 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,14 @@
 #include <string.h>
 #include <stdlib.h>
 #include "ft_printf/libft/libft.h"
+#include "float.h"
 
 int main(void)
 {
-	int a = 5;
-	printf("-%#x-\n", -42);
+	printf("%f\n", DBL_MAX);
+	//printf("%f\n", DBL_MAX / 10);
+	printf("\n%f\n",( DBL_MAX / 10) * 10);
+	
 	/* 	long double num;
 	long double remainder;
 	num = 444565444646.6465424242242;
