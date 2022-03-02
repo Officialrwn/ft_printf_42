@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 20:23:30 by leo               #+#    #+#             */
-/*   Updated: 2022/03/02 20:42:02 by leo              ###   ########.fr       */
+/*   Updated: 2022/03/02 21:49:14 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,20 +27,68 @@ int main(void)
 	//printf("%f\n", DBL_MAX);
 	//printf("%f\n", DBL_MAX / 10);
 	//printf("\n%f\n",( DBL_MAX / 10) * 10);
-	double num = 123456789123456789123456789123456789.2;
-	printf("1st num %f\n", num);
-	/* printf("mod: %f\n", mod);
+	//12345678912345678
+	//9223372036854775807
+	//10000000000000000 // if over this then 0 after .
+	// 9999999999999999
+	long double num = 999999999999999.9414;
+	
+	printf("1st num %.20Lf\n", num);
+
+	/* num /= 2;
+	printf("2nd num  %.19f\n", num);
+	num *= 2;
+	printf("3rd num %.19f\n", num); */
+	
+	///SOLUTION?????
+	/* 
+	count x times num /= 2 so it fits in a long long and then % 10 to get lastdigit.
+	then the formula is:
+	remainder = 0;
+	while (num > 0)
+		remainder += lastdigit * (2 ^ count);//example if count is 5 then 2^5 = 32 then just lastdigit * 32; 
+		arr[len] = (remainder % 10) + '0';
+		remainder \= 10;
+		num /= 10;
+	
+	Theoretical:
+	remainder += (num % 10) * (2 ^ count);
+	arr[len] =  (remainder % 10) + '0';
+	remainder /= 10;
+	num /= 10;
+	
+	How many times to num /= 2? 
+	Maybe have long double defined holding max long long.
+	
+	while (num > maxlonglong)
+		num /= 2;
+		count++;
+	 */
+/* 	int count = 0;
+	int n = 0;
+	while (n < 5)
+	{
+		num /= 2;
+		n++;
+	}	
+	printf("2nd num:  %f\n", num);
+	n = 0;
+	while (n < 5)
+	{
+		num *= 2;
+		n++;
+	}	 */
+	//printf("2nd num: %f\n", num);
+	
+	
+	
+		/* printf("mod: %f\n", mod);
 	mod = fmod((num) / i, 10);
 	printf("mod: %f\n", mod);
 	i *= 10;
 	mod = fmod(num / i, 10);
 	printf("mod: %f\n", mod);  */
 	//printf("%.19f\n", num / 100000000000000000);
-	num /= 2;
-	printf("2nd num  %.19f\n", num);
-	num *= 2;
-	printf("3rd num %.19f\n", num);
-	
 	//num -= (long long)num;
 //	printf("%.19f\n", num);
 	//num *= 100000000000000000;
