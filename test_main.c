@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 20:23:30 by leo               #+#    #+#             */
-/*   Updated: 2022/03/02 14:02:01 by leo              ###   ########.fr       */
+/*   Updated: 2022/03/02 20:42:02 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,36 @@
 #include <stdlib.h>
 #include "ft_printf/libft/libft.h"
 #include "float.h"
+#include <math.h>
+union Udouble {
+		double d;
+		unsigned long u;
+} udouble;
 
 int main(void)
 {
-	printf("%f\n", DBL_MAX);
+	
+	//printf("%f\n", DBL_MAX);
 	//printf("%f\n", DBL_MAX / 10);
-	printf("\n%f\n",( DBL_MAX / 10) * 10);
+	//printf("\n%f\n",( DBL_MAX / 10) * 10);
+	double num = 123456789123456789123456789123456789.2;
+	printf("1st num %f\n", num);
+	/* printf("mod: %f\n", mod);
+	mod = fmod((num) / i, 10);
+	printf("mod: %f\n", mod);
+	i *= 10;
+	mod = fmod(num / i, 10);
+	printf("mod: %f\n", mod);  */
+	//printf("%.19f\n", num / 100000000000000000);
+	num /= 2;
+	printf("2nd num  %.19f\n", num);
+	num *= 2;
+	printf("3rd num %.19f\n", num);
+	
+	//num -= (long long)num;
+//	printf("%.19f\n", num);
+	//num *= 100000000000000000;
+	//printf("%.19f\n", num);
 	
 	/* 	long double num;
 	long double remainder;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:04:46 by leo               #+#    #+#             */
-/*   Updated: 2022/03/02 13:28:53 by leotran          ###   ########.fr       */
+/*   Updated: 2022/03/02 19:00:52 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,17 @@ int	main(void)
 //	int a = 42;
 	//-9223372036854775808
 	int ret;
-
+	double num = 123456789123456789.50
+	printf("%f\n", num);
+	fmod (num, 10);
+	num / 10
+	fmod 
+	
 //	double num = -1.2150;
 /*= 	ret = ft_printf("%.2f\n", num);
 	ret = printf("%.2f\n", num); */
 	//system("leaks a.out");
-
+/* 
 	double num = 0.005;
 	double add = 0.010;
 	for (int i = 0; i < 10; i++)
@@ -266,7 +271,7 @@ int	main(void)
 	ret = ft_printf("-%.2f-", num);
 	printf(" ret: %d\n", ret);
 	ret = printf("-%.2f-", num);
-	printf(" ret: %d\n\n", ret);	//ft_strdel(&arr);
+	printf(" ret: %d\n\n", ret);	//ft_strdel(&arr); */
 	//system("leaks a.out");
 	
 	//ft_strdel(&arr);
