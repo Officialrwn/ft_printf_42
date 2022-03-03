@@ -3,14 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   get_formats.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 18:05:01 by leo               #+#    #+#             */
-/*   Updated: 2022/02/25 15:52:57 by leotran          ###   ########.fr       */
+/*   Updated: 2022/03/03 13:16:17 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+static char	*overwrite_zeroflag(char *format, t_formats *mod)
+{
+	if (mod->uint_flag[0] == ZERO)
+		mod->uint_flag[0] = DASH;
+	else if (mod->uint_flag[1] == ZERO)
+		mod->uint_flag[1] = DASH;
+	return (format);
+}
 
 char	*get_flag(char *format, t_formats *mod)
 {
@@ -34,6 +43,8 @@ char	*get_flag(char *format, t_formats *mod)
 		}
 		i++;
 	}
+	if (*format == '-')
+		overwrite_zeroflag(format++, mod);
 	get_formatcombo(mod);
 	return (get_width(&(*format), mod, WIDTH));
 }

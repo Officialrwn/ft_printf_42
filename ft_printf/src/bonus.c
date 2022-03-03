@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 14:52:08 by leotran           #+#    #+#             */
-/*   Updated: 2022/03/03 12:55:56 by leo              ###   ########.fr       */
+/*   Updated: 2022/03/03 13:29:28 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,18 +57,23 @@ char	*color_printf(char *format)
 	char	temp[4];
 	char	colorcode[11];
 	int		i;
+	int		flag;
 
 	i = 0;
+	flag = 0;
 	ft_bzero(temp, 4);
 	ft_strcpy(colorcode, "\033[0;3#m");
 	ft_strncpy(temp, &format[1], 3);
 	while (i < 9 && format[4] == '}')
 	{
 		if (ft_strcmp(temp, g_colors[i]) == 0)
+		{
+			flag = 1;
 			break ;
+		}	
 		i++;
 	}
-	if (i >= 9)
+	if (flag == 0 || format[4] != '}')
 		return (format);
 	else if (i == 8)
 		write(1, EOC, 7);
