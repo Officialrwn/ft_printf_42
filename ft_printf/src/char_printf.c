@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:00:57 by leo               #+#    #+#             */
-/*   Updated: 2022/02/22 21:12:55 by leo              ###   ########.fr       */
+/*   Updated: 2022/03/03 23:41:36 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	char_print(t_formats *mod)
 {
-	char	c;
+	unsigned char	c;
 
-	c = (char)va_arg(mod->args, int);
+	c = (unsigned char)va_arg(mod->args, int);
 	while (mod->width - 1 > 0 && (mod->formatcombo & DASH) == 0)
 	{
 		mod->char_count += write(1, " ", 1);
