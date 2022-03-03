@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bonus.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 14:52:08 by leotran           #+#    #+#             */
-/*   Updated: 2022/02/26 01:08:30 by leo              ###   ########.fr       */
+/*   Updated: 2022/03/03 10:52:34 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,17 @@ void	n_conversion_printf(t_formats *mod)
 
 	num = (int *)va_arg(mod->args, void *);
 	*num = mod->char_count;
+}
+
+char	*color_printf(char *format)
+{
+	char	temp[4];
+	char	colorcode[10];
+	int		i;
+
+	ft_bzero(temp, 4);
+	temp = ft_strncpy(temp, &format[1], 3);
+	printf("temp: %s\n", temp);
+//	while (i <= 9 && ft_strcmp(temp, g_colors[i] != 0)
+//		i++;
 }

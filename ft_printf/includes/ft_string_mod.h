@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_string_mod.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 22:15:28 by leo               #+#    #+#             */
-/*   Updated: 2022/02/25 22:21:24 by leo              ###   ########.fr       */
+/*   Updated: 2022/03/03 10:34:48 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,6 @@
 # define MAG "\033[0;35m"
 # define CYN "\033[0;36m"
 # define WHT "\033[0;37m"
-# define END_COLOR "\033[0m"
+# define EOC "\033[0m"
 
 #endif

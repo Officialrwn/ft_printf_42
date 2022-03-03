@@ -6,7 +6,7 @@
 /*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 08:25:53 by leo               #+#    #+#             */
-/*   Updated: 2022/03/02 11:25:11 by leotran          ###   ########.fr       */
+/*   Updated: 2022/03/03 10:35:26 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,7 @@ void	get_float_format_lengths(t_formats *mod);
 char	*get_flag(char *format, t_formats *mod);
 char	*get_length(char *format, t_formats *mod);
 char	*get_width(char *format, t_formats *mod, int flag);
+char	*color_printf(char *format);
 
 void	reset_t_formats(t_formats *mod, int flag);
 void	get_formats(char *format, t_formats *mod);
@@ -144,6 +145,18 @@ static const int			g_conversion[20] = {
 	8,
 	9,
 	-1,
+};
+
+static const char			*g_colors[] = {
+	"BLK",
+	"RED",
+	"GRN",
+	"YEL",
+	"BLU",
+	"MAG",
+	"CYN",
+	"WHT",
+	"EOC"
 };
 
 #endif
