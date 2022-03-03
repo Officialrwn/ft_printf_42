@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 08:25:53 by leo               #+#    #+#             */
-/*   Updated: 2022/03/03 10:35:26 by leotran          ###   ########.fr       */
+/*   Updated: 2022/03/03 19:57:27 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # define CONVERSION "cspdiouxXf%bn"
 # define FLAGS 		"0# -+"
 # define LENGTH 	"hhllLz"
+# define MAX_LLONG	9223372036854775807.0
 
 # define ERROR_FLAG		5
 # define PRECISION		1

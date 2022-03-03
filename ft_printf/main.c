@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:04:46 by leo               #+#    #+#             */
-/*   Updated: 2022/03/03 19:39:08 by leo              ###   ########.fr       */
+/*   Updated: 2022/03/03 19:52:28 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <math.h>
 
 /* 	count = (num < 0) + 1;
 	if (count > 1)
@@ -22,9 +23,10 @@
 int	main(void)
 {
 	int ret;
-	ret = ft_printf("-%15.4s-", "42");
+	double num = __DBL_MAX__;
+	ret = ft_printf("%f", num);
 	printf(" ret: %d\n", ret);
-	ret = printf("-%15.4s-", "42");
+	ret = printf("%f", num);
 	printf(" ret: %d\n", ret);
 	/* long double num2 = 0.95;
 	
