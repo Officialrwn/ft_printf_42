@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 08:55:01 by leo               #+#    #+#             */
-/*   Updated: 2022/03/03 12:18:04 by leo              ###   ########.fr       */
+/*   Updated: 2022/03/03 19:15:15 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ void	get_formats(char *format, t_formats *mod)
 			if ((*format) == '.')
 				format = get_width(&(*format), mod, PRECISION);
 			format = get_length(&(*format), mod);
+			while (ft_isdigit(*format))
+				format++;
 			if (get_specifier(mod, *format))
 			{
 				format++;

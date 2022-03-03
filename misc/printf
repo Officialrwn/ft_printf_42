@@ -8,7 +8,7 @@
 # %2.9p, 1234  // UNDEFINED BEHAVIOR? // if precision is on dont print width.
 # %2.9p, 1234567  // UNDEFINED BEHAVIOR?
 
-# {%*3d}, 5, 0
+# {%*3d}, 5, 0 // Undefined behavior?
 
 # %15.4s, 42 // missing 2 spaces
 # %4.15s, 42 // missing 2 spaces

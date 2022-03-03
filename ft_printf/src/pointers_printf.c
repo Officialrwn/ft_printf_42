@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:00:57 by leo               #+#    #+#             */
-/*   Updated: 2022/02/22 22:59:04 by leo              ###   ########.fr       */
+/*   Updated: 2022/03/03 19:40:29 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	str_print(t_formats *mod)
 	if (str == NULL)
 		str = "(null)";
 	len = (int)ft_strlen(str) * (checker == 0);
-	if (mod->precision > 0 && len > 0)
+	if (mod->precision < len && mod->uint_flag[2] == 1 && len > 0)
 		len = mod->precision;
 	while (mod->width - len > 0 && (mod->formatcombo & DASH) == 0)
 	{

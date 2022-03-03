@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 14:52:08 by leotran           #+#    #+#             */
-/*   Updated: 2022/03/03 13:29:28 by leo              ###   ########.fr       */
+/*   Updated: 2022/03/03 19:29:08 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,11 @@ void	asterisk_flag(t_formats *mod, int flag)
 	sign = 1 - 2 * (num < 0);
 	if (sign == -1 && flag == WIDTH)
 	{
-		if (mod->uint_flag[0] == ZERO)
+		if (mod->uint_flag[0] == ZERO || mod->uint_flag[0] == FLAG_NULL)
 			mod->uint_flag[0] = DASH;
-		else if (mod->uint_flag[1] == ZERO)
+		else if (mod->uint_flag[1] == ZERO || mod->uint_flag[0] == FLAG_NULL)
 			mod->uint_flag[1] = DASH;
-	}	
+	}
 	if (flag == WIDTH)
 		mod->width = num * sign;
 	else
@@ -42,6 +42,7 @@ void	asterisk_flag(t_formats *mod, int flag)
 		mod->precision = num * (sign == 1);
 		mod->uint_flag[2] = PRECISION * (sign == 1);
 	}
+	get_formatcombo(mod);
 }
 
 void	n_conversion_printf(t_formats *mod)
@@ -55,32 +56,27 @@ void	n_conversion_printf(t_formats *mod)
 char	*color_printf(char *format)
 {
 	char	temp[4];
-	char	colorcode[11];
+	char	colorcode[8];
 	int		i;
-	int		flag;
 
 	i = 0;
-	flag = 0;
 	ft_bzero(temp, 4);
 	ft_strcpy(colorcode, "\033[0;3#m");
 	ft_strncpy(temp, &format[1], 3);
 	while (i < 9 && format[4] == '}')
 	{
 		if (ft_strcmp(temp, g_colors[i]) == 0)
-		{
-			flag = 1;
 			break ;
-		}	
 		i++;
 	}
-	if (flag == 0 || format[4] != '}')
+	if (i >= 9 || format[4] != '}')
 		return (format);
 	else if (i == 8)
-		write(1, EOC, 7);
+		write(1, EOC, 4);
 	else
 	{
 		colorcode[5] = i + '0';
-		write(1, colorcode, 10);
+		write(1, colorcode, 7);
 	}
 	return (&format[5]);
 }

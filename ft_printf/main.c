@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:04:46 by leo               #+#    #+#             */
-/*   Updated: 2022/03/03 16:22:23 by leo              ###   ########.fr       */
+/*   Updated: 2022/03/03 19:39:08 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@
 int	main(void)
 {
 	int ret;
-	ret = ft_printf("{%*c}", -15, '0');
+	ret = ft_printf("-%15.4s-", "42");
 	printf(" ret: %d\n", ret);
-	ret = printf("{%*c}", -15, '0');
+	ret = printf("-%15.4s-", "42");
 	printf(" ret: %d\n", ret);
 	/* long double num2 = 0.95;
 	
