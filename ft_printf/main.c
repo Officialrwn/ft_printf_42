@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:04:46 by leo               #+#    #+#             */
-/*   Updated: 2022/03/02 19:00:52 by leo              ###   ########.fr       */
+/*   Updated: 2022/03/03 12:59:03 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,11 @@
 		
 int	main(void)
 {
-	
+	int ret;
+	ret = ft_printf("{CLR}test");
+	printf(" ret: %d\n", ret);
+	ret = printf("test");
+	printf(" ret: %d\n", ret);
 	/* long double num2 = 0.95;
 	
 	ft_printf("ft_: %.Lf\n", num2);
@@ -43,13 +47,13 @@ int	main(void)
 	//printf("num arr: %s\n", arr);
 //	int a = 42;
 	//-9223372036854775808
-	int ret;
+/* 	int ret;
 	double num = 123456789123456789.50
 	printf("%f\n", num);
 	fmod (num, 10);
 	num / 10
 	fmod 
-	
+	 */
 //	double num = -1.2150;
 /*= 	ret = ft_printf("%.2f\n", num);
 	ret = printf("%.2f\n", num); */

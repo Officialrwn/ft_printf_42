@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 08:55:01 by leo               #+#    #+#             */
-/*   Updated: 2022/03/03 10:46:58 by leotran          ###   ########.fr       */
+/*   Updated: 2022/03/03 12:18:04 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ void	get_formats(char *format, t_formats *mod)
 {
 	while (*format != '\0')
 	{
-		//if (*format == '{')
-		//	format = color_printf(&(*format));
+		if (*format == '{')
+			format = color_printf(&(*format));
 		if (*format == '%')
 		{
 			if (*++format == '\0')
