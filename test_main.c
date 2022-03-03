@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 20:23:30 by leo               #+#    #+#             */
-/*   Updated: 2022/03/02 21:49:14 by leo              ###   ########.fr       */
+/*   Updated: 2022/03/03 23:26:31 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,8 @@
 #include "ft_printf/libft/libft.h"
 #include "float.h"
 #include <math.h>
-union Udouble {
-		double d;
-		unsigned long u;
-} udouble;
+
+double ft_fmod(double x, double y);
 
 int main(void)
 {
@@ -31,10 +29,39 @@ int main(void)
 	//9223372036854775807
 	//10000000000000000 // if over this then 0 after .
 	// 9999999999999999
-	long double num = 999999999999999.9414;
+	double num = DBL_MAX;
 	
-	printf("1st num %.20Lf\n", num);
+	printf("1st num %f\n", num);
+	int i = 0;
+	double n = 10;
+	int count = 0;
+	while (num > __LONG_LONG_MAX__)
+	{
+		num /= 2;
+		count++;	
+	}
+	//while (num < DBL_MAX)
+	//	num *= 2;
+	
+	printf("count: %d num: %f\n", count, num);
+	double mod = 19490628022799998160706764775750376621752453715190015053735812914425897381532852204931230131764020518450609832462817336366918339730406188093155974592625306839062555399912946059741579310980107296705599186958436757747371195850789749891492727230937931225655477606208555094163657179983828221952.0;
+count = 0;
+	while (mod > __LONG_LONG_MAX__)
+	{
+		mod /= 2;
+		count++;
+	}	
+	printf("count: %d mod: %f\n", count, mod);
+		
+	//1797693134862315708145274237317043567980705675258449965989
+//	int len = (int)strlen(arr);
+//	while (len > 0)
+//		printf("%c", arr[len--]);
 
+	//8738177180919299881250404026184124858368
+	//8638584214816204040521962506764876465233
+	
+	
 	/* num /= 2;
 	printf("2nd num  %.19f\n", num);
 	num *= 2;

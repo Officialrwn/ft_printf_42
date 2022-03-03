@@ -1,7 +1,19 @@
 # TODO
 # 3rd flag = DASH ignores the ZERO? Undefined behavior?
 # Can pointers have - flag? 
+""" 
+while (num > 0)
+	remainder += lastdigit * (2 ^ count);//example if count is 5 then 2^5 = 32 then just lastdigit * 32; 
+	arr[len] = (remainder % 10) + '0';
+	remainder \= 10;
+	num /= 10;
 
+Theoretical:
+remainder += (num % 10) * (2 ^ count);
+arr[len] =  (remainder % 10) + '0';
+remainder /= 10;
+num /= 10;
+	"""
 # Moulitest faisl
 
 # %.5p, 0  // UNDEFINED BEHAVIOR?

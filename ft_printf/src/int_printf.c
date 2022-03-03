@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:00:57 by leo               #+#    #+#             */
-/*   Updated: 2022/03/03 20:00:03 by leo              ###   ########.fr       */
+/*   Updated: 2022/03/03 23:27:50 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,15 +52,6 @@ void	base_uint_printf(t_formats *mod)
 	custom_putstr(mod);
 }
 
-static void	check_if_large_double(t_formats *mod, long double lnum, double num)
-{
-	lnum += num;
-	if (lnum > MAX_LLONG)
-	{
-		*mod->num = '\0';
-	}	
-}
-
 void	float_printf(t_formats *mod)
 {
 	long double	lnum;
@@ -71,14 +62,12 @@ void	float_printf(t_formats *mod)
 		num = 0;
 		lnum = va_arg(mod->args, long double);
 		mod->num = ft_ftoa(lnum, mod->uint_flag[2], mod->precision);
-		check_if_large_double(mod, lnum, num);
 	}	
 	else
 	{
 		lnum = 0;
 		num = va_arg(mod->args, double);
 		mod->num = ft_ftoa((double)num, mod->uint_flag[2], mod->precision);
-		check_if_large_double(mod, lnum, num);
 	}
 	get_float_format_lengths(mod);
 	if ((mod->formatcombo & HPS_ZD) == 0)
