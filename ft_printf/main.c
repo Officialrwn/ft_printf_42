@@ -6,7 +6,7 @@
 /*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:04:46 by leo               #+#    #+#             */
-/*   Updated: 2022/03/04 11:49:58 by leotran          ###   ########.fr       */
+/*   Updated: 2022/03/04 17:55:13 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,10 @@ int	main(void)
 {
 	int ret;
 
-	ret = ft_printf("{%f}{%lf}{%Lf}", 1.42, 1.42l, 1.42l);
+	ret = ft_printf("%-8.5x\n", 34);
+	ret = printf("%-8.5x", 34);
+	//printf("%-8.5X", 34);
+
 	
 	//int ret;
 /* 	ret = ft_printf("%*3d", 5, 0);
