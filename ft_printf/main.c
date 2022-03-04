@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:04:46 by leo               #+#    #+#             */
-/*   Updated: 2022/03/04 10:57:39 by leo              ###   ########.fr       */
+/*   Updated: 2022/03/04 11:20:46 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,10 @@
 		
 int	main(void)
 {
+	int ret;
+
+	ret = ft_printf("%");
+	
 	//int ret;
 /* 	ret = ft_printf("%*3d", 5, 0);
 	printf(" ret: %d\n", ret);
@@ -365,7 +369,7 @@ int	main(void)
 	/*
 	** FLOATS!!!!!
 	*/
-
+/* 
 	int ret;
 	int count = 134;
 
@@ -687,7 +691,7 @@ int	main(void)
 	ret = ft_printf("-%#08.5x-\n", 42);
 	printf("%d\ntest row nr: %d\n\n", ret, count); count += 5; 
  	system("leaks a.out");
-	 
+	  */
 	
 	
 	return (0);
