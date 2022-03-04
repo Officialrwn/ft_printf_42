@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:04:46 by leo               #+#    #+#             */
-/*   Updated: 2022/03/03 19:52:28 by leo              ###   ########.fr       */
+/*   Updated: 2022/03/04 10:57:39 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,11 @@
 		
 int	main(void)
 {
-	int ret;
-	double num = __DBL_MAX__;
-	ret = ft_printf("%f", num);
+	//int ret;
+/* 	ret = ft_printf("%*3d", 5, 0);
 	printf(" ret: %d\n", ret);
-	ret = printf("%f", num);
-	printf(" ret: %d\n", ret);
+	ret = printf("%*3d", 5, 0);
+	printf(" ret: %d\n", ret); */
 	/* long double num2 = 0.95;
 	
 	ft_printf("ft_: %.Lf\n", num2);
@@ -367,7 +366,7 @@ int	main(void)
 	** FLOATS!!!!!
 	*/
 
-	/* int ret;
+	int ret;
 	int count = 134;
 
 	ret = ft_printf("test nr:0 -%%- HEHEH ret: ");
@@ -659,23 +658,13 @@ int	main(void)
 	printf(" ret: %d\n", ret);
 	ret = ft_printf("ft_: %+10.5dLol\n", 42);
 	printf("%d\ntest row nr: %d\n\n", ret, count); count += 5;
-	
-	ret = ft_printf("num arr: -%+05.0f-", num);
-	printf(" ret: %d\n", ret);
-	ret = printf("num std: -%+05.0f-", num);
-	printf("%d\ntest row nr: %d\n\n", ret, count); count += 5;
+
 
 	ret = printf("-%-10.5o-\n", 2500);
 	printf(" ret: %d\n", ret);
 	ret = ft_printf("-%-10.5o-\n", 2500);
 	printf("%d\ntest row nr: %d\n\n", ret, count); count += 5;
 	
-	ret = printf("-%#08.5x-\n", 42);
-	printf(" ret: %d\n", ret);
-	ret = ft_printf("-%#08.5x-\n", 42);
-	printf("%d\ntest row nr: %d\n\n", ret, count); count += 5; 
- 	system("leaks a.out");
-	 
 	double num = 0.05;
 	ret = ft_printf("-%.2f-", num);
 	printf(" ret: %d\n", ret);
@@ -686,7 +675,20 @@ int	main(void)
 	ret = ft_printf("-%.3f-", num); // mine 0.5
 	printf(" ret: %d\n", ret);
 	ret = printf("-%.3f-", num); // real 0.05
-	printf(" ret: %d\n", ret); */
+	printf(" ret: %d\n", ret);
+	
+	ret = ft_printf("num arr: -%+05.0f-", num);
+	printf(" ret: %d\n", ret);
+	ret = printf("num std: -%+05.0f-", num);
+	printf("%d\ntest row nr: %d\n\n", ret, count); count += 5;
+	
+	ret = printf("-%#08.5x-\n", 42);
+	printf(" ret: %d\n", ret);
+	ret = ft_printf("-%#08.5x-\n", 42);
+	printf("%d\ntest row nr: %d\n\n", ret, count); count += 5; 
+ 	system("leaks a.out");
+	 
+	
 	
 	return (0);
 }

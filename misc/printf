@@ -1,6 +1,4 @@
 # TODO
-# 3rd flag = DASH ignores the ZERO? Undefined behavior?
-# Can pointers have - flag? 
 """ 
 while (num > 0)
 	remainder += lastdigit * (2 ^ count);//example if count is 5 then 2^5 = 32 then just lastdigit * 32; 
@@ -16,23 +14,14 @@ num /= 10;
 	"""
 # Moulitest faisl
 
-# %.5p, 0  // UNDEFINED BEHAVIOR?
-# %2.9p, 1234  // UNDEFINED BEHAVIOR? // if precision is on dont print width.
-# %2.9p, 1234567  // UNDEFINED BEHAVIOR?
-
 # {%*3d}, 5, 0 // Undefined behavior?
 
 # %15.4s, 42 // missing 2 spaces
 # %4.15s, 42 // missing 2 spaces
 
-# %ld, LONG_MIN? // IGNORE
-# %li, LONG_MIN? // IGNORE
-
 # {%*d}, -5, 42 // -5 should print the width on the right not left.
 # {%*c}, -15, '0' // pads spaces on the left inside of the right
 
-# %lld, LLONG_MIN? // IGNORE
-# %lli, LLONG_MIN? // IGNORE
 
 
 
