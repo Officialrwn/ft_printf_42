@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_ftoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 15:49:29 by leotran           #+#    #+#             */
-/*   Updated: 2022/03/02 13:29:58 by leotran          ###   ########.fr       */
+/*   Updated: 2022/03/06 14:07:34 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ static char	*fract_to_a(char *int_num, long double num, int prec_flag, int prec)
 	int			roundup;
 
 	i = 0;
-	sign = 1.0 - 2.0 * (num < 0);
+	sign = 1.0 - 2.0 * ((num < 0) || (1 / num < 0 && num == 0));
 	num *= sign;
 	if (prec_flag == 0)
 		prec = 6;
@@ -110,12 +110,18 @@ char	*ft_ftoa(long double num, int precision_flag, int precision)
 	long long	roundup;
 	long long	last_digit;
 
-	sign = 1.0 - 2.0 * (num < 0.0);
+	sign = 1.0 - 2.0 * (num < 0);
 	if (precision_flag == 1 && precision == 0)
 	{
 		last_digit = (long long)num % 10;
 		roundup = bankers_rounding(num, sign, last_digit + '0') * (int)sign;
-		int_num = ft_itoa_base((long long)num + roundup, 10, 0);
+		if (1 / num < 0 && num == 0)
+		{
+			int_num = ft_itoa_base(-1, 10, 0);
+			int_num[1] = '0';
+		}
+		else
+			int_num = ft_itoa_base((long long)num + roundup, 10, 0);
 		return (int_num);
 	}	
 	int_num = ft_itoa_base((long long)num, 10, 0);

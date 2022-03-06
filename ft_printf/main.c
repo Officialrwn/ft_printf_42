@@ -6,7 +6,7 @@
 /*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:04:46 by leo               #+#    #+#             */
-/*   Updated: 2022/03/04 11:20:46 by leo              ###   ########.fr       */
+/*   Updated: 2022/03/06 14:08:00 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,21 @@
 int	main(void)
 {
 	int ret;
-
-	ret = ft_printf("%");
+	/* double num = 3.45;
+	ret = ft_printf("%.1f\n", num);
+	ret = printf("%.1f\n", num);
+	 */long double num = -0.0;
+	ret = ft_printf("%Lf\n",num);
+	ret = printf("%Lf\n", num);
+	
+/* 	double num2 = -0;
+	if (1 / (long long)num2 < 0)
+		printf("1: +0");
+	else
+		printf("1: -0"); */
+		
+	
+	
 	
 	//int ret;
 /* 	ret = ft_printf("%*3d", 5, 0);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa_base.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 15:49:29 by leotran           #+#    #+#             */
-/*   Updated: 2022/03/02 13:31:22 by leotran          ###   ########.fr       */
+/*   Updated: 2022/03/06 14:04:15 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,14 +40,16 @@ char	*ft_itoa_base(long long num, int base, int flag)
 	char	*arr;
 	char	*head;
 	int		count;
+	int		sign;
 
+	sign = 1 - 2 * (num < 0);
 	count = ft_int_base_count(num, base);
 	arr = (char *)malloc(sizeof(char) * (count + 1));
 	head = arr;
 	if (arr)
 	{
 		arr[count] = '\0';
-		if (num < 0)
+		if (sign == -1)
 		{
 			*arr++ = '-';
 			num *= -1;

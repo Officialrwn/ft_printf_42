@@ -91,7 +91,8 @@ num /= 10;
 		
 	
 # define flag combos: 2 combo per flag
-# 0
+# 0+
+# 0#
 # #0
 # #-
 # -#
