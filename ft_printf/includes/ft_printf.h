@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 08:25:53 by leo               #+#    #+#             */
-/*   Updated: 2022/03/04 11:20:05 by leo              ###   ########.fr       */
+/*   Updated: 2022/03/04 11:48:36 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,6 @@
 # include <stdarg.h>
 # include "../libft/libft.h"
 # include "ft_string_mod.h"
-
-/* Forbidden header */
-# include <stdio.h> 
 
 typedef enum e_flags
 {

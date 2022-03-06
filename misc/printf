@@ -22,7 +22,21 @@ num /= 10;
 # {%*d}, -5, 42 // -5 should print the width on the right not left.
 # {%*c}, -15, '0' // pads spaces on the left inside of the right
 
+# TEST FAIL A 
 
+#("%0-8.5d", 34)		//undefined behavior
+#("%0-10.5d", -216)		//undefined behavior
+#("%0-8.5d", 0)			//undefined behavior
+#("%0-8.3d", 8375)		//undefined behavior
+#("%0-8.3d", -8473)		//undefined behavior
+#("%-8.5x", 34)
+#("%-8.5x", 0)
+#("%0-8.5x", 34)		//undefined behavior
+#("%0-8.5x", 0)			//undefined behavior
+#("%-8.5X", 34)
+#("%-8.5X", 0)
+#("%0-8.5X", 34)		//undefined behavior
+#("%0-8.5X", 0)		//undefined behavior
 
 
 # FLOATS

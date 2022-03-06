@@ -6,7 +6,7 @@
 #    By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/01 13:56:45 by cchen             #+#    #+#              #
-#    Updated: 2022/02/02 14:25:33 by leotran          ###   ########.fr        #
+#    Updated: 2022/03/04 11:52:07 by leotran          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,3 +29,8 @@ rm -rf ./${VOGSPHERE}/*
 
 # Usage: cp ./$REPO_NAME/<folder>/<file_name> ./${VOGSPHERE}
 cp ./$REPO_NAME/misc/author ./${VOGSPHERE}
+cp ./$REPO_NAME/ft_printf/Makefile ./${VOGSPHERE}
+cp -r ./$REPO_NAME/ft_printf/includes ./${VOGSPHERE}
+cp -r ./$REPO_NAME/ft_printf/src ./${VOGSPHERE}
+cp -r ./$REPO_NAME/ft_printf/libft ./${VOGSPHERE}
+
