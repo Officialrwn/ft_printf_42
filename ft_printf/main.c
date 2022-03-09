@@ -6,7 +6,7 @@
 /*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:04:46 by leo               #+#    #+#             */
-/*   Updated: 2022/03/09 13:10:18 by leotran          ###   ########.fr       */
+/*   Updated: 2022/03/09 13:53:07 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,16 @@
 int	main(void)
 {
 	int ret;
+	intmax_t test;
+	test = -9223372036854775807;
 	/* double num = 3.45;
 	ret = ft_printf("%.1f\n", num);
 	ret = printf("%.1f\n", num);
 	long double num = -0.0;
 	ret = ft_printf("%Lf\n",num);
 	ret = printf("%Lf\n", num); */
-	ft_printf("-%0-8.5d-\n", 52);
-	printf("-%0-8.5d-\n", 52);
+	ft_printf("-%.f-\n", 2.0f);
+	printf("-%.f-\n", 2.0f);
 /* 	double num2 = -0;
 	if (1 / (long long)num2 < 0)
 		printf("1: +0");
