@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pointers_printf.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:00:57 by leo               #+#    #+#             */
-/*   Updated: 2022/03/04 08:16:40 by leo              ###   ########.fr       */
+/*   Updated: 2022/03/09 13:04:43 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ void	memaddr_print(t_formats *mod)
 	num = va_arg(mod->args, unsigned long long);
 	mod->num = ft_uitoa_base(num, 16, 0);
 	len = (int)ft_strlen(mod->num) + 2;
+	if (mod->width < len)
+		mod->width = 0;
 	mod->width -= len * (mod->width > len);
 	if ((mod->formatcombo & DASH) == 0 && mod->width > 0)
 		width_print(mod);

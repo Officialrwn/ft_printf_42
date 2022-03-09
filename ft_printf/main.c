@@ -6,11 +6,7 @@
 /*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:04:46 by leo               #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2022/03/06 14:08:00 by leo              ###   ########.fr       */
-=======
-/*   Updated: 2022/03/04 17:55:13 by leotran          ###   ########.fr       */
->>>>>>> a54d7d71861c03f1015aba5bac030c2348cf3d41
+/*   Updated: 2022/03/09 13:10:18 by leotran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +26,11 @@ int	main(void)
 	/* double num = 3.45;
 	ret = ft_printf("%.1f\n", num);
 	ret = printf("%.1f\n", num);
-	 */long double num = -0.0;
+	long double num = -0.0;
 	ret = ft_printf("%Lf\n",num);
-	ret = printf("%Lf\n", num);
-	
+	ret = printf("%Lf\n", num); */
+	ft_printf("-%0-8.5d-\n", 52);
+	printf("-%0-8.5d-\n", 52);
 /* 	double num2 = -0;
 	if (1 / (long long)num2 < 0)
 		printf("1: +0");
