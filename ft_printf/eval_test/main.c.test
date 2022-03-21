@@ -1,0 +1,26 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: leotran <leotran@student.hive.fi>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/21 13:06:27 by leotran           #+#    #+#             */
+/*   Updated: 2022/03/21 13:15:02 by leotran          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "includes/ft_printf.h"
+#include <stdio.h>
+
+int	main(void)
+{
+	int ret;
+
+	unsigned short int a = 0;
+	ret = ft_printf("-%#.5ho-", a);
+	printf(" ret: %d\n", ret);
+	ret = printf("-%#.5ho-", a);
+	printf(" ret: %d\n", ret);
+	return (0);
+}

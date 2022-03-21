@@ -49,7 +49,7 @@ fi
 ### basic tests ###
 ###################
 
-for f in printf_test/*.test
+for f in printf_test/src/*.test
 do
 	mv "$f" "${f%.test}"
 done
